@@ -14,6 +14,7 @@ namespace ProyectoTeoriaSistemas
         [STAThread]
         static void Main()
         {
+            //CHALE
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MenuPrincipal());
