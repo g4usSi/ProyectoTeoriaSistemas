@@ -65,7 +65,7 @@
             // 
             this.lblNotificacion.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblNotificacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblNotificacion.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNotificacion.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNotificacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
             this.lblNotificacion.Location = new System.Drawing.Point(0, 0);
             this.lblNotificacion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
