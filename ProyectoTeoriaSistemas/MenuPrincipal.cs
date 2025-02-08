@@ -19,7 +19,8 @@ namespace ProyectoTeoriaSistemas
 
         private void btnInventario_Click(object sender, EventArgs e)
         {
-
+            FInventario fInventario = new FInventario();
+            fInventario.Show(); 
         }
 
         private void button4_Click(object sender, EventArgs e)
