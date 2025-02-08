@@ -1,6 +1,6 @@
 ﻿namespace ProyectoTeoriaSistemas
 {
-    partial class Form1
+    partial class MenuPrincipal
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
             this.SuspendLayout();
             // 
             // Form1
