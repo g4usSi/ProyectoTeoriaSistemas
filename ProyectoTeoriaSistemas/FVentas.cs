@@ -16,5 +16,10 @@ namespace ProyectoTeoriaSistemas
         {
             InitializeComponent();
         }
+
+        private void Agregar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
