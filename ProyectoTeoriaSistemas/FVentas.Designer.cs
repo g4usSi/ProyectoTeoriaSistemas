@@ -1,6 +1,6 @@
 ﻿namespace ProyectoTeoriaSistemas
 {
-    partial class FProducto
+    partial class FVentas
     {
         /// <summary>
         /// Required designer variable.
@@ -28,45 +28,75 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FProducto));
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblNotificacion = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Agregar = new System.Windows.Forms.Button();
-            this.Editar = new System.Windows.Forms.Button();
             this.Eliminar = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblNotificacion = new System.Windows.Forms.Label();
+            this.Editar = new System.Windows.Forms.Button();
+            this.Agregar = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblNotificacion
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1362, 63);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Agregar Producto";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblNotificacion.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblNotificacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblNotificacion.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNotificacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
+            this.lblNotificacion.Location = new System.Drawing.Point(0, 498);
+            this.lblNotificacion.Name = "lblNotificacion";
+            this.lblNotificacion.Size = new System.Drawing.Size(1344, 119);
+            this.lblNotificacion.TabIndex = 26;
+            this.lblNotificacion.Text = "Notificacion";
+            this.lblNotificacion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblNotificacion.Visible = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(40, 46);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(570, 291);
+            this.groupBox1.TabIndex = 25;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Nuevo Producto";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.Lavender;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(172, 50);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(352, 20);
+            this.textBox1.TabIndex = 10;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -116,6 +146,17 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Precio";
             // 
+            // textBox5
+            // 
+            this.textBox5.BackColor = System.Drawing.Color.Lavender;
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox5.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(172, 231);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(352, 20);
+            this.textBox5.TabIndex = 14;
+            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -128,16 +169,16 @@
             this.label6.TabIndex = 9;
             this.label6.Text = "Cantidad";
             // 
-            // textBox1
+            // textBox4
             // 
-            this.textBox1.BackColor = System.Drawing.Color.Lavender;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(172, 50);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(352, 20);
-            this.textBox1.TabIndex = 10;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox4.BackColor = System.Drawing.Color.Lavender;
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox4.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(172, 186);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(352, 20);
+            this.textBox4.TabIndex = 13;
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox2
             // 
@@ -161,27 +202,44 @@
             this.textBox3.TabIndex = 12;
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox4
+            // Eliminar
             // 
-            this.textBox4.BackColor = System.Drawing.Color.Lavender;
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(172, 186);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(352, 20);
-            this.textBox4.TabIndex = 13;
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Eliminar.BackColor = System.Drawing.Color.Red;
+            this.Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Eliminar.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Eliminar.ForeColor = System.Drawing.Color.White;
+            this.Eliminar.Location = new System.Drawing.Point(329, 356);
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.Size = new System.Drawing.Size(180, 51);
+            this.Eliminar.TabIndex = 24;
+            this.Eliminar.Text = "Eliminar";
+            this.Eliminar.UseVisualStyleBackColor = false;
             // 
-            // textBox5
+            // Editar
             // 
-            this.textBox5.BackColor = System.Drawing.Color.Lavender;
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(172, 231);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(352, 20);
-            this.textBox5.TabIndex = 14;
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Editar.BackColor = System.Drawing.Color.SkyBlue;
+            this.Editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Editar.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Editar.ForeColor = System.Drawing.Color.White;
+            this.Editar.Location = new System.Drawing.Point(1139, 437);
+            this.Editar.Name = "Editar";
+            this.Editar.Size = new System.Drawing.Size(180, 51);
+            this.Editar.TabIndex = 23;
+            this.Editar.Text = "Editar";
+            this.Editar.UseVisualStyleBackColor = false;
+            // 
+            // Agregar
+            // 
+            this.Agregar.BackColor = System.Drawing.Color.SkyBlue;
+            this.Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Agregar.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Agregar.ForeColor = System.Drawing.Color.White;
+            this.Agregar.Location = new System.Drawing.Point(128, 356);
+            this.Agregar.Name = "Agregar";
+            this.Agregar.Size = new System.Drawing.Size(180, 51);
+            this.Agregar.TabIndex = 22;
+            this.Agregar.Text = "Agregar";
+            this.Agregar.UseVisualStyleBackColor = false;
             // 
             // dataGridView1
             // 
@@ -194,85 +252,12 @@
             this.Precio,
             this.Cantidad});
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridView1.Location = new System.Drawing.Point(626, 101);
+            this.dataGridView1.Location = new System.Drawing.Point(626, 54);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(693, 371);
-            this.dataGridView1.TabIndex = 15;
-            // 
-            // Agregar
-            // 
-            this.Agregar.BackColor = System.Drawing.Color.SkyBlue;
-            this.Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Agregar.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Agregar.ForeColor = System.Drawing.Color.White;
-            this.Agregar.Location = new System.Drawing.Point(128, 403);
-            this.Agregar.Name = "Agregar";
-            this.Agregar.Size = new System.Drawing.Size(180, 51);
-            this.Agregar.TabIndex = 16;
-            this.Agregar.Text = "Agregar";
-            this.Agregar.UseVisualStyleBackColor = false;
-            // 
-            // Editar
-            // 
-            this.Editar.BackColor = System.Drawing.Color.SkyBlue;
-            this.Editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Editar.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Editar.ForeColor = System.Drawing.Color.White;
-            this.Editar.Location = new System.Drawing.Point(1139, 484);
-            this.Editar.Name = "Editar";
-            this.Editar.Size = new System.Drawing.Size(180, 51);
-            this.Editar.TabIndex = 17;
-            this.Editar.Text = "Editar";
-            this.Editar.UseVisualStyleBackColor = false;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.BackColor = System.Drawing.Color.Red;
-            this.Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Eliminar.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Eliminar.ForeColor = System.Drawing.Color.White;
-            this.Eliminar.Location = new System.Drawing.Point(329, 403);
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.Size = new System.Drawing.Size(180, 51);
-            this.Eliminar.TabIndex = 18;
-            this.Eliminar.Text = "Eliminar";
-            this.Eliminar.UseVisualStyleBackColor = false;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(40, 93);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(570, 291);
-            this.groupBox1.TabIndex = 19;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Nuevo Producto";
-            // 
-            // lblNotificacion
-            // 
-            this.lblNotificacion.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblNotificacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblNotificacion.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNotificacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
-            this.lblNotificacion.Location = new System.Drawing.Point(0, 545);
-            this.lblNotificacion.Name = "lblNotificacion";
-            this.lblNotificacion.Size = new System.Drawing.Size(1362, 119);
-            this.lblNotificacion.TabIndex = 20;
-            this.lblNotificacion.Text = "Notificacion";
-            this.lblNotificacion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblNotificacion.Visible = false;
+            this.dataGridView1.TabIndex = 21;
             // 
             // ID
             // 
@@ -309,51 +294,44 @@
             this.Cantidad.Name = "Cantidad";
             this.Cantidad.Width = 125;
             // 
-            // FProducto
+            // FVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1362, 664);
+            this.ClientSize = new System.Drawing.Size(1344, 617);
             this.Controls.Add(this.lblNotificacion);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Eliminar);
             this.Controls.Add(this.Editar);
             this.Controls.Add(this.Agregar);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FProducto";
-            this.Opacity = 0.8D;
-            this.Text = "FProducto";
-            this.Load += new System.EventHandler(this.FProducto_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Name = "FVentas";
+            this.Text = "FVentas";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNotificacion;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button Agregar;
-        private System.Windows.Forms.Button Editar;
         private System.Windows.Forms.Button Eliminar;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblNotificacion;
+        private System.Windows.Forms.Button Editar;
+        private System.Windows.Forms.Button Agregar;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn marca;

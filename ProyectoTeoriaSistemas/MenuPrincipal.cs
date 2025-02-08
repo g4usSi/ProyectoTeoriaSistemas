@@ -27,10 +27,11 @@ namespace ProyectoTeoriaSistemas
         {
 
         }
-
+        //Ventas
         private void button2_Click(object sender, EventArgs e)
         {
-
+            FVentas frmVenta = new FVentas();
+            frmVenta.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)

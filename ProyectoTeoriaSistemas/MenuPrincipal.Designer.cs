@@ -168,6 +168,7 @@
             this.btnCerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCerrarSesion.Location = new System.Drawing.Point(602, 297);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
+            this.btnCerrarSesion.Padding = new System.Windows.Forms.Padding(1, 0, 3, 0);
             this.btnCerrarSesion.Size = new System.Drawing.Size(192, 62);
             this.btnCerrarSesion.TabIndex = 8;
             this.btnCerrarSesion.Text = "Cerrar Sesion";

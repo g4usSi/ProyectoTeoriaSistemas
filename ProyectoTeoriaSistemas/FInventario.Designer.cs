@@ -74,7 +74,7 @@
             this.salir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
             this.salir.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.salir.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salir.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salir.ForeColor = System.Drawing.Color.White;
             this.salir.Location = new System.Drawing.Point(0, 753);
             this.salir.Name = "salir";
