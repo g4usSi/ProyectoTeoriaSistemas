@@ -10,23 +10,11 @@ using System.Windows.Forms;
 
 namespace ProyectoTeoriaSistemas
 {
-    public partial class FProducto : Form
+    public partial class FArticulo : Form
     {
-        public FProducto()
+        public FArticulo()
         {
             InitializeComponent();
-
-           
-        }
-
-        private void FProducto_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Agregar_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

@@ -15,6 +15,7 @@ namespace ProyectoTeoriaSistemas
         public MenuPrincipal()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void btnInventario_Click(object sender, EventArgs e)

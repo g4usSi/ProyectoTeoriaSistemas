@@ -95,6 +95,7 @@
             this.proveedores.TabIndex = 7;
             this.proveedores.Text = "Proveedores";
             this.proveedores.UseVisualStyleBackColor = false;
+            this.proveedores.Click += new System.EventHandler(this.proveedores_Click);
             // 
             // Reportes
             // 

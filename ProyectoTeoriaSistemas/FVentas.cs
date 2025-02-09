@@ -19,7 +19,8 @@ namespace ProyectoTeoriaSistemas
 
         private void Agregar_Click(object sender, EventArgs e)
         {
-
+            FArticulo fArticulo = new FArticulo();
+            fArticulo.Show();
         }
     }
 }
