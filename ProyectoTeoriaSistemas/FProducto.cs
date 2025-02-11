@@ -95,7 +95,7 @@ namespace ProyectoTeoriaSistemas
            
 
             dataGridView1.DataSource = tienda.listaProductos.ToList();
-            dataGridView1.Columns["PrecioVenta"].Visible = false;
+           // dataGridView1.Columns["PrecioVenta"].Visible = false;
             dataGridView1.Columns["Cantidad"].Visible = false;
 
         }
