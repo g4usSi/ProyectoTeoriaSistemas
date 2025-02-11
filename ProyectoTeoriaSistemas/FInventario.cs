@@ -11,10 +11,11 @@ using System.Windows.Forms;
 namespace ProyectoTeoriaSistemas
 {
     public partial class FInventario : Form
-    { 
-        public FInventario()
+    {  Tienda tienda;
+        public FInventario(Tienda tienda)
         {
             InitializeComponent();
+            this.tienda = tienda;
             splitContainer1.SplitterWidth = 1;
         }
         private Form formularioActual;
@@ -38,7 +39,7 @@ namespace ProyectoTeoriaSistemas
 
         private void Producto_Click(object sender, EventArgs e)
         {
-            FProducto fProducto = new FProducto();
+            FProducto fProducto = new FProducto(tienda);
             MostrarFormulario(fProducto);
         }
 
