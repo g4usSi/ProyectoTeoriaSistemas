@@ -10,9 +10,13 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
     {
         string Cliente { get; set; }
         DateTime Fecha { get; set; }
-        string Comprobante { get; set; }
-        int NumComprobante { get; set; }
-        public List<Producto> ProductosRecibo { get; set; } = new List<Producto>();
+        string Comprobante { get; set; } //Factura/Ticket
+        int NumComprobante { get; set; } //numero del documento
+        
+        public List<Producto> ProductosRecibo { get; set; } = new List<Producto>(); //lista de productos
+        double TotalVenta { get; set; } //
+
+
 
 
 

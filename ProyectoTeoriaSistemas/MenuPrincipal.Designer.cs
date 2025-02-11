@@ -93,7 +93,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.Location = new System.Drawing.Point(423, 100);
             this.button3.Name = "button3";
             this.button3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 8);
