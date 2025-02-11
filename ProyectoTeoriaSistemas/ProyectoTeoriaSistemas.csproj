@@ -48,6 +48,9 @@
   <ItemGroup>
     <Compile Include="CodigoFuente\DetalleFactura.cs" />
     <Compile Include="CodigoFuente\Factura.cs" />
+    <Compile Include="CodigoFuente\FormFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CodigoFuente\Recibo.cs" />
     <Compile Include="FArticulo.cs">
       <SubType>Form</SubType>

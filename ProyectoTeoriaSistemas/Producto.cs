@@ -14,7 +14,7 @@ namespace ProyectoTeoriaSistemas
         public int Stock { get; set; }
         public double Precio { get; set; }
         public double PrecioVenta { get; set; }
-        public int Cantidad { get; set; }
+      
 
 
         public Producto(int iD, string nombre, string marca, int stock, double precio)
@@ -25,7 +25,7 @@ namespace ProyectoTeoriaSistemas
             Stock = stock;
             Precio = precio;
             PrecioVenta = 0;
-            Cantidad = 0;
+            
         }
 
         public bool DescontarStock(int cantidad)

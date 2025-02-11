@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoTeoriaSistemas.CodigoFuente;
+using ProyectoTeoriaSistemas.Forms;
 
 namespace ProyectoTeoriaSistemas
 {
@@ -53,5 +55,12 @@ namespace ProyectoTeoriaSistemas
             FVentas fVentas = new FVentas();
             fVentas.Show();
         }
+
+        private void Reportes_Click(object sender, EventArgs e)
+        {
+            FormFactura factura = new FormFactura(tienda);
+            MostrarFormulario(factura);
+        }
+        
     }
 }

@@ -109,6 +109,7 @@
             this.Reportes.TabIndex = 6;
             this.Reportes.Text = "Reportes";
             this.Reportes.UseVisualStyleBackColor = false;
+            this.Reportes.Click += new System.EventHandler(this.Reportes_Click);
             // 
             // Producto
             // 
