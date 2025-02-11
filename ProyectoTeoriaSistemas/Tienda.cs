@@ -9,8 +9,5 @@ namespace ProyectoTeoriaSistemas
     public  class Tienda
     {
 
-       public LinkedList<Producto> listaProductos = new LinkedList<Producto>();
-
-
     }
 }

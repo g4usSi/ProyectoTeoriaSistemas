@@ -34,30 +34,29 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblPrecio = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtNumeroFactura = new System.Windows.Forms.TextBox();
             this.Agregar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.comboTipoCompr = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.Eliminar = new System.Windows.Forms.Button();
-            this.Editar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtFecha = new System.Windows.Forms.TextBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.dataFacturaTabla = new System.Windows.Forms.DataGridView();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRealizarVenta = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataFacturaTabla)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -79,15 +78,15 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.panel2);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.txtNumeroFactura);
             this.groupBox1.Controls.Add(this.Agregar);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.comboTipoCompr);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtCliente);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtFecha);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(29, 66);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
@@ -103,7 +102,7 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.lblPrecio);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Location = new System.Drawing.Point(738, 123);
+            this.panel2.Location = new System.Drawing.Point(757, 123);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(304, 64);
             this.panel2.TabIndex = 29;
@@ -128,17 +127,17 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Total:";
             // 
-            // textBox3
+            // txtNumeroFactura
             // 
-            this.textBox3.BackColor = System.Drawing.Color.Lavender;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(751, 91);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(292, 20);
-            this.textBox3.TabIndex = 25;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNumeroFactura.BackColor = System.Drawing.Color.Lavender;
+            this.txtNumeroFactura.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNumeroFactura.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumeroFactura.Location = new System.Drawing.Point(772, 91);
+            this.txtNumeroFactura.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumeroFactura.Name = "txtNumeroFactura";
+            this.txtNumeroFactura.Size = new System.Drawing.Size(292, 20);
+            this.txtNumeroFactura.TabIndex = 25;
+            this.txtNumeroFactura.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Agregar
             // 
@@ -165,9 +164,9 @@
             this.label1.Location = new System.Drawing.Point(649, 87);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 23);
+            this.label1.Size = new System.Drawing.Size(119, 23);
             this.label1.TabIndex = 24;
-            this.label1.Text = "Numero:";
+            this.label1.Text = "Numero(*):";
             // 
             // comboTipoCompr
             // 
@@ -181,17 +180,17 @@
             this.comboTipoCompr.Size = new System.Drawing.Size(388, 28);
             this.comboTipoCompr.TabIndex = 23;
             // 
-            // textBox1
+            // txtCliente
             // 
-            this.textBox1.BackColor = System.Drawing.Color.Lavender;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(154, 55);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(487, 20);
-            this.textBox1.TabIndex = 10;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCliente.BackColor = System.Drawing.Color.Lavender;
+            this.txtCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCliente.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCliente.Location = new System.Drawing.Point(154, 52);
+            this.txtCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCliente.Name = "txtCliente";
+            this.txtCliente.Size = new System.Drawing.Size(487, 20);
+            this.txtCliente.TabIndex = 10;
+            this.txtCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -232,124 +231,89 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Tipo Comprobate(*):";
             // 
-            // textBox2
+            // txtFecha
             // 
-            this.textBox2.BackColor = System.Drawing.Color.Lavender;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(751, 53);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(292, 20);
-            this.textBox2.TabIndex = 11;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtFecha.BackColor = System.Drawing.Color.Lavender;
+            this.txtFecha.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtFecha.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFecha.Location = new System.Drawing.Point(772, 52);
+            this.txtFecha.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFecha.Name = "txtFecha";
+            this.txtFecha.Size = new System.Drawing.Size(292, 20);
+            this.txtFecha.TabIndex = 11;
+            this.txtFecha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // Eliminar
+            // btnCancelar
             // 
-            this.Eliminar.BackColor = System.Drawing.Color.Red;
-            this.Eliminar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Eliminar.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Eliminar.ForeColor = System.Drawing.Color.White;
-            this.Eliminar.Location = new System.Drawing.Point(10, 233);
-            this.Eliminar.Margin = new System.Windows.Forms.Padding(4);
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.Size = new System.Drawing.Size(180, 50);
-            this.Eliminar.TabIndex = 24;
-            this.Eliminar.Text = "Cancelar";
-            this.Eliminar.UseVisualStyleBackColor = false;
+            this.btnCancelar.BackColor = System.Drawing.Color.Red;
+            this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.Location = new System.Drawing.Point(10, 233);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(180, 50);
+            this.btnCancelar.TabIndex = 24;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
             // 
-            // Editar
+            // btnEditar
             // 
-            this.Editar.BackColor = System.Drawing.Color.SkyBlue;
-            this.Editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Editar.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Editar.ForeColor = System.Drawing.Color.White;
-            this.Editar.Location = new System.Drawing.Point(10, 14);
-            this.Editar.Margin = new System.Windows.Forms.Padding(4);
-            this.Editar.Name = "Editar";
-            this.Editar.Size = new System.Drawing.Size(180, 50);
-            this.Editar.TabIndex = 23;
-            this.Editar.Text = "Editar";
-            this.Editar.UseVisualStyleBackColor = false;
+            this.btnEditar.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.ForeColor = System.Drawing.Color.White;
+            this.btnEditar.Location = new System.Drawing.Point(10, 14);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(180, 50);
+            this.btnEditar.TabIndex = 23;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
-            // dataGridView1
+            // dataFacturaTabla
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Lavender;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataFacturaTabla.BackgroundColor = System.Drawing.Color.Lavender;
+            this.dataFacturaTabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataFacturaTabla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Precio,
             this.ID,
-            this.Categoria,
             this.Producto,
             this.marca});
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridView1.Location = new System.Drawing.Point(52, 291);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(839, 354);
-            this.dataGridView1.TabIndex = 21;
+            this.dataFacturaTabla.GridColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dataFacturaTabla.Location = new System.Drawing.Point(52, 291);
+            this.dataFacturaTabla.Margin = new System.Windows.Forms.Padding(4);
+            this.dataFacturaTabla.MultiSelect = false;
+            this.dataFacturaTabla.Name = "dataFacturaTabla";
+            this.dataFacturaTabla.RowHeadersWidth = 51;
+            this.dataFacturaTabla.RowTemplate.Height = 24;
+            this.dataFacturaTabla.Size = new System.Drawing.Size(839, 354);
+            this.dataFacturaTabla.TabIndex = 21;
             // 
-            // Precio
+            // btnRealizarVenta
             // 
-            this.Precio.HeaderText = "Cantidad";
-            this.Precio.MinimumWidth = 6;
-            this.Precio.Name = "Precio";
-            this.Precio.Width = 125;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.Width = 125;
-            // 
-            // Categoria
-            // 
-            this.Categoria.HeaderText = "Categoria";
-            this.Categoria.MinimumWidth = 6;
-            this.Categoria.Name = "Categoria";
-            this.Categoria.Width = 125;
-            // 
-            // Producto
-            // 
-            this.Producto.HeaderText = "Producto";
-            this.Producto.MinimumWidth = 6;
-            this.Producto.Name = "Producto";
-            this.Producto.Width = 125;
-            // 
-            // marca
-            // 
-            this.marca.HeaderText = "Precio";
-            this.marca.MinimumWidth = 6;
-            this.marca.Name = "marca";
-            this.marca.Width = 125;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.SkyBlue;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(10, 291);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(180, 50);
-            this.button1.TabIndex = 27;
-            this.button1.Text = "Realizar Venta";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnRealizarVenta.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnRealizarVenta.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnRealizarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRealizarVenta.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRealizarVenta.ForeColor = System.Drawing.Color.White;
+            this.btnRealizarVenta.Location = new System.Drawing.Point(10, 291);
+            this.btnRealizarVenta.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRealizarVenta.Name = "btnRealizarVenta";
+            this.btnRealizarVenta.Size = new System.Drawing.Size(180, 50);
+            this.btnRealizarVenta.TabIndex = 27;
+            this.btnRealizarVenta.Text = "Realizar Venta";
+            this.btnRealizarVenta.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.Editar);
-            this.panel1.Controls.Add(this.Eliminar);
+            this.panel1.Controls.Add(this.btnRealizarVenta);
+            this.panel1.Controls.Add(this.btnEditar);
+            this.panel1.Controls.Add(this.btnCancelar);
             this.panel1.Location = new System.Drawing.Point(919, 291);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 354);
@@ -366,6 +330,34 @@
             this.pictureBox1.TabIndex = 28;
             this.pictureBox1.TabStop = false;
             // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Cantidad";
+            this.Precio.MinimumWidth = 6;
+            this.Precio.Name = "Precio";
+            this.Precio.Width = 125;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.Width = 125;
+            // 
+            // Producto
+            // 
+            this.Producto.HeaderText = "Producto";
+            this.Producto.MinimumWidth = 6;
+            this.Producto.Name = "Producto";
+            this.Producto.Width = 125;
+            // 
+            // marca
+            // 
+            this.marca.HeaderText = "Precio";
+            this.marca.MinimumWidth = 6;
+            this.marca.Name = "marca";
+            this.marca.Width = 125;
+            // 
             // FVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -374,7 +366,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblNotificacion);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataFacturaTabla);
             this.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FVentas";
@@ -383,7 +375,7 @@
             this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataFacturaTabla)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -394,29 +386,28 @@
 
         private System.Windows.Forms.Label lblNotificacion;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCliente;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button Eliminar;
-        private System.Windows.Forms.Button Editar;
+        private System.Windows.Forms.TextBox txtFecha;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button Agregar;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.DataGridView dataFacturaTabla;
+        private System.Windows.Forms.TextBox txtNumeroFactura;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboTipoCompr;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn marca;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRealizarVenta;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn marca;
     }
 }
