@@ -10,12 +10,20 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
     {
         public Producto Producto { get; set; }
         public int Cantidad { get; set; }
-        public double Subtotal => Producto.Precio * Cantidad;  // Calcula el total del producto
+
+        // Ahora el Subtotal incluye el cálculo del 70% adicional directamente
+        public double Subtotal => (Producto.Precio * Cantidad) + CalcularSubtotalConMargen();
 
         public DetalleFactura(Producto producto, int cantidad)
         {
             Producto = producto;
             Cantidad = cantidad;
+        }
+
+        // Método que calcula el 70% adicional sobre el precio original
+        private double CalcularSubtotalConMargen()
+        {
+            return (Producto.Precio * 0.70) * Cantidad; // Calcula solo el 70% adicional
         }
     }
 
