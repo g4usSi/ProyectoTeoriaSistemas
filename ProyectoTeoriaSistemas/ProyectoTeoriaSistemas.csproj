@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodigoFuente\DetalleFactura.cs" />
+    <Compile Include="CodigoFuente\Factura.cs" />
     <Compile Include="CodigoFuente\Recibo.cs" />
     <Compile Include="FArticulo.cs">
       <SubType>Form</SubType>

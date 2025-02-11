@@ -9,5 +9,11 @@ namespace ProyectoTeoriaSistemas
     public  class Tienda
     {
         public LinkedList<Producto> listaProductos = new LinkedList<Producto>();
+
+
+        public Producto ObtenerProducto(int id)
+        {
+            return listaProductos.FirstOrDefault(p => p.ID == id);
+        }
     }
 }

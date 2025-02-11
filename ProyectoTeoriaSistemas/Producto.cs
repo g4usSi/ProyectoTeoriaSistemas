@@ -28,7 +28,15 @@ namespace ProyectoTeoriaSistemas
             Cantidad = 0;
         }
 
-
+        public bool DescontarStock(int cantidad)
+        {
+            if (Stock >= cantidad)
+            {
+                Stock -= cantidad;
+                return true; // Compra válida
+            }
+            return false; // Stock insuficiente
+        }
 
     }
 }
