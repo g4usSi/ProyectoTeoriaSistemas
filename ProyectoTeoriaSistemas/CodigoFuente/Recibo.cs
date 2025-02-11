@@ -10,6 +10,10 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
     {
         string Cliente { get; set; }
         DateTime Fecha { get; set; }
+        string Comprobante { get; set; }
+        int NumComprobante { get; set; }
+        public List<Producto> ProductosRecibo { get; set; } = new List<Producto>();
+
 
 
     }

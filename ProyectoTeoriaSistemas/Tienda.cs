@@ -8,6 +8,6 @@ namespace ProyectoTeoriaSistemas
 {
     public  class Tienda
     {
-
+        
     }
 }
