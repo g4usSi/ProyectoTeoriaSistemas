@@ -12,15 +12,17 @@ namespace ProyectoTeoriaSistemas
 {
     public partial class MenuPrincipal : Form
     {
-        public MenuPrincipal()
+        Tienda tienda;
+        public MenuPrincipal(Tienda tienda)
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
+            this.tienda = tienda;
         }
 
         private void btnInventario_Click(object sender, EventArgs e)
         {
-            FInventario fInventario = new FInventario();
+            FInventario fInventario = new FInventario(tienda);
             fInventario.Show(); 
         }
 

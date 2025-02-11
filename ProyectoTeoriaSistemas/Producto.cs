@@ -12,7 +12,23 @@ namespace ProyectoTeoriaSistemas
         public string Nombre { get; set; }
         public string Marca { get; set; }
         public int Stock { get; set; }
-        public decimal Precio { get; set; }
+        public double Precio { get; set; }
+        public double PrecioVenta { get; set; }
+        public int Cantidad { get; set; }
+
+
+        public Producto(int iD, string nombre, string marca, int stock, double precio)
+        {
+            ID = iD;
+            Nombre = nombre;
+            Marca = marca;
+            Stock = stock;
+            Precio = precio;
+            PrecioVenta = 0;
+            Cantidad = 0;
+        }
+
+
 
     }
 }
