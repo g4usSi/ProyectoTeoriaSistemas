@@ -8,6 +8,9 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
 {
     internal class Recibo
     {
+        string Cliente { get; set; }
+        DateTime Fecha { get; set; }
+
 
     }
 }
