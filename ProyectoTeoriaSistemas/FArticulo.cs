@@ -16,5 +16,10 @@ namespace ProyectoTeoriaSistemas
         {
             InitializeComponent();
         }
+
+        private void Buscar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

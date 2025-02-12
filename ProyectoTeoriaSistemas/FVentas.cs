@@ -61,7 +61,8 @@ namespace ProyectoTeoriaSistemas
 
         private void Agregar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Aquí se agregarían productos a la factura.", "Agregar Producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            FArticulo fArticulo = new FArticulo();
+            fArticulo.ShowDialog();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
