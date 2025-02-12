@@ -59,6 +59,8 @@
             this.btnRealizarVenta = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtNIT = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown)).BeginInit();
             this.panel2.SuspendLayout();
@@ -83,6 +85,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.txtNIT);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.NumericUpDown);
             this.groupBox1.Controls.Add(this.comboDatos);
@@ -229,7 +233,7 @@
             this.comboTipoCompr.FormattingEnabled = true;
             this.comboTipoCompr.Items.AddRange(new object[] {
             "Factura",
-            "Recibo"});
+            "Ticket"});
             this.comboTipoCompr.Location = new System.Drawing.Point(253, 90);
             this.comboTipoCompr.Name = "comboTipoCompr";
             this.comboTipoCompr.Size = new System.Drawing.Size(388, 28);
@@ -240,10 +244,10 @@
             this.txtCliente.BackColor = System.Drawing.Color.Lavender;
             this.txtCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCliente.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCliente.Location = new System.Drawing.Point(154, 50);
+            this.txtCliente.Location = new System.Drawing.Point(154, 49);
             this.txtCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txtCliente.Name = "txtCliente";
-            this.txtCliente.Size = new System.Drawing.Size(487, 20);
+            this.txtCliente.Size = new System.Drawing.Size(445, 20);
             this.txtCliente.TabIndex = 10;
             this.txtCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -266,7 +270,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
-            this.label3.Location = new System.Drawing.Point(649, 46);
+            this.label3.Location = new System.Drawing.Point(856, 50);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 23);
@@ -291,10 +295,10 @@
             this.txtFecha.BackColor = System.Drawing.Color.Lavender;
             this.txtFecha.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtFecha.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFecha.Location = new System.Drawing.Point(772, 50);
+            this.txtFecha.Location = new System.Drawing.Point(942, 53);
             this.txtFecha.Margin = new System.Windows.Forms.Padding(4);
             this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(292, 20);
+            this.txtFecha.Size = new System.Drawing.Size(122, 20);
             this.txtFecha.TabIndex = 11;
             this.txtFecha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -312,6 +316,7 @@
             this.btnCancelar.TabIndex = 24;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnEditar
             // 
@@ -330,6 +335,12 @@
             // 
             // dataFacturaTabla
             // 
+            this.dataFacturaTabla.AllowUserToDeleteRows = false;
+            this.dataFacturaTabla.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataFacturaTabla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dataFacturaTabla.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataFacturaTabla.BackgroundColor = System.Drawing.Color.Lavender;
             this.dataFacturaTabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataFacturaTabla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -345,6 +356,7 @@
             this.dataFacturaTabla.Name = "dataFacturaTabla";
             this.dataFacturaTabla.RowHeadersWidth = 51;
             this.dataFacturaTabla.RowTemplate.Height = 24;
+            this.dataFacturaTabla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataFacturaTabla.Size = new System.Drawing.Size(839, 354);
             this.dataFacturaTabla.TabIndex = 21;
             // 
@@ -353,35 +365,35 @@
             this.Precio.HeaderText = "Cantidad";
             this.Precio.MinimumWidth = 6;
             this.Precio.Name = "Precio";
-            this.Precio.Width = 125;
+            this.Precio.Width = 121;
             // 
             // ID
             // 
             this.ID.HeaderText = "ID";
             this.ID.MinimumWidth = 6;
             this.ID.Name = "ID";
-            this.ID.Width = 125;
+            this.ID.Width = 57;
             // 
             // Producto
             // 
             this.Producto.HeaderText = "Producto";
             this.Producto.MinimumWidth = 6;
             this.Producto.Name = "Producto";
-            this.Producto.Width = 125;
+            this.Producto.Width = 116;
             // 
             // marca
             // 
             this.marca.HeaderText = "Precio";
             this.marca.MinimumWidth = 6;
             this.marca.Name = "marca";
-            this.marca.Width = 125;
+            this.marca.Width = 90;
             // 
             // SubTotal
             // 
             this.SubTotal.HeaderText = "Sub Total";
             this.SubTotal.MinimumWidth = 6;
             this.SubTotal.Name = "SubTotal";
-            this.SubTotal.Width = 125;
+            this.SubTotal.Width = 115;
             // 
             // btnRealizarVenta
             // 
@@ -397,6 +409,7 @@
             this.btnRealizarVenta.TabIndex = 27;
             this.btnRealizarVenta.Text = "Realizar Venta";
             this.btnRealizarVenta.UseVisualStyleBackColor = false;
+            this.btnRealizarVenta.Click += new System.EventHandler(this.btnRealizarVenta_Click);
             // 
             // panel1
             // 
@@ -420,6 +433,31 @@
             this.pictureBox1.Size = new System.Drawing.Size(180, 154);
             this.pictureBox1.TabIndex = 28;
             this.pictureBox1.TabStop = false;
+            // 
+            // txtNIT
+            // 
+            this.txtNIT.BackColor = System.Drawing.Color.Lavender;
+            this.txtNIT.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNIT.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNIT.Location = new System.Drawing.Point(672, 50);
+            this.txtNIT.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNIT.Name = "txtNIT";
+            this.txtNIT.Size = new System.Drawing.Size(143, 20);
+            this.txtNIT.TabIndex = 35;
+            this.txtNIT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
+            this.label8.Location = new System.Drawing.Point(619, 48);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(45, 23);
+            this.label8.TabIndex = 36;
+            this.label8.Text = "NIT:";
             // 
             // FVentas
             // 
@@ -478,5 +516,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown NumericUpDown;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtNIT;
     }
 }
