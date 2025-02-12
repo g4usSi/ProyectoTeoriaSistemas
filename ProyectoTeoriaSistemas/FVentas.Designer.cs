@@ -31,6 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FVentas));
             this.lblNotificacion = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.NumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.comboDatos = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblTotal = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -46,16 +50,17 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.dataFacturaTabla = new System.Windows.Forms.DataGridView();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.btnRealizarVenta = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.btnRealizarVenta = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataFacturaTabla)).BeginInit();
             this.panel1.SuspendLayout();
@@ -78,6 +83,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.NumericUpDown);
+            this.groupBox1.Controls.Add(this.comboDatos);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Controls.Add(this.txtNumeroFactura);
             this.groupBox1.Controls.Add(this.Agregar);
@@ -98,12 +107,57 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Venta";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
+            this.label7.Location = new System.Drawing.Point(448, 137);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(69, 23);
+            this.label7.TabIndex = 34;
+            this.label7.Text = "Cant:.";
+            // 
+            // NumericUpDown
+            // 
+            this.NumericUpDown.Location = new System.Drawing.Point(520, 136);
+            this.NumericUpDown.Name = "NumericUpDown";
+            this.NumericUpDown.Size = new System.Drawing.Size(62, 26);
+            this.NumericUpDown.TabIndex = 33;
+            // 
+            // comboDatos
+            // 
+            this.comboDatos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboDatos.FormattingEnabled = true;
+            this.comboDatos.Items.AddRange(new object[] {
+            "Factura",
+            "Recibo"});
+            this.comboDatos.Location = new System.Drawing.Point(176, 134);
+            this.comboDatos.Name = "comboDatos";
+            this.comboDatos.Size = new System.Drawing.Size(259, 28);
+            this.comboDatos.TabIndex = 31;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
+            this.label6.Location = new System.Drawing.Point(35, 136);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(134, 23);
+            this.label6.TabIndex = 30;
+            this.label6.Text = "Producto (*):";
+            // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.lblTotal);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Location = new System.Drawing.Point(757, 123);
+            this.panel2.Location = new System.Drawing.Point(764, 124);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(304, 64);
             this.panel2.TabIndex = 29;
@@ -133,7 +187,7 @@
             this.txtNumeroFactura.BackColor = System.Drawing.Color.Lavender;
             this.txtNumeroFactura.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNumeroFactura.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumeroFactura.Location = new System.Drawing.Point(772, 91);
+            this.txtNumeroFactura.Location = new System.Drawing.Point(772, 93);
             this.txtNumeroFactura.Margin = new System.Windows.Forms.Padding(4);
             this.txtNumeroFactura.Name = "txtNumeroFactura";
             this.txtNumeroFactura.Size = new System.Drawing.Size(292, 20);
@@ -145,12 +199,12 @@
             this.Agregar.BackColor = System.Drawing.Color.SkyBlue;
             this.Agregar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Agregar.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Agregar.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Agregar.ForeColor = System.Drawing.Color.White;
-            this.Agregar.Location = new System.Drawing.Point(39, 131);
+            this.Agregar.Location = new System.Drawing.Point(590, 128);
             this.Agregar.Margin = new System.Windows.Forms.Padding(4);
             this.Agregar.Name = "Agregar";
-            this.Agregar.Size = new System.Drawing.Size(180, 50);
+            this.Agregar.Size = new System.Drawing.Size(160, 40);
             this.Agregar.TabIndex = 22;
             this.Agregar.Text = "Agregar Articulo";
             this.Agregar.UseVisualStyleBackColor = false;
@@ -162,7 +216,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
-            this.label1.Location = new System.Drawing.Point(649, 87);
+            this.label1.Location = new System.Drawing.Point(649, 89);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(119, 23);
@@ -176,7 +230,7 @@
             this.comboTipoCompr.Items.AddRange(new object[] {
             "Factura",
             "Recibo"});
-            this.comboTipoCompr.Location = new System.Drawing.Point(253, 88);
+            this.comboTipoCompr.Location = new System.Drawing.Point(253, 90);
             this.comboTipoCompr.Name = "comboTipoCompr";
             this.comboTipoCompr.Size = new System.Drawing.Size(388, 28);
             this.comboTipoCompr.TabIndex = 23;
@@ -186,7 +240,7 @@
             this.txtCliente.BackColor = System.Drawing.Color.Lavender;
             this.txtCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCliente.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCliente.Location = new System.Drawing.Point(154, 52);
+            this.txtCliente.Location = new System.Drawing.Point(154, 50);
             this.txtCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.Size = new System.Drawing.Size(487, 20);
@@ -199,7 +253,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(35, 48);
+            this.label2.Location = new System.Drawing.Point(35, 46);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(111, 23);
@@ -212,7 +266,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
-            this.label3.Location = new System.Drawing.Point(649, 48);
+            this.label3.Location = new System.Drawing.Point(649, 46);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 23);
@@ -225,7 +279,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
-            this.label4.Location = new System.Drawing.Point(35, 87);
+            this.label4.Location = new System.Drawing.Point(35, 89);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(211, 23);
@@ -237,7 +291,7 @@
             this.txtFecha.BackColor = System.Drawing.Color.Lavender;
             this.txtFecha.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtFecha.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFecha.Location = new System.Drawing.Point(772, 52);
+            this.txtFecha.Location = new System.Drawing.Point(772, 50);
             this.txtFecha.Margin = new System.Windows.Forms.Padding(4);
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.Size = new System.Drawing.Size(292, 20);
@@ -294,6 +348,41 @@
             this.dataFacturaTabla.Size = new System.Drawing.Size(839, 354);
             this.dataFacturaTabla.TabIndex = 21;
             // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Cantidad";
+            this.Precio.MinimumWidth = 6;
+            this.Precio.Name = "Precio";
+            this.Precio.Width = 125;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.Width = 125;
+            // 
+            // Producto
+            // 
+            this.Producto.HeaderText = "Producto";
+            this.Producto.MinimumWidth = 6;
+            this.Producto.Name = "Producto";
+            this.Producto.Width = 125;
+            // 
+            // marca
+            // 
+            this.marca.HeaderText = "Precio";
+            this.marca.MinimumWidth = 6;
+            this.marca.Name = "marca";
+            this.marca.Width = 125;
+            // 
+            // SubTotal
+            // 
+            this.SubTotal.HeaderText = "Sub Total";
+            this.SubTotal.MinimumWidth = 6;
+            this.SubTotal.Name = "SubTotal";
+            this.SubTotal.Width = 125;
+            // 
             // btnRealizarVenta
             // 
             this.btnRealizarVenta.BackColor = System.Drawing.Color.SkyBlue;
@@ -332,41 +421,6 @@
             this.pictureBox1.TabIndex = 28;
             this.pictureBox1.TabStop = false;
             // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Cantidad";
-            this.Precio.MinimumWidth = 6;
-            this.Precio.Name = "Precio";
-            this.Precio.Width = 125;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.Width = 125;
-            // 
-            // Producto
-            // 
-            this.Producto.HeaderText = "Producto";
-            this.Producto.MinimumWidth = 6;
-            this.Producto.Name = "Producto";
-            this.Producto.Width = 125;
-            // 
-            // marca
-            // 
-            this.marca.HeaderText = "Precio";
-            this.marca.MinimumWidth = 6;
-            this.marca.Name = "marca";
-            this.marca.Width = 125;
-            // 
-            // SubTotal
-            // 
-            this.SubTotal.HeaderText = "Sub Total";
-            this.SubTotal.MinimumWidth = 6;
-            this.SubTotal.Name = "SubTotal";
-            this.SubTotal.Width = 125;
-            // 
             // FVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -382,6 +436,7 @@
             this.Text = "FVentas";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataFacturaTabla)).EndInit();
@@ -419,5 +474,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn marca;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
+        private System.Windows.Forms.ComboBox comboDatos;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown NumericUpDown;
+        private System.Windows.Forms.Label label7;
     }
 }

@@ -1,74 +1,114 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using ProyectoTeoriaSistemas;
 using ProyectoTeoriaSistemas.CodigoFuente;
 
 namespace ProyectoTeoriaSistemas
 {
     public partial class FVentas : Form
     {
-        private Factura facturaDemo;
+        private Factura factura;
+        private Tienda tienda;
 
-        public FVentas()
+        public FVentas(Tienda tienda)
         {
+            this.tienda = tienda;
+            this.factura = new Factura(1);
+
             InitializeComponent();
-            CargarFacturaDemo();
+            CargarProductos();
             MostrarFacturaEnTabla();
             InicializarFecha();
         }
-
         private void InicializarFecha()
         {
-            txtFecha.Text = DateTime.Now.ToString("yyyy-MM-dd"); // Formato: Año-Mes-Día
+            txtFecha.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
-        private void CargarFacturaDemo()
+        private void CargarProductos()
         {
-            // Crear factura falsa con ID aleatorio
-            facturaDemo = new Factura(new Random().Next(1000, 9999));
-
-            // Simulación de productos vendidos
-            Producto p1 = new Producto(1, "Gloss", "BeautyCreations", 5, 13);
-            Producto p2 = new Producto(2, "Rimel", "MaxFactor", 10, 25);
-            Producto p3 = new Producto(3, "Pinta Uñas", "Covergirl", 7, 17);
-
-            // Agregar detalles de factura (ventas ficticias)
-            facturaDemo.Detalles.Add(new DetalleFactura(p1, 2)); // 2 Gloss
-            facturaDemo.Detalles.Add(new DetalleFactura(p2, 3)); // 3 Rimel
-            facturaDemo.Detalles.Add(new DetalleFactura(p3, 1)); // 1 Pinta Uñas
+            comboDatos.Items.Clear();
+            foreach (var producto in tienda.listaProductos)
+            {
+                comboDatos.Items.Add($"{producto.ID} - {producto.Nombre} (Q{producto.Precio})");
+            }
+            if (comboDatos.Items.Count > 0)
+                comboDatos.SelectedIndex = 0;
         }
 
         private void MostrarFacturaEnTabla()
         {
-            dataFacturaTabla.Rows.Clear(); // Limpiar tabla antes de cargar datos
+            dataFacturaTabla.Rows.Clear();
 
-            foreach (var detalle in facturaDemo.Detalles)
+            foreach (var detalle in factura.Detalles)
             {
-                int rowIndex = dataFacturaTabla.Rows.Add();
-                DataGridViewRow row = dataFacturaTabla.Rows[rowIndex];
-
-                row.Cells[0].Value = detalle.Cantidad;
-                row.Cells[1].Value = detalle.Producto.ID;
-                row.Cells[2].Value = detalle.Producto.Nombre + " - " + detalle.Producto.Marca;
-                row.Cells[3].Value = $"Q {detalle.Producto.Precio:F2}"; // Precio unitario
-                row.Cells[4].Value = $"Q {detalle.Subtotal:F2}"; // Subtotal
+                dataFacturaTabla.Rows.Add(detalle.Cantidad, detalle.Producto.ID,
+                    detalle.Producto.Nombre, $"Q{detalle.Producto.Precio:F2}", $"Q{detalle.Subtotal:F2}");
             }
 
-            // Mostrar el total de la factura
-            lblTotal.Text = $"Total: Q {facturaDemo.Total:F2}";
+            lblTotal.Text = $"Total: Q{factura.Total:F2}";
         }
-
-        private void Agregar_Click(object sender, EventArgs e)
-        {
-            FArticulo fArticulo = new FArticulo();
-            fArticulo.ShowDialog();
-        }
-
         private void btnEditar_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Aquí podrías editar un producto en la factura.", "Editar Producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+        private void ActualizarFactura()
+        {
+            // Limpiar las filas de la tabla antes de actualizarlas
+            dataFacturaTabla.Rows.Clear();
+
+            // Agregar los detalles de la factura a la tabla
+            foreach (var detalle in factura.Detalles)
+            {
+                int rowIndex = dataFacturaTabla.Rows.Add();
+                DataGridViewRow row = dataFacturaTabla.Rows[rowIndex];
+
+                // Rellenar las celdas de la tabla con la información de la factura
+                row.Cells[0].Value = detalle.Cantidad;  // Cantidad
+                row.Cells[1].Value = detalle.Producto.ID;  // ID del Producto
+                row.Cells[2].Value = detalle.Producto.Nombre + " - " + detalle.Producto.Marca;  // Nombre del Producto
+                row.Cells[3].Value = $"Q {detalle.Producto.Precio:F2}";  // Precio Unitario
+                row.Cells[4].Value = $"Q {detalle.Subtotal:F2}";  // Subtotal
+            }
+
+            // Mostrar el total de la factura
+            lblTotal.Text = $"Total: Q {factura.Total:F2}";
+        }
+
+        private void Agregar_Click(object sender, EventArgs e)
+        {
+            if (comboDatos.SelectedIndex == -1)
+            {
+                MessageBox.Show("Por favor, seleccione un producto.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int cantidad = (int)NumericUpDown.Value;
+
+            if (cantidad <= 0)
+            {
+                MessageBox.Show("La cantidad debe ser mayor a 0.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string seleccion = comboDatos.SelectedItem.ToString();
+            int idProducto = int.Parse(seleccion.Split('-')[0].Trim());
+
+            try
+            {
+                factura.AgregarProducto(tienda, idProducto, cantidad);
+                ActualizarFactura();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }
+
+
+
+
 

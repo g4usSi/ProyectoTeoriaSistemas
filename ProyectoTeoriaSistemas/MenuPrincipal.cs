@@ -44,7 +44,7 @@ namespace ProyectoTeoriaSistemas
         // Ventas
         private void button2_Click(object sender, EventArgs e)
         {
-            FVentas frmVenta = new FVentas();
+            FVentas frmVenta = new FVentas(tienda);
             frmVenta.Show();
         }
 

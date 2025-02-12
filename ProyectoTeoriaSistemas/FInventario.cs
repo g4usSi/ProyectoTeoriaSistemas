@@ -52,7 +52,7 @@ namespace ProyectoTeoriaSistemas
 
         private void proveedores_Click(object sender, EventArgs e)
         {
-            FVentas fVentas = new FVentas();
+            FVentas fVentas = new FVentas(tienda);
             fVentas.Show();
         }
 
