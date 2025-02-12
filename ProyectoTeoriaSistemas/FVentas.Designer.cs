@@ -32,7 +32,7 @@
             this.lblNotificacion = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lblPrecio = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtNumeroFactura = new System.Windows.Forms.TextBox();
             this.Agregar = new System.Windows.Forms.Button();
@@ -54,6 +54,7 @@
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataFacturaTabla)).BeginInit();
@@ -100,22 +101,22 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.lblPrecio);
+            this.panel2.Controls.Add(this.lblTotal);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Location = new System.Drawing.Point(757, 123);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(304, 64);
             this.panel2.TabIndex = 29;
             // 
-            // lblPrecio
+            // lblTotal
             // 
-            this.lblPrecio.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecio.Location = new System.Drawing.Point(89, 19);
-            this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(188, 27);
-            this.lblPrecio.TabIndex = 1;
-            this.lblPrecio.Text = "Q100.00";
-            this.lblPrecio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTotal.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.Location = new System.Drawing.Point(89, 19);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(188, 27);
+            this.lblTotal.TabIndex = 1;
+            this.lblTotal.Text = "Q100.00";
+            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
@@ -281,7 +282,8 @@
             this.Precio,
             this.ID,
             this.Producto,
-            this.marca});
+            this.marca,
+            this.SubTotal});
             this.dataFacturaTabla.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataFacturaTabla.Location = new System.Drawing.Point(52, 291);
             this.dataFacturaTabla.Margin = new System.Windows.Forms.Padding(4);
@@ -358,6 +360,13 @@
             this.marca.Name = "marca";
             this.marca.Width = 125;
             // 
+            // SubTotal
+            // 
+            this.SubTotal.HeaderText = "Sub Total";
+            this.SubTotal.MinimumWidth = 6;
+            this.SubTotal.Name = "SubTotal";
+            this.SubTotal.Width = 125;
+            // 
             // FVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -402,12 +411,13 @@
         private System.Windows.Forms.Button btnRealizarVenta;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label lblPrecio;
+        private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn marca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
     }
 }
