@@ -402,6 +402,7 @@
             this.btnRealizarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRealizarVenta.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRealizarVenta.ForeColor = System.Drawing.Color.White;
+            this.btnRealizarVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRealizarVenta.Location = new System.Drawing.Point(10, 291);
             this.btnRealizarVenta.Margin = new System.Windows.Forms.Padding(4);
             this.btnRealizarVenta.Name = "btnRealizarVenta";
@@ -469,6 +470,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataFacturaTabla);
             this.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FVentas";
             this.Text = "FVentas";
