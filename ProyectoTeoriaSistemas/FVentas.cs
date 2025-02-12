@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -11,6 +13,10 @@ namespace ProyectoTeoriaSistemas
     {
         private Factura factura;
         private Tienda tienda;
+        private static int FacturaContador = 1000;  // Se inicia en 1000 por ejemplo, puedes poner otro valor
+        private PrintDocument printDocument = new PrintDocument();
+        private PrintPreviewDialog printPreviewDialog = new PrintPreviewDialog();
+
 
         public FVentas(Tienda tienda)
         {
@@ -21,7 +27,46 @@ namespace ProyectoTeoriaSistemas
             CargarProductos();
             MostrarFacturaEnTabla();
             InicializarFecha();
+            InicializarCampos();
+
+            printDocument.PrintPage += PrintDocument_PrintPage;
         }
+        private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Font font = new Font("Arial", 10);
+            float lineHeight = font.GetHeight() + 2;
+            float x = 10;
+            float y = 10;
+
+            g.DrawString("Factura de Venta", font, Brushes.Black, x, y);
+            y += lineHeight;
+
+
+            g.DrawString($"Fecha: {txtFecha.Text}", font, Brushes.Black, x, y);
+            y += lineHeight;
+            g.DrawString($"Cliente: {txtCliente.Text}", font, Brushes.Black, x, y);
+            y += lineHeight;
+            g.DrawString($"NIT: {txtNIT.Text}", font, Brushes.Black, x, y);
+            y += lineHeight;
+            g.DrawString($"Factura No: {txtNumeroFactura.Text}", font, Brushes.Black, x, y);
+            y += lineHeight;
+
+            g.DrawString("------------------------------", font, Brushes.Black, x, y);
+            y += lineHeight;
+
+            foreach (var detalle in factura.Detalles)
+            {
+                g.DrawString($"{detalle.Producto.Nombre} - Cantidad: {detalle.Cantidad} - Precio: Q{detalle.Producto.Precio:F2} - Subtotal: Q{detalle.Subtotal:F2}", font, Brushes.Black, x, y);
+                y += lineHeight;
+            }
+
+            g.DrawString("------------------------------", font, Brushes.Black, x, y);
+            y += lineHeight;
+
+            g.DrawString($"Total: Q{factura.Total:F2}", font, Brushes.Black, x, y);
+        }
+
         private void InicializarFecha()
         {
             txtFecha.Text = DateTime.Now.ToString("yyyy-MM-dd");
@@ -56,10 +101,8 @@ namespace ProyectoTeoriaSistemas
         }
         private void ActualizarFactura()
         {
-            // Limpiar las filas de la tabla antes de actualizarlas
             dataFacturaTabla.Rows.Clear();
 
-            // Agregar los detalles de la factura a la tabla
             foreach (var detalle in factura.Detalles)
             {
                 int rowIndex = dataFacturaTabla.Rows.Add();
@@ -69,10 +112,9 @@ namespace ProyectoTeoriaSistemas
                 row.Cells[1].Value = detalle.Producto.ID;  
                 row.Cells[2].Value = detalle.Producto.Nombre + " - " + detalle.Producto.Marca;
                 row.Cells[3].Value = $"Q {detalle.Producto.Precio:F2}";
-                row.Cells[4].Value = $"Q {detalle.Subtotal:F2}";  // Subtotal
+                row.Cells[4].Value = $"Q {detalle.Subtotal:F2}";
             }
 
-            // Mostrar el total de la factura
             lblTotal.Text = $"Total: Q {factura.Total:F2}";
         }
 
@@ -114,10 +156,12 @@ namespace ProyectoTeoriaSistemas
                 return;
             }
 
-            // Crear un string con el resumen de la venta
             StringBuilder resumen = new StringBuilder();
             resumen.AppendLine("Resumen de la Venta:");
             resumen.AppendLine($"Fecha: {txtFecha.Text}");
+            resumen.AppendLine($"Cliente: {txtCliente.Text}");
+            resumen.AppendLine($"NIT: {txtNIT.Text}");
+            resumen.AppendLine($"Factura No: {txtNumeroFactura.Text}");
             resumen.AppendLine("------------------------------");
 
             foreach (var detalle in factura.Detalles)
@@ -128,7 +172,6 @@ namespace ProyectoTeoriaSistemas
             resumen.AppendLine("------------------------------");
             resumen.AppendLine($"Total: Q{factura.Total:F2}");
 
-            // Guardar el resumen en un archivo de texto
             try
             {
                 string rutaArchivo = @"C:\Users\Geovanny Alcon\Desktop\URL 2025\RepoXD\ProyectoTeoriaSistemas" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".txt";
@@ -141,14 +184,25 @@ namespace ProyectoTeoriaSistemas
                 MessageBox.Show($"Error al guardar el archivo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            // Limpiar la factura después de la venta (opcional)
-            factura = new Factura(1); // Crear una nueva factura para la siguiente venta
-            MostrarFacturaEnTabla(); // Refrescar la tabla
+            printPreviewDialog.Document = printDocument;
+            printPreviewDialog.ShowDialog();
+
+            factura = new Factura(1);
+            MostrarFacturaEnTabla();
+        }
+
+        private void InicializarCampos()
+        {
+            txtCliente.Clear();
+            txtNIT.Text = "C/F";
+            txtNumeroFactura.Text = (FacturaContador++).ToString();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            InicializarCampos();
 
         }
+
     }
 }
