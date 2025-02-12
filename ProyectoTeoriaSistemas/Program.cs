@@ -21,6 +21,7 @@ namespace ProyectoTeoriaSistemas
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Tienda tienda = new Tienda();
+            tienda.AgregarProductos();
             Application.Run(new MenuPrincipal(tienda));
         }
     }

@@ -76,7 +76,7 @@ namespace ProyectoTeoriaSistemas.Forms
             comboProductos.Items.Clear();
             foreach (var producto in tienda.listaProductos)
             {
-                comboProductos.Items.Add($"{producto.ID} - {producto.Nombre} (${producto.Precio})");
+                comboProductos.Items.Add($"{producto.ID} - {producto.Nombre} (Q{producto.Precio})");
             }
             if (comboProductos.Items.Count > 0)
                 comboProductos.SelectedIndex = 0;
@@ -109,7 +109,7 @@ namespace ProyectoTeoriaSistemas.Forms
                 dgvFactura.Rows.Add(detalle.Producto.Nombre, detalle.Cantidad, detalle.Producto.Precio, detalle.Subtotal);
             }
 
-            lblTotal.Text = $"Total: ${factura.Total:F2}";
+            lblTotal.Text = $"Total: Q{factura.Total:F2}";
         }
     }
 }
