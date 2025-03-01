@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoTeoriaSistemas.CodigoFuente;
 
 namespace ProyectoTeoriaSistemas
 {
@@ -50,6 +51,8 @@ namespace ProyectoTeoriaSistemas
 
         private void button3_Click(object sender, EventArgs e)
         {
+            FPlanilla planilla = new FPlanilla();
+            planilla.Show();
             // Lógica para button3
         }
 
