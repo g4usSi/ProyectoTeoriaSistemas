@@ -12,22 +12,29 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
 {
     public partial class FPlanilla : Form
     {
-        //Aqui tiene que haber logica para almacenar datos D:
-
         public FPlanilla()
         {
             InitializeComponent();
+            CargarEmpleados();
         }
 
-        private void textCantidad_TextChanged(object sender, EventArgs e)
+        private void CargarEmpleados()
         {
+            cmBoxEmpleados.Items.Clear();
 
+            foreach (var empleado in EmpleadoData.ListaEmpleados)
+            {
+                cmBoxEmpleados.Items.Add($"{empleado.Nombre} - Q{empleado.Sueldo}");
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Empleado empleado = new Empleado();
-            empleado.Show();
+            Empleado empleadoForm = new Empleado();
+            empleadoForm.OnEmpleadoGuardado += CargarEmpleados;
+            empleadoForm.Show();
         }
     }
+
+
 }

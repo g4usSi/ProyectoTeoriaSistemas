@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoTeoriaSistemas.CodigoFuente;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -6,7 +7,7 @@ namespace ProyectoTeoriaSistemas
 {
     public partial class Empleado : Form
     {
-        private List<EmpleadoDatos> empleados = new List<EmpleadoDatos>();
+        public event Action OnEmpleadoGuardado;
 
         public Empleado()
         {
@@ -25,6 +26,7 @@ namespace ProyectoTeoriaSistemas
                     return;
                 }
 
+                // Crear y agregar empleado a la lista estática
                 EmpleadoDatos nuevoEmpleado = new EmpleadoDatos
                 {
                     Nombre = txtNombre.Text,
@@ -33,32 +35,31 @@ namespace ProyectoTeoriaSistemas
                     FechaNacimiento = dtpFechaNacimiento.Value
                 };
 
-                empleados.Add(nuevoEmpleado);
+                EmpleadoData.ListaEmpleados.Add(nuevoEmpleado);
 
-                // Mensaje de confirmación
                 MessageBox.Show("Empleado guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Limpiar los campos
+                // Disparar evento para actualizar FPlanilla
+                OnEmpleadoGuardado?.Invoke();
+
+                // Limpiar campos
                 txtNombre.Clear();
                 txtDPI.Clear();
                 txtSueldo.Clear();
-                dtpFechaNacimiento.Value = DateTime.Today; // Restablece la fecha actual
+                dtpFechaNacimiento.Value = DateTime.Today;
+
             }
             catch (FormatException)
             {
-                MessageBox.Show("Formato incorrecto en los datos. Verifica que el sueldo sea un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Formato incorrecto en los datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al guardar el empleado: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        public List<EmpleadoDatos> ObtenerEmpleados()
-        {
-            return empleados;
-        }
     }
+
 
     public class EmpleadoDatos
     {

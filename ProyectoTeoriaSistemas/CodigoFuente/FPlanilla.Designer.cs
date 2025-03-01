@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FPlanilla));
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmBoxEmpleados = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnAgregarEmpleado = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -69,15 +69,15 @@
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // cmBoxEmpleados
             // 
-            this.comboBox1.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(25, 93);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(260, 28);
-            this.comboBox1.TabIndex = 30;
-            this.comboBox1.Text = "Seleccione Empleado";
+            this.cmBoxEmpleados.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.cmBoxEmpleados.FormattingEnabled = true;
+            this.cmBoxEmpleados.Location = new System.Drawing.Point(25, 93);
+            this.cmBoxEmpleados.Name = "cmBoxEmpleados";
+            this.cmBoxEmpleados.Size = new System.Drawing.Size(260, 28);
+            this.cmBoxEmpleados.TabIndex = 30;
+            this.cmBoxEmpleados.Text = "Seleccione Empleado";
             // 
             // groupBox1
             // 
@@ -91,7 +91,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textId);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cmBoxEmpleados);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label6);
@@ -478,7 +478,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmBoxEmpleados;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textId;
         private System.Windows.Forms.Label label2;

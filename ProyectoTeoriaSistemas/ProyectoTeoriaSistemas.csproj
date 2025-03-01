@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CodigoFuente\DetalleFactura.cs" />
+    <Compile Include="CodigoFuente\EmpleadoData.cs" />
     <Compile Include="CodigoFuente\Factura.cs" />
     <Compile Include="CodigoFuente\FormFactura.cs">
       <SubType>Form</SubType>
