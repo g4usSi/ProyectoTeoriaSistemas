@@ -12,6 +12,8 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
 {
     public partial class FPlanilla : Form
     {
+        //Aqui tiene que haber logica para almacenar datos D:
+
         public FPlanilla()
         {
             InitializeComponent();
