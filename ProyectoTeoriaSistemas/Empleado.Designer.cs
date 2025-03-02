@@ -52,11 +52,11 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(210)))), ((int)(((byte)(131)))));
-            this.label1.Location = new System.Drawing.Point(209, 21);
+            this.label1.Location = new System.Drawing.Point(181, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(181, 40);
+            this.label1.Size = new System.Drawing.Size(244, 40);
             this.label1.TabIndex = 5;
             this.label1.Text = "Empleado";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -88,9 +88,9 @@
             this.txtSueldo.BackColor = System.Drawing.Color.Lavender;
             this.txtSueldo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSueldo.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSueldo.Location = new System.Drawing.Point(178, 289);
+            this.txtSueldo.Location = new System.Drawing.Point(202, 289);
             this.txtSueldo.Name = "txtSueldo";
-            this.txtSueldo.Size = new System.Drawing.Size(352, 20);
+            this.txtSueldo.Size = new System.Drawing.Size(328, 20);
             this.txtSueldo.TabIndex = 17;
             this.txtSueldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -109,7 +109,7 @@
             // dtpFechaNacimiento
             // 
             this.dtpFechaNacimiento.CalendarMonthBackground = System.Drawing.Color.Lavender;
-            this.dtpFechaNacimiento.Location = new System.Drawing.Point(178, 247);
+            this.dtpFechaNacimiento.Location = new System.Drawing.Point(251, 247);
             this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
             this.dtpFechaNacimiento.Size = new System.Drawing.Size(200, 26);
             this.dtpFechaNacimiento.TabIndex = 15;
@@ -119,9 +119,9 @@
             this.txtDPI.BackColor = System.Drawing.Color.Lavender;
             this.txtDPI.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDPI.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDPI.Location = new System.Drawing.Point(172, 45);
+            this.txtDPI.Location = new System.Drawing.Point(196, 45);
             this.txtDPI.Name = "txtDPI";
-            this.txtDPI.Size = new System.Drawing.Size(352, 20);
+            this.txtDPI.Size = new System.Drawing.Size(328, 20);
             this.txtDPI.TabIndex = 10;
             this.txtDPI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -157,9 +157,9 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
             this.label4.Location = new System.Drawing.Point(28, 122);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 27);
+            this.label4.Size = new System.Drawing.Size(88, 27);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Correo";
+            this.label4.Text = "Cargo:";
             // 
             // label5
             // 
@@ -169,18 +169,18 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
             this.label5.Location = new System.Drawing.Point(28, 163);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(121, 27);
+            this.label5.Size = new System.Drawing.Size(95, 27);
             this.label5.TabIndex = 8;
-            this.label5.Text = "Direccion";
+            this.label5.Text = "Correo:";
             // 
             // txtTelefono
             // 
             this.txtTelefono.BackColor = System.Drawing.Color.Lavender;
             this.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTelefono.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.Location = new System.Drawing.Point(172, 208);
+            this.txtTelefono.Location = new System.Drawing.Point(196, 208);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(352, 20);
+            this.txtTelefono.Size = new System.Drawing.Size(328, 20);
             this.txtTelefono.TabIndex = 14;
             this.txtTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -201,9 +201,9 @@
             this.txtDireccion.BackColor = System.Drawing.Color.Lavender;
             this.txtDireccion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDireccion.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccion.Location = new System.Drawing.Point(172, 169);
+            this.txtDireccion.Location = new System.Drawing.Point(196, 169);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(352, 20);
+            this.txtDireccion.Size = new System.Drawing.Size(328, 20);
             this.txtDireccion.TabIndex = 13;
             this.txtDireccion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -212,9 +212,9 @@
             this.txtNombre.BackColor = System.Drawing.Color.Lavender;
             this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNombre.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(172, 83);
+            this.txtNombre.Location = new System.Drawing.Point(196, 83);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(352, 20);
+            this.txtNombre.Size = new System.Drawing.Size(328, 20);
             this.txtNombre.TabIndex = 11;
             this.txtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -223,9 +223,9 @@
             this.txtCorreo.BackColor = System.Drawing.Color.Lavender;
             this.txtCorreo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCorreo.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorreo.Location = new System.Drawing.Point(172, 125);
+            this.txtCorreo.Location = new System.Drawing.Point(196, 125);
             this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(352, 20);
+            this.txtCorreo.Size = new System.Drawing.Size(328, 20);
             this.txtCorreo.TabIndex = 12;
             this.txtCorreo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
