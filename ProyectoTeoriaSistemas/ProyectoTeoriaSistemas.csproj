@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodigoFuente\EmpleadoDB.cs" />
     <Compile Include="CodigoFuente\DetalleFactura.cs" />
     <Compile Include="CodigoFuente\EmpleadoData.cs" />
     <Compile Include="CodigoFuente\Factura.cs" />
@@ -58,8 +59,8 @@
     <Compile Include="CodigoFuente\FPlanilla.Designer.cs">
       <DependentUpon>FPlanilla.cs</DependentUpon>
     </Compile>
+    <Compile Include="CodigoFuente\Planilla.cs" />
     <Compile Include="CodigoFuente\Recibo.cs" />
-    <Compile Include="CodigoFuente\Trabajador.cs" />
     <Compile Include="Empleado.cs">
       <SubType>Form</SubType>
     </Compile>

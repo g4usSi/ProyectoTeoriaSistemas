@@ -31,41 +31,41 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FPlanilla));
             this.cmBoxEmpleados = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnAgregarEmpleado = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblSueldoNeto = new System.Windows.Forms.Label();
+            this.lblTotalDescuento = new System.Windows.Forms.Label();
+            this.lblDevengado = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.NumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.btnAgregarEmpleado = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnCalcular = new System.Windows.Forms.Button();
+            this.numHorasExtra = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textId = new System.Windows.Forms.TextBox();
+            this.txtBonificaciones = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textPrecio = new System.Windows.Forms.TextBox();
-            this.textNombre = new System.Windows.Forms.TextBox();
-            this.textMarca = new System.Windows.Forms.TextBox();
+            this.txtIGSS = new System.Windows.Forms.TextBox();
+            this.txtComisiones = new System.Windows.Forms.TextBox();
+            this.txtPrestamos = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.dataPlanilla = new System.Windows.Forms.DataGridView();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblDevengado = new System.Windows.Forms.Label();
-            this.lblTotalDescuento = new System.Windows.Forms.Label();
-            this.lblSueloNeto = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lblDevengadoGeneral = new System.Windows.Forms.Label();
-            this.lblDescuentosGeneral = new System.Windows.Forms.Label();
             this.lblSueldosNetos = new System.Windows.Forms.Label();
+            this.lblDescuentosGeneral = new System.Windows.Forms.Label();
+            this.lblDevengadoGeneral = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataPlanilla)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numHorasExtra)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataPlanilla)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,21 +83,21 @@
             // 
             this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Controls.Add(this.btnAgregarEmpleado);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.NumericUpDown);
+            this.groupBox1.Controls.Add(this.btnGuardar);
+            this.groupBox1.Controls.Add(this.btnCalcular);
+            this.groupBox1.Controls.Add(this.numHorasExtra);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textId);
+            this.groupBox1.Controls.Add(this.txtBonificaciones);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cmBoxEmpleados);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textPrecio);
-            this.groupBox1.Controls.Add(this.textNombre);
-            this.groupBox1.Controls.Add(this.textMarca);
+            this.groupBox1.Controls.Add(this.txtIGSS);
+            this.groupBox1.Controls.Add(this.txtComisiones);
+            this.groupBox1.Controls.Add(this.txtPrestamos);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(21, 41);
@@ -106,40 +106,49 @@
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
             // 
-            // btnAgregarEmpleado
+            // panel1
             // 
-            this.btnAgregarEmpleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(210)))), ((int)(((byte)(131)))));
-            this.btnAgregarEmpleado.Location = new System.Drawing.Point(344, 86);
-            this.btnAgregarEmpleado.Name = "btnAgregarEmpleado";
-            this.btnAgregarEmpleado.Size = new System.Drawing.Size(197, 41);
-            this.btnAgregarEmpleado.TabIndex = 40;
-            this.btnAgregarEmpleado.Text = "Nuevo Empleado";
-            this.btnAgregarEmpleado.UseVisualStyleBackColor = false;
-            this.btnAgregarEmpleado.Click += new System.EventHandler(this.button3_Click);
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.lblSueldoNeto);
+            this.panel1.Controls.Add(this.lblTotalDescuento);
+            this.panel1.Controls.Add(this.lblDevengado);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Location = new System.Drawing.Point(24, 434);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(494, 156);
+            this.panel1.TabIndex = 41;
             // 
-            // label10
+            // lblSueldoNeto
             // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(30, 109);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(273, 23);
-            this.label10.TabIndex = 39;
-            this.label10.Text = "Sueldo Neto:.......................";
+            this.lblSueldoNeto.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSueldoNeto.Location = new System.Drawing.Point(269, 105);
+            this.lblSueldoNeto.Name = "lblSueldoNeto";
+            this.lblSueldoNeto.Size = new System.Drawing.Size(188, 27);
+            this.lblSueldoNeto.TabIndex = 42;
+            this.lblSueldoNeto.Text = "Q100.00";
+            this.lblSueldoNeto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label9
+            // lblTotalDescuento
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
-            this.label9.Location = new System.Drawing.Point(30, 66);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(181, 23);
-            this.label9.TabIndex = 38;
-            this.label9.Text = "Total Descuentos:";
+            this.lblTotalDescuento.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalDescuento.Location = new System.Drawing.Point(269, 62);
+            this.lblTotalDescuento.Name = "lblTotalDescuento";
+            this.lblTotalDescuento.Size = new System.Drawing.Size(188, 27);
+            this.lblTotalDescuento.TabIndex = 41;
+            this.lblTotalDescuento.Text = "Q100.00";
+            this.lblTotalDescuento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDevengado
+            // 
+            this.lblDevengado.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDevengado.Location = new System.Drawing.Point(269, 22);
+            this.lblDevengado.Name = "lblDevengado";
+            this.lblDevengado.Size = new System.Drawing.Size(188, 27);
+            this.lblDevengado.TabIndex = 40;
+            this.lblDevengado.Text = "Q100.00";
+            this.lblDevengado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label8
             // 
@@ -153,33 +162,70 @@
             this.label8.TabIndex = 37;
             this.label8.Text = "Total Devengado:";
             // 
-            // button2
+            // label9
             // 
-            this.button2.BackColor = System.Drawing.Color.SkyBlue;
-            this.button2.Location = new System.Drawing.Point(291, 354);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(140, 41);
-            this.button2.TabIndex = 36;
-            this.button2.Text = "Guardar";
-            this.button2.UseVisualStyleBackColor = false;
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
+            this.label9.Location = new System.Drawing.Point(30, 66);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(181, 23);
+            this.label9.TabIndex = 38;
+            this.label9.Text = "Total Descuentos:";
             // 
-            // button1
+            // label10
             // 
-            this.button1.BackColor = System.Drawing.Color.SkyBlue;
-            this.button1.Location = new System.Drawing.Point(124, 354);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(140, 41);
-            this.button1.TabIndex = 35;
-            this.button1.Text = "Calcular";
-            this.button1.UseVisualStyleBackColor = false;
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(30, 109);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(273, 23);
+            this.label10.TabIndex = 39;
+            this.label10.Text = "Sueldo Neto:.......................";
             // 
-            // NumericUpDown
+            // btnAgregarEmpleado
             // 
-            this.NumericUpDown.BackColor = System.Drawing.Color.Lavender;
-            this.NumericUpDown.Location = new System.Drawing.Point(185, 223);
-            this.NumericUpDown.Name = "NumericUpDown";
-            this.NumericUpDown.Size = new System.Drawing.Size(352, 26);
-            this.NumericUpDown.TabIndex = 34;
+            this.btnAgregarEmpleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(210)))), ((int)(((byte)(131)))));
+            this.btnAgregarEmpleado.Location = new System.Drawing.Point(344, 86);
+            this.btnAgregarEmpleado.Name = "btnAgregarEmpleado";
+            this.btnAgregarEmpleado.Size = new System.Drawing.Size(197, 41);
+            this.btnAgregarEmpleado.TabIndex = 40;
+            this.btnAgregarEmpleado.Text = "Nuevo Empleado";
+            this.btnAgregarEmpleado.UseVisualStyleBackColor = false;
+            this.btnAgregarEmpleado.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnGuardar.Location = new System.Drawing.Point(291, 354);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(140, 41);
+            this.btnGuardar.TabIndex = 36;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // btnCalcular
+            // 
+            this.btnCalcular.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnCalcular.Location = new System.Drawing.Point(124, 354);
+            this.btnCalcular.Name = "btnCalcular";
+            this.btnCalcular.Size = new System.Drawing.Size(140, 41);
+            this.btnCalcular.TabIndex = 35;
+            this.btnCalcular.Text = "Calcular";
+            this.btnCalcular.UseVisualStyleBackColor = false;
+            this.btnCalcular.Click += new System.EventHandler(this.btnCalcular_Click);
+            // 
+            // numHorasExtra
+            // 
+            this.numHorasExtra.BackColor = System.Drawing.Color.Lavender;
+            this.numHorasExtra.Location = new System.Drawing.Point(185, 223);
+            this.numHorasExtra.Name = "numHorasExtra";
+            this.numHorasExtra.Size = new System.Drawing.Size(352, 26);
+            this.numHorasExtra.TabIndex = 34;
             // 
             // label7
             // 
@@ -213,16 +259,16 @@
             this.label1.TabIndex = 31;
             this.label1.Text = "Calculo de Sueldo";
             // 
-            // textId
+            // txtBonificaciones
             // 
-            this.textId.BackColor = System.Drawing.Color.Lavender;
-            this.textId.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textId.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textId.Location = new System.Drawing.Point(185, 146);
-            this.textId.Name = "textId";
-            this.textId.Size = new System.Drawing.Size(352, 20);
-            this.textId.TabIndex = 10;
-            this.textId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBonificaciones.BackColor = System.Drawing.Color.Lavender;
+            this.txtBonificaciones.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBonificaciones.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBonificaciones.Location = new System.Drawing.Point(185, 146);
+            this.txtBonificaciones.Name = "txtBonificaciones";
+            this.txtBonificaciones.Size = new System.Drawing.Size(352, 20);
+            this.txtBonificaciones.TabIndex = 10;
+            this.txtBonificaciones.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -272,38 +318,38 @@
             this.label6.TabIndex = 9;
             this.label6.Text = "Prestamos:";
             // 
-            // textPrecio
+            // txtIGSS
             // 
-            this.textPrecio.BackColor = System.Drawing.Color.Lavender;
-            this.textPrecio.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textPrecio.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textPrecio.Location = new System.Drawing.Point(185, 299);
-            this.textPrecio.Name = "textPrecio";
-            this.textPrecio.Size = new System.Drawing.Size(352, 20);
-            this.textPrecio.TabIndex = 13;
-            this.textPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtIGSS.BackColor = System.Drawing.Color.Lavender;
+            this.txtIGSS.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtIGSS.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIGSS.Location = new System.Drawing.Point(185, 299);
+            this.txtIGSS.Name = "txtIGSS";
+            this.txtIGSS.Size = new System.Drawing.Size(352, 20);
+            this.txtIGSS.TabIndex = 13;
+            this.txtIGSS.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textNombre
+            // txtComisiones
             // 
-            this.textNombre.BackColor = System.Drawing.Color.Lavender;
-            this.textNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textNombre.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textNombre.Location = new System.Drawing.Point(185, 185);
-            this.textNombre.Name = "textNombre";
-            this.textNombre.Size = new System.Drawing.Size(352, 20);
-            this.textNombre.TabIndex = 11;
-            this.textNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtComisiones.BackColor = System.Drawing.Color.Lavender;
+            this.txtComisiones.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtComisiones.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtComisiones.Location = new System.Drawing.Point(185, 185);
+            this.txtComisiones.Name = "txtComisiones";
+            this.txtComisiones.Size = new System.Drawing.Size(352, 20);
+            this.txtComisiones.TabIndex = 11;
+            this.txtComisiones.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textMarca
+            // txtPrestamos
             // 
-            this.textMarca.BackColor = System.Drawing.Color.Lavender;
-            this.textMarca.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textMarca.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textMarca.Location = new System.Drawing.Point(185, 262);
-            this.textMarca.Name = "textMarca";
-            this.textMarca.Size = new System.Drawing.Size(352, 20);
-            this.textMarca.TabIndex = 12;
-            this.textMarca.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPrestamos.BackColor = System.Drawing.Color.Lavender;
+            this.txtPrestamos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPrestamos.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrestamos.Location = new System.Drawing.Point(185, 262);
+            this.txtPrestamos.Name = "txtPrestamos";
+            this.txtPrestamos.Size = new System.Drawing.Size(352, 20);
+            this.txtPrestamos.TabIndex = 12;
+            this.txtPrestamos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label11
             // 
@@ -312,7 +358,7 @@
             this.label11.ForeColor = System.Drawing.Color.MidnightBlue;
             this.label11.Location = new System.Drawing.Point(818, 77);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(360, 51);
+            this.label11.Size = new System.Drawing.Size(350, 49);
             this.label11.TabIndex = 32;
             this.label11.Text = "Planilla General";
             // 
@@ -363,50 +409,6 @@
             this.label14.TabIndex = 40;
             this.label14.Text = "Total Sueldos Netos";
             // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.lblSueloNeto);
-            this.panel1.Controls.Add(this.lblTotalDescuento);
-            this.panel1.Controls.Add(this.lblDevengado);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Location = new System.Drawing.Point(24, 434);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(494, 156);
-            this.panel1.TabIndex = 41;
-            // 
-            // lblDevengado
-            // 
-            this.lblDevengado.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDevengado.Location = new System.Drawing.Point(269, 22);
-            this.lblDevengado.Name = "lblDevengado";
-            this.lblDevengado.Size = new System.Drawing.Size(188, 27);
-            this.lblDevengado.TabIndex = 40;
-            this.lblDevengado.Text = "Q100.00";
-            this.lblDevengado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblTotalDescuento
-            // 
-            this.lblTotalDescuento.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalDescuento.Location = new System.Drawing.Point(269, 62);
-            this.lblTotalDescuento.Name = "lblTotalDescuento";
-            this.lblTotalDescuento.Size = new System.Drawing.Size(188, 27);
-            this.lblTotalDescuento.TabIndex = 41;
-            this.lblTotalDescuento.Text = "Q100.00";
-            this.lblTotalDescuento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblSueloNeto
-            // 
-            this.lblSueloNeto.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSueloNeto.Location = new System.Drawing.Point(269, 105);
-            this.lblSueloNeto.Name = "lblSueloNeto";
-            this.lblSueloNeto.Size = new System.Drawing.Size(188, 27);
-            this.lblSueloNeto.TabIndex = 42;
-            this.lblSueloNeto.Text = "Q100.00";
-            this.lblSueloNeto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -421,15 +423,15 @@
             this.panel2.Size = new System.Drawing.Size(691, 144);
             this.panel2.TabIndex = 41;
             // 
-            // lblDevengadoGeneral
+            // lblSueldosNetos
             // 
-            this.lblDevengadoGeneral.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDevengadoGeneral.Location = new System.Drawing.Point(485, 14);
-            this.lblDevengadoGeneral.Name = "lblDevengadoGeneral";
-            this.lblDevengadoGeneral.Size = new System.Drawing.Size(188, 27);
-            this.lblDevengadoGeneral.TabIndex = 41;
-            this.lblDevengadoGeneral.Text = "Q100.00";
-            this.lblDevengadoGeneral.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSueldosNetos.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSueldosNetos.Location = new System.Drawing.Point(485, 97);
+            this.lblSueldosNetos.Name = "lblSueldosNetos";
+            this.lblSueldosNetos.Size = new System.Drawing.Size(188, 27);
+            this.lblSueldosNetos.TabIndex = 43;
+            this.lblSueldosNetos.Text = "Q100.00";
+            this.lblSueldosNetos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDescuentosGeneral
             // 
@@ -441,15 +443,15 @@
             this.lblDescuentosGeneral.Text = "Q100.00";
             this.lblDescuentosGeneral.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblSueldosNetos
+            // lblDevengadoGeneral
             // 
-            this.lblSueldosNetos.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSueldosNetos.Location = new System.Drawing.Point(485, 97);
-            this.lblSueldosNetos.Name = "lblSueldosNetos";
-            this.lblSueldosNetos.Size = new System.Drawing.Size(188, 27);
-            this.lblSueldosNetos.TabIndex = 43;
-            this.lblSueldosNetos.Text = "Q100.00";
-            this.lblSueldosNetos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDevengadoGeneral.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDevengadoGeneral.Location = new System.Drawing.Point(485, 14);
+            this.lblDevengadoGeneral.Name = "lblDevengadoGeneral";
+            this.lblDevengadoGeneral.Size = new System.Drawing.Size(188, 27);
+            this.lblDevengadoGeneral.TabIndex = 41;
+            this.lblDevengadoGeneral.Text = "Q100.00";
+            this.lblDevengadoGeneral.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FPlanilla
             // 
@@ -466,10 +468,10 @@
             this.Text = "FPlanilla";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataPlanilla)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numHorasExtra)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataPlanilla)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -480,20 +482,20 @@
         #endregion
         private System.Windows.Forms.ComboBox cmBoxEmpleados;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textId;
+        private System.Windows.Forms.TextBox txtBonificaciones;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textPrecio;
-        private System.Windows.Forms.TextBox textNombre;
-        private System.Windows.Forms.TextBox textMarca;
+        private System.Windows.Forms.TextBox txtIGSS;
+        private System.Windows.Forms.TextBox txtComisiones;
+        private System.Windows.Forms.TextBox txtPrestamos;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.NumericUpDown NumericUpDown;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.NumericUpDown numHorasExtra;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnCalcular;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
@@ -504,7 +506,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnAgregarEmpleado;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblSueloNeto;
+        private System.Windows.Forms.Label lblSueldoNeto;
         private System.Windows.Forms.Label lblTotalDescuento;
         private System.Windows.Forms.Label lblDevengado;
         private System.Windows.Forms.Panel panel2;

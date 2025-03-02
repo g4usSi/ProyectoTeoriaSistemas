@@ -18,9 +18,11 @@ namespace ProyectoTeoriaSistemas
         {
             try
             {
+                // Verifica que todos los campos obligatorios estén llenos
                 if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
                     string.IsNullOrWhiteSpace(txtDPI.Text) ||
-                    string.IsNullOrWhiteSpace(txtSueldo.Text))
+                    string.IsNullOrWhiteSpace(txtSueldo.Text) ||
+                    string.IsNullOrWhiteSpace(txtCargo.Text)) // Verifica también el cargo
                 {
                     MessageBox.Show("Por favor, llena todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -31,7 +33,8 @@ namespace ProyectoTeoriaSistemas
                 {
                     Nombre = txtNombre.Text,
                     DPI = txtDPI.Text,
-                    Sueldo = float.Parse(txtSueldo.Text),
+                    Cargo = txtCargo.Text, // Asigna el cargo ingresado en el TextBox
+                    Sueldo = (decimal)float.Parse(txtSueldo.Text),
                     FechaNacimiento = dtpFechaNacimiento.Value
                 };
 
@@ -42,9 +45,10 @@ namespace ProyectoTeoriaSistemas
                 // Disparar evento para actualizar FPlanilla
                 OnEmpleadoGuardado?.Invoke();
 
-                // Limpiar campos
+                // Limpiar campos después de guardar
                 txtNombre.Clear();
                 txtDPI.Clear();
+                txtCargo.Clear(); // Limpia el campo del cargo
                 txtSueldo.Clear();
                 dtpFechaNacimiento.Value = DateTime.Today;
 
@@ -58,14 +62,5 @@ namespace ProyectoTeoriaSistemas
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-    }
-
-
-    public class EmpleadoDatos
-    {
-        public string Nombre { get; set; }
-        public string DPI { get; set; }
-        public float Sueldo { get; set; }
-        public DateTime FechaNacimiento { get; set; }
     }
 }
