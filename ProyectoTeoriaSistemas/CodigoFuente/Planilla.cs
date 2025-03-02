@@ -3,20 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//Esta es la planilla de empleado, falta la planilla general
 
 namespace ProyectoTeoriaSistemas.CodigoFuente
 {
-    public class EmpleadoDatos
-    {
-        public string DPI { get; set; }         // Identificación única del empleado
-        public string Nombre { get; set; }      // Nombre completo
-        public string Cargo { get; set; }       // Puesto de trabajo
-        public decimal Sueldo { get; set; }     // Sueldo base
-        public DateTime FechaNacimiento { get; set; } // Fecha de nacimiento del empleado
-    }
-
+    //Esta es la que realmente tenes que usar OwO
     public class Planilla
     {
+        //Este objeto solo almacena los datos de los empleados, para acceder a el, tienes que llamar sus atributos, no se si esta bien en la clase estatica
         public EmpleadoDatos Empleado { get; set; }  // Datos del empleado
         public decimal SueldoOrdinario { get; set; } // Sueldo base sin extras
         public int HorasExtras { get; set; }        // Cantidad de horas extra trabajadas
@@ -38,4 +32,13 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
         public decimal SueldoNeto => TotalDevengado - TotalDescuentos;
     }
 
+    //Omite la Existencia de este, es adorno
+    public class EmpleadoDatos
+    {
+        public string DPI { get; set; }         // Identificación única del empleado
+        public string Nombre { get; set; }      // Nombre completo
+        public string Cargo { get; set; }       // Puesto de trabajo
+        public decimal Sueldo { get; set; }     // Sueldo base
+        public DateTime FechaNacimiento { get; set; } // Fecha de nacimiento del empleado
+    }
 }

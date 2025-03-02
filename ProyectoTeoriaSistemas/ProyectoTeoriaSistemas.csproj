@@ -103,8 +103,7 @@
     <Compile Include="MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="ObjetoEmpleado.cs" />
-    <Compile Include="Planilla.cs" />
+    <Compile Include="PlanillaEmpresa.cs" />
     <Compile Include="Producto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
