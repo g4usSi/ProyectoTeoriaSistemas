@@ -200,7 +200,7 @@
             // btnGuardar
             // 
             this.btnGuardar.BackColor = System.Drawing.Color.SkyBlue;
-            this.btnGuardar.Location = new System.Drawing.Point(291, 354);
+            this.btnGuardar.Location = new System.Drawing.Point(344, 354);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(140, 41);
             this.btnGuardar.TabIndex = 36;
@@ -211,7 +211,7 @@
             // btnCalcular
             // 
             this.btnCalcular.BackColor = System.Drawing.Color.SkyBlue;
-            this.btnCalcular.Location = new System.Drawing.Point(124, 354);
+            this.btnCalcular.Location = new System.Drawing.Point(110, 354);
             this.btnCalcular.Name = "btnCalcular";
             this.btnCalcular.Size = new System.Drawing.Size(140, 41);
             this.btnCalcular.TabIndex = 35;

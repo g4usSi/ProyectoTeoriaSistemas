@@ -7,6 +7,7 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
     public partial class FPlanilla : Form
     {
         private List<EmpleadoDatos> listaEmpleados = new List<EmpleadoDatos>();
+        private EmpleadoDatos EmpleadoSeleccionado = new EmpleadoDatos();
 
         public FPlanilla()
         {
@@ -47,16 +48,62 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
         //Evento Click cuando se selecciona un empleado
         private void cmBoxEmpleados_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cmBoxEmpleados.SelectedItem == null)
+            {
+                MessageBox.Show("Seleccione un empleado válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (cmBoxEmpleados.SelectedItem is EmpleadoDatos empleadoSeleccionado)
             {
-                MessageBox.Show($"Empleado {empleadoSeleccionado.Nombre}");
+                MessageBox.Show($"Empleado seleccionado: {empleadoSeleccionado.Nombre}");
+                EmpleadoSeleccionado = empleadoSeleccionado;
             }
         }
+
         //Este boton carga los datos al dataGrid
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            // Verificar que el usuario ha seleccionado un empleado
+            // Verificar que el usuario ha seleccionado un empleado
+            if (cmBoxEmpleados.SelectedItem == null || !(cmBoxEmpleados.SelectedItem is EmpleadoDatos))
+            {
+                MessageBox.Show("Seleccione un empleado antes de guardar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            // Si pasó la validación, asignamos el empleado seleccionado
+            EmpleadoDatos empleadoSeleccionado = (EmpleadoDatos)cmBoxEmpleados.SelectedItem;
+
+            try
+            {
+                Planilla objeto = new Planilla()
+                {
+                    SueldoNetoCalculado = empleadoSeleccionado.Sueldo,
+                    HorasExtras = (int)numHorasExtra.Value,
+                    Comisiones = int.TryParse(txtComisiones.Text, out int comisiones) ? comisiones : 0,
+                    Bonificaciones = int.TryParse(txtBonificaciones.Text, out int bonificaciones) ? bonificaciones : 0,
+                    IGSS = int.TryParse(txtIGSS.Text, out int igss) ? igss : 0,
+                    Prestamos = int.TryParse(txtPrestamos.Text, out int prestamos) ? prestamos : 0,
+                    Nombre = empleadoSeleccionado.Nombre,
+                    Cargo = empleadoSeleccionado.Cargo
+                };
+
+                bool respuesta = PlanillaLogica.Instancia.Guardar(objeto);
+
+                if (respuesta)
+                {
+                    MostrarPlanilla();
+                }
+
+                LimpiarCampos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error al guardar: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
@@ -64,7 +111,7 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
             if (cmBoxEmpleados.SelectedItem is EmpleadoDatos empleadoSeleccionado)
             {
                 //crea un objeto planilla, que ya jala los datos del empleado seleccionado
-                Planilla trabajador = new Planilla
+                Planilla trabajador = new Planilla//aca se crea el objeto
                 {
                     Empleado = empleadoSeleccionado,
                     SueldoOrdinario = (decimal)empleadoSeleccionado.Sueldo,
@@ -81,7 +128,7 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
                 lblSueldoNeto.Text = $"Q{trabajador.SueldoNeto:F2}";
 
                 // Guardar en la base de datos, aqui solo llamas al metodo y le pasas el objeto planilla (puedes renonmbralo*)
-                PlanillaDB.GuardarPlanillaEnSQL(trabajador);
+                
 
                 MessageBox.Show("Datos guardados correctamente en la base de datos.");
                 LimpiarCampos();
@@ -104,7 +151,15 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
             lblDevengado.Text = "Q0.00";
             lblTotalDescuento.Text = "Q0.00";
             lblSueldoNeto.Text = "Q0.00";
+            EmpleadoSeleccionado = null;
         }
+
+        public void MostrarPlanilla()
+        {
+            dataPlanilla.DataSource = null;
+            dataPlanilla.DataSource = PlanillaLogica.Instancia.Listar();
+        }
+
 
         private decimal ConvertirADecimal(string valor)
         {
@@ -113,7 +168,7 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
 
 
 
-        //Este boton solo llama, al formulario de Empleado (No tocar :V)
+        //Este boton solo llama, al formulario de Empleado (No tocar :V) 7W7 
         private void button3_Click(object sender, EventArgs e)
         {
             Empleado empleadoForm = new Empleado();
@@ -121,6 +176,10 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
             empleadoForm.Show();
         }
 
+        private void tbnGuardarPlanilla_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
