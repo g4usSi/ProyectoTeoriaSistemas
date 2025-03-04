@@ -20,7 +20,7 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
                 {
                     Nombre = "La PatoFiesta",
                     DPI = "1234567890101",
-                    Cargo = "Cariñoso",
+                    Cargo = "Gerente",
                     Sueldo = 5000m,
                     FechaNacimiento = new DateTime(1990, 5, 15)
                 };

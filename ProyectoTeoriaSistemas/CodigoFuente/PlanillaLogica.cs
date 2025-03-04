@@ -17,7 +17,7 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
 {
     public class PlanillaLogica
     {
-        private static string cadena = ConfigurationManager.ConnectionStrings[cadena].ConnectionString;
+        private static string cadena = ConfigurationManager.ConnectionStrings["cadena"].ConnectionString;
 
         private static PlanillaLogica _instancia = null;
 
