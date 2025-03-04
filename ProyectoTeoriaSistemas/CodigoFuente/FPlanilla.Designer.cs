@@ -78,6 +78,7 @@
             this.cmBoxEmpleados.Size = new System.Drawing.Size(260, 28);
             this.cmBoxEmpleados.TabIndex = 30;
             this.cmBoxEmpleados.Text = "Seleccione Empleado";
+            this.cmBoxEmpleados.SelectedIndexChanged += new System.EventHandler(this.cmBoxEmpleados_SelectedIndexChanged_1);
             // 
             // groupBox1
             // 

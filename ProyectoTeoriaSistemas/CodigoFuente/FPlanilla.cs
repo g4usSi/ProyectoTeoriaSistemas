@@ -31,6 +31,7 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
             // Cargar empleados en el ComboBox después de inicializar la lista
             CargarEmpleados();
         }
+
         //Se cargan al ComboBox los empleados
         private void CargarEmpleados()
         {
@@ -48,17 +49,7 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
         //Evento Click cuando se selecciona un empleado
         private void cmBoxEmpleados_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmBoxEmpleados.SelectedItem == null)
-            {
-                MessageBox.Show("Seleccione un empleado válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
 
-            if (cmBoxEmpleados.SelectedItem is EmpleadoDatos empleadoSeleccionado)
-            {
-                MessageBox.Show($"Empleado seleccionado: {empleadoSeleccionado.Nombre}");
-                EmpleadoSeleccionado = empleadoSeleccionado;
-            }
         }
 
         //Este boton carga los datos al dataGrid
@@ -179,6 +170,21 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
         private void tbnGuardarPlanilla_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmBoxEmpleados_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (cmBoxEmpleados.SelectedItem == null)
+            {
+                MessageBox.Show("Seleccione un empleado válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (cmBoxEmpleados.SelectedItem is EmpleadoDatos empleadoSeleccionado)
+            {
+                MessageBox.Show($"Empleado seleccionado: {empleadoSeleccionado.Nombre}");
+                EmpleadoSeleccionado = empleadoSeleccionado;
+            }
         }
     }
 }
