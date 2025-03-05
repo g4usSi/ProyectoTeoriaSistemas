@@ -18,9 +18,9 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
             {
                 EmpleadoDatos empleadoPredeterminado = new EmpleadoDatos
                 {
-                    Nombre = "La PatoFiesta",
+                    Nombre = "Lagarturo",
                     DPI = "1234567890101",
-                    Cargo = "Gerente",
+                    Cargo = "Empresaurio",
                     Sueldo = 5000m,
                     FechaNacimiento = new DateTime(1990, 5, 15)
                 };
