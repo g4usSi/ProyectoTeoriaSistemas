@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodigoFuente\FGestionProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CodigoFuente\FGestionProveedores.Designer.cs">
+      <DependentUpon>FGestionProveedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="CodigoFuente\PlanillaLogica.cs" />
     <Compile Include="CodigoFuente\DetalleFactura.cs" />
     <Compile Include="CodigoFuente\EmpleadoData.cs" />
@@ -66,6 +72,7 @@
       <DependentUpon>FPlanilla.cs</DependentUpon>
     </Compile>
     <Compile Include="CodigoFuente\Planilla.cs" />
+    <Compile Include="CodigoFuente\Proveedor.cs" />
     <Compile Include="CodigoFuente\Recibo.cs" />
     <Compile Include="Empleado.cs">
       <SubType>Form</SubType>
@@ -97,6 +104,12 @@
     <Compile Include="FProducto.Designer.cs">
       <DependentUpon>FProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAgregarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAgregarProveedor.Designer.cs">
+      <DependentUpon>FrmAgregarProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="FVentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +133,9 @@
     <Compile Include="UserControl1.Designer.cs">
       <DependentUpon>UserControl1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CodigoFuente\FGestionProveedores.resx">
+      <DependentUpon>FGestionProveedores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CodigoFuente\FPlanilla.resx">
       <DependentUpon>FPlanilla.cs</DependentUpon>
     </EmbeddedResource>
@@ -134,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FProducto.resx">
       <DependentUpon>FProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAgregarProveedor.resx">
+      <DependentUpon>FrmAgregarProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FVentas.resx">
       <DependentUpon>FVentas.cs</DependentUpon>

@@ -52,8 +52,8 @@ namespace ProyectoTeoriaSistemas
 
         private void proveedores_Click(object sender, EventArgs e)
         {
-            FVentas fVentas = new FVentas(tienda);
-            fVentas.Show();
+            FGestionProveedores proveedores = new FGestionProveedores();
+            MostrarFormulario(proveedores);
         }
 
         private void Reportes_Click(object sender, EventArgs e)
