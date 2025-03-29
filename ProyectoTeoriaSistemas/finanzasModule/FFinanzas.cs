@@ -13,6 +13,7 @@ namespace ProyectoTeoriaSistemas
             InitializeComponent();
         }
 
+        //No tocar :V este metodo es para abrir los formularios dentro del panel
         private void openChildForm(Form childForm)
         {
             if (activeForm != null)
