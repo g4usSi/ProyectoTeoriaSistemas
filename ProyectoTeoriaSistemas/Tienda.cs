@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoTeoriaSistemas
 {
-    public  class Tienda
+    public class Tienda
     {
         public LinkedList<Producto> listaProductos = new LinkedList<Producto>();
         public void AgregarProductos()

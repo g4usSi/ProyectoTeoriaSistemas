@@ -87,11 +87,35 @@
     <Compile Include="FArticulo.Designer.cs">
       <DependentUpon>FArticulo.cs</DependentUpon>
     </Compile>
+    <Compile Include="finanzasModule\FEgresos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="finanzasModule\FEgresos.Designer.cs">
+      <DependentUpon>FEgresos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="finanzasModule\FImpuestos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="finanzasModule\FImpuestos.Designer.cs">
+      <DependentUpon>FImpuestos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="finanzasModule\FIngresos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="finanzasModule\FIngresos.Designer.cs">
+      <DependentUpon>FIngresos.cs</DependentUpon>
+    </Compile>
     <Compile Include="finanzasModule\FFinanzas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="finanzasModule\FFinanzas.Designer.cs">
       <DependentUpon>FFinanzas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="finanzasModule\FReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="finanzasModule\FReportes.Designer.cs">
+      <DependentUpon>FReportes.cs</DependentUpon>
     </Compile>
     <Compile Include="FInventario.cs">
       <SubType>Form</SubType>

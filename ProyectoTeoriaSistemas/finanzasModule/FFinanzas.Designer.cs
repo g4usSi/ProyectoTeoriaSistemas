@@ -43,6 +43,7 @@
             this.lblBalance = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.panelChildForm = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -207,11 +208,19 @@
             this.label2.Text = "FINANCIERO";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panelChildForm
+            // 
+            this.panelChildForm.Location = new System.Drawing.Point(331, 34);
+            this.panelChildForm.Name = "panelChildForm";
+            this.panelChildForm.Size = new System.Drawing.Size(1009, 630);
+            this.panelChildForm.TabIndex = 35;
+            // 
             // FFinanzas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1378, 700);
+            this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panel1);
             this.Name = "FFinanzas";
             this.Text = "FFinanzas";
@@ -240,5 +249,6 @@
         private System.Windows.Forms.Button btnIngresos;
         private System.Windows.Forms.Label lblBalance;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panelChildForm;
     }
 }
