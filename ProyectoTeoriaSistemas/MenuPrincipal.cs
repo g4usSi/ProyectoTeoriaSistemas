@@ -58,12 +58,8 @@ namespace ProyectoTeoriaSistemas
 
         private void button4_Click(object sender, EventArgs e)
         {
-            // Lógica para button4
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            // Lógica para button5
+            FFinanzas fFinanzas = new FFinanzas();
+            fFinanzas.Show();
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)

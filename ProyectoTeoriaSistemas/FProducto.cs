@@ -30,7 +30,7 @@ namespace ProyectoTeoriaSistemas
 
         private void Agregar_Click(object sender, EventArgs e)
         {
-            AgregarProducto();
+            //AgregarProducto();
             AgregarProductoDB();
         }
         //wea nueva , esto es lo que yo hice **atentamente el zaid**
@@ -57,8 +57,8 @@ namespace ProyectoTeoriaSistemas
 
         public void mostrar_Articulo()
         {
-            dataGridView2.DataSource = null;
-            dataGridView2.DataSource = ProductoLogica.Instancia.Listar();
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = ProductoLogica.Instancia.Listar();
         }
         //wea nueva 
         private void AgregarProducto()
@@ -121,11 +121,11 @@ namespace ProyectoTeoriaSistemas
                  return;
              }*/
 
-           
-
-            dataGridView1.DataSource = tienda.listaProductos.ToList();
+            
+            //dataGridView1.DataSource = tienda.listaProductos.ToList(); 'DataGrid Funcional'
             //dataGridView1.Columns["PrecioVenta"].Visible = false;
             //dataGridView1.Columns["Cantidad"].Visible = false;
+            
 
         }
 

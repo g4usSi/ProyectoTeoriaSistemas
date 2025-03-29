@@ -87,17 +87,17 @@
     <Compile Include="FArticulo.Designer.cs">
       <DependentUpon>FArticulo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FFinanzas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FFinanzas.Designer.cs">
+      <DependentUpon>FFinanzas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FInventario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FInventario.Designer.cs">
       <DependentUpon>FInventario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="FProducto.cs">
       <SubType>Form</SubType>

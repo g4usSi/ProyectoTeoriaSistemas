@@ -11,7 +11,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace ProyectoTeoriaSistemas.CodigoFuente
 {
-    internal class ProductoLogica
+    public class ProductoLogica
     {
         private static string cadena = ConfigurationManager.ConnectionStrings["cadena"].ConnectionString;
 
