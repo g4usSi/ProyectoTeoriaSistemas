@@ -16,5 +16,25 @@ namespace ProyectoTeoriaSistemas
         {
             InitializeComponent();
         }
+
+        private void btnIngresos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEgresos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnImpuestos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

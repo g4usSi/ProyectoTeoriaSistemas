@@ -87,10 +87,10 @@
     <Compile Include="FArticulo.Designer.cs">
       <DependentUpon>FArticulo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FFinanzas.cs">
+    <Compile Include="finanzasModule\FFinanzas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FFinanzas.Designer.cs">
+    <Compile Include="finanzasModule\FFinanzas.Designer.cs">
       <DependentUpon>FFinanzas.cs</DependentUpon>
     </Compile>
     <Compile Include="FInventario.cs">
@@ -145,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FArticulo.resx">
       <DependentUpon>FArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="finanzasModule\FFinanzas.resx">
+      <DependentUpon>FFinanzas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FInventario.resx">
       <DependentUpon>FInventario.cs</DependentUpon>
