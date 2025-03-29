@@ -8,12 +8,14 @@ namespace ProyectoTeoriaSistemas
 {
     public class Producto
     {
-        public int ID { get; set; }
-        public string Nombre { get; set; }
-        public string Marca { get; set; }
-        public int Stock { get; set; }
-        public double Precio { get; set; }
-        public double PrecioVenta { get; set; }
+        public int ID { get; set; } //
+        public string Nombre { get; set; }//
+        public string Marca { get; set; }//
+        public int Stock { get; set; }//
+        public double Precio { get; set; }//
+        public double PrecioVenta { get; set; }//
+
+
       
 
 
@@ -26,6 +28,10 @@ namespace ProyectoTeoriaSistemas
             Precio = precio;
             PrecioVenta = 0;
             
+        }
+
+        public Producto()
+        {
         }
 
         public bool DescontarStock(int cantidad)

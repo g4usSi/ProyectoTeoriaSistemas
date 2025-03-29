@@ -66,6 +66,7 @@
       <DependentUpon>FPlanilla.cs</DependentUpon>
     </Compile>
     <Compile Include="CodigoFuente\Planilla.cs" />
+    <Compile Include="CodigoFuente\ProductoLogica.cs" />
     <Compile Include="CodigoFuente\Recibo.cs" />
     <Compile Include="Empleado.cs">
       <SubType>Form</SubType>
