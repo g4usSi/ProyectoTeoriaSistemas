@@ -33,7 +33,7 @@ namespace ProyectoTeoriaSistemas
             AgregarProducto();
             AgregarProductoDB();
         }
-
+        //wea nueva , esto es lo que yo hice **atentamente el zaid**
         private void AgregarProductoDB()
         {
             Producto objeto = new Producto()
@@ -60,7 +60,7 @@ namespace ProyectoTeoriaSistemas
             dataGridView2.DataSource = null;
             dataGridView2.DataSource = ProductoLogica.Instancia.Listar();
         }
-
+        //wea nueva 
         private void AgregarProducto()
         {
             var errores = new List<string>();
