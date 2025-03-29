@@ -170,8 +170,20 @@
     <EmbeddedResource Include="FArticulo.resx">
       <DependentUpon>FArticulo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="finanzasModule\FEgresos.resx">
+      <DependentUpon>FEgresos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="finanzasModule\FFinanzas.resx">
       <DependentUpon>FFinanzas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="finanzasModule\FImpuestos.resx">
+      <DependentUpon>FImpuestos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="finanzasModule\FIngresos.resx">
+      <DependentUpon>FIngresos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="finanzasModule\FReportes.resx">
+      <DependentUpon>FReportes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FInventario.resx">
       <DependentUpon>FInventario.cs</DependentUpon>
