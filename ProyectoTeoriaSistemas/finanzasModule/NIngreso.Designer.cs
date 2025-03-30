@@ -1,6 +1,6 @@
 ﻿namespace ProyectoTeoriaSistemas.finanzasModule
 {
-    partial class FImpuestos
+    partial class NIngreso
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // FImpuestos
+            // NIngreso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(991, 583);
-            this.Name = "FImpuestos";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FImpuestos";
+            this.ClientSize = new System.Drawing.Size(513, 591);
+            this.Name = "NIngreso";
+            this.Text = "NIngreso";
             this.ResumeLayout(false);
 
         }

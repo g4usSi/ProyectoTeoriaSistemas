@@ -89,6 +89,12 @@
             // btnReportes
             // 
             this.btnReportes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReportes.FlatAppearance.BorderSize = 0;
+            this.btnReportes.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnReportes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(53)))), ((int)(((byte)(90)))));
+            this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnReportes.Location = new System.Drawing.Point(0, 234);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(286, 65);
@@ -108,6 +114,12 @@
             // btnImpuestos
             // 
             this.btnImpuestos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnImpuestos.FlatAppearance.BorderSize = 0;
+            this.btnImpuestos.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnImpuestos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(53)))), ((int)(((byte)(90)))));
+            this.btnImpuestos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImpuestos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImpuestos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnImpuestos.Location = new System.Drawing.Point(0, 156);
             this.btnImpuestos.Name = "btnImpuestos";
             this.btnImpuestos.Size = new System.Drawing.Size(286, 65);
@@ -127,6 +139,12 @@
             // btnEgresos
             // 
             this.btnEgresos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEgresos.FlatAppearance.BorderSize = 0;
+            this.btnEgresos.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnEgresos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(53)))), ((int)(((byte)(90)))));
+            this.btnEgresos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEgresos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEgresos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnEgresos.Location = new System.Drawing.Point(0, 78);
             this.btnEgresos.Name = "btnEgresos";
             this.btnEgresos.Size = new System.Drawing.Size(286, 65);
@@ -146,6 +164,12 @@
             // btnIngresos
             // 
             this.btnIngresos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnIngresos.FlatAppearance.BorderSize = 0;
+            this.btnIngresos.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnIngresos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(53)))), ((int)(((byte)(90)))));
+            this.btnIngresos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIngresos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIngresos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnIngresos.Location = new System.Drawing.Point(0, 0);
             this.btnIngresos.Name = "btnIngresos";
             this.btnIngresos.Size = new System.Drawing.Size(286, 65);

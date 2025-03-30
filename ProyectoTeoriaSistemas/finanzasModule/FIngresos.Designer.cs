@@ -37,30 +37,36 @@
             // 
             // button2
             // 
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(799, 270);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(162, 144);
             this.button2.TabIndex = 7;
             this.button2.Text = "button2";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(799, 109);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(162, 144);
             this.button1.TabIndex = 6;
             this.button1.Text = "button1";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button1.UseVisualStyleBackColor = true;
             // 
             // btnAgregarIngreso
             // 
+            this.btnAgregarIngreso.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarIngreso.Location = new System.Drawing.Point(30, 37);
             this.btnAgregarIngreso.Name = "btnAgregarIngreso";
-            this.btnAgregarIngreso.Size = new System.Drawing.Size(165, 53);
+            this.btnAgregarIngreso.Size = new System.Drawing.Size(187, 53);
             this.btnAgregarIngreso.TabIndex = 5;
             this.btnAgregarIngreso.Text = "Agregar Ingreso";
             this.btnAgregarIngreso.UseVisualStyleBackColor = true;
+            this.btnAgregarIngreso.Click += new System.EventHandler(this.btnAgregarIngreso_Click);
             // 
             // dataGridView1
             // 

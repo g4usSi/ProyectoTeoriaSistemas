@@ -117,6 +117,12 @@
     <Compile Include="finanzasModule\FReportes.Designer.cs">
       <DependentUpon>FReportes.cs</DependentUpon>
     </Compile>
+    <Compile Include="finanzasModule\NIngreso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="finanzasModule\NIngreso.Designer.cs">
+      <DependentUpon>NIngreso.cs</DependentUpon>
+    </Compile>
     <Compile Include="FInventario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="finanzasModule\FReportes.resx">
       <DependentUpon>FReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="finanzasModule\NIngreso.resx">
+      <DependentUpon>NIngreso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FInventario.resx">
       <DependentUpon>FInventario.cs</DependentUpon>

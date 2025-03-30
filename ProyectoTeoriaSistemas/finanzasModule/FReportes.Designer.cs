@@ -49,6 +49,7 @@
             this.ClientSize = new System.Drawing.Size(991, 583);
             this.Controls.Add(this.dataGridView1);
             this.Name = "FReportes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FReportes";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

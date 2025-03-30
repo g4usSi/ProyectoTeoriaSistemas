@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace ProyectoTeoriaSistemas.finanzasModule
 {
-    public partial class FIngresos : Form
+    public partial class NIngreso : Form
     {
-        public FIngresos()
+        public NIngreso()
         {
             InitializeComponent();
-        }
-
-        private void btnAgregarIngreso_Click(object sender, EventArgs e)
-        {
-            NIngreso nIngreso = new NIngreso();
         }
     }
 }
