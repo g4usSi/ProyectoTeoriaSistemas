@@ -20,6 +20,7 @@ namespace ProyectoTeoriaSistemas.finanzasModule
         private void btnAgregarIngreso_Click(object sender, EventArgs e)
         {
             NIngreso nIngreso = new NIngreso();
+            nIngreso.Show();
         }
     }
 }
