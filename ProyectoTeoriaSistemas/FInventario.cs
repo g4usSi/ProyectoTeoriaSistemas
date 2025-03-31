@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProyectoTeoriaSistemas.CodigoFuente;
 using ProyectoTeoriaSistemas.Forms;
+using ProyectoTeoriaSistemas.finanzasModule;
 
 namespace ProyectoTeoriaSistemas
 {
@@ -58,7 +59,7 @@ namespace ProyectoTeoriaSistemas
 
         private void Reportes_Click(object sender, EventArgs e)
         {
-            FormFactura factura = new FormFactura(tienda);
+            FImpuestos factura = new FImpuestos(tienda);
             MostrarFormulario(factura);
         }
 

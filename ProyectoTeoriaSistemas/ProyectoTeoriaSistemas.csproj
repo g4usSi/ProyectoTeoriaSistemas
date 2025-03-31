@@ -167,6 +167,7 @@
     <Compile Include="UserControl1.Designer.cs">
       <DependentUpon>UserControl1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Venta.cs" />
     <EmbeddedResource Include="CodigoFuente\FGestionProveedores.resx">
       <DependentUpon>FGestionProveedores.cs</DependentUpon>
     </EmbeddedResource>

@@ -155,7 +155,7 @@ namespace ProyectoTeoriaSistemas
                 MessageBox.Show("No hay productos en la factura. Agregue productos antes de realizar la venta.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
+           
             StringBuilder resumen = new StringBuilder();
             resumen.AppendLine("Resumen de la Venta:");
             resumen.AppendLine($"Fecha: {txtFecha.Text}");
@@ -171,6 +171,8 @@ namespace ProyectoTeoriaSistemas
 
             resumen.AppendLine("------------------------------");
             resumen.AppendLine($"Total: Q{factura.Total:F2}");
+            Venta nuevaVenta = new Venta(txtCliente.Text, factura.Total, factura.Detalles);
+            tienda.AgregarVenta(nuevaVenta);
 
             try
             {

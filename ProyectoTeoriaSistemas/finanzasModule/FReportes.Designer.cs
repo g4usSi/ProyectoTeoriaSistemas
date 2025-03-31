@@ -120,6 +120,7 @@
             // filtrar
             // 
             this.filtrar.BackColor = System.Drawing.Color.Lavender;
+            this.filtrar.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.filtrar.Location = new System.Drawing.Point(770, 20);
             this.filtrar.Name = "filtrar";
             this.filtrar.Size = new System.Drawing.Size(113, 30);

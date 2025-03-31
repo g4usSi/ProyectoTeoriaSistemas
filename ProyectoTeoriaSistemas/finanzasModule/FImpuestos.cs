@@ -13,12 +13,15 @@ namespace ProyectoTeoriaSistemas.finanzasModule
 {
     public partial class FImpuestos : Form
     {
-        public FImpuestos()
+        private Tienda tienda;
+        public FImpuestos(Tienda tienda)
         {
+
             InitializeComponent();
+            this.tienda = tienda;
             RoundedTextBoxHelper.RoundTextBox(textCuadro, 10);
-            RoundedTextBoxHelper.RoundTextBox(textBox2, 10);
-            RoundedTextBoxHelper.RoundTextBox(textBox3, 10);
+            RoundedTextBoxHelper.RoundTextBox(porcentaje, 10);
+            RoundedTextBoxHelper.RoundTextBox(totalImpuesto, 10);
             Tiempo();
         }
 
@@ -32,49 +35,71 @@ namespace ProyectoTeoriaSistemas.finanzasModule
             cmbMes.Items.AddRange(new string[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" });
         }
 
-        private void filtrar_Click(object sender, EventArgs e)
+       
+        private void filtrar_Click_1(object sender, EventArgs e)
         {
             if (cmbMes.SelectedItem == null || cmbYear.SelectedItem == null)
-            {
-                MessageBox.Show("Por favor, llena todos los campos.", "Campo vacío", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return; // Sale del método si el mes no está seleccionado
-            }
+    {
+        MessageBox.Show("Por favor, llena todos los campos.", "Campo vacío", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        return;
+    }
             try
             {
                 string mesSeleccionado = cmbMes.SelectedItem.ToString();
                 int numeroMes = DateTime.ParseExact(mesSeleccionado, "MMMM", System.Globalization.CultureInfo.CurrentCulture).Month;
-                int añoSeleccionado = int.Parse(cmbYear.SelectedItem.ToString()); // Se usa el año seleccionado
+                int añoSeleccionado = int.Parse(cmbYear.SelectedItem.ToString());
 
-                // Obtiene el mes y año actuales
                 int mesActual = DateTime.Now.Month;
                 int añoActual = DateTime.Now.Year;
 
-                // Verifica si el año seleccionado es mayor al actual
-                if (añoSeleccionado > añoActual)
+                if (añoSeleccionado > añoActual || (añoSeleccionado == añoActual && numeroMes > mesActual))
                 {
-                    MessageBox.Show("El año seleccionado es inválido.", "Año futuro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return; // Sale del método sin filtrar
+                    MessageBox.Show("Fecha inválida. No puedes seleccionar meses o años futuros.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
 
-                // Si el año es el actual, se compara el mes seleccionado con el mes actual
-                if (añoSeleccionado == añoActual && numeroMes > mesActual)
+                // Obtener las ventas filtradas
+                var ventasDelMes = tienda.ObtenerVentas()
+                    .Where(v => v.Fecha.Year == añoSeleccionado && v.Fecha.Month == numeroMes)
+                    .ToList();
+
+                // Verificar si hay ventas para ese mes
+                if (ventasDelMes.Count == 0)
                 {
-                    MessageBox.Show("El mes seleccionado es inválido.", "Mes futuro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return; // Sale del método sin filtrar
+                    MessageBox.Show("No hay ventas registradas para este mes y año.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dataGridView1.DataSource = null; // Limpiar el DataGridView si no hay datos
+                    return;
                 }
 
-                // Aquí debes agregar tu lógica de filtrado.
-                // Ejemplo: Si tus datos están en un DataTable llamado "datos", puedes filtrarlos así:
-                // datos.DefaultView.RowFilter = $"MONTH(fecha) = {numeroMes} AND YEAR(fecha) = {añoSeleccionado}";
-                // Donde "fecha" es el nombre de la columna de fecha en tu DataTable.
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                // Mostrar las ventas en el DataGridView
+                dataGridView1.DataSource = ventasDelMes;
+
+                // Calcular el total de ventas
+                double totalVentas = ventasDelMes.Sum(v => v.TotalVenta);
+
+
+
+                // Calcular el impuesto
+                double impuesto = totalVentas * 0.05;
+
+
+                // Mostrar los resultados
+                totalImpuesto.Text = $"Q {impuesto:F2}";
+                sumaVentas.Text = $" Q {totalVentas:F2}";
+                porcentaje.Text = "5";
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+    }
         }
 
-        private void filtrar_Click_1(object sender, EventArgs e)
+        private void textCuadro_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

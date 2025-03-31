@@ -53,7 +53,7 @@ namespace ProyectoTeoriaSistemas
         private void btnImpuestos_Click(object sender, EventArgs e)
         {
             SetActiveButton(btnImpuestos);
-            openChildForm(new FImpuestos());
+           // openChildForm(new FImpuestos());
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
