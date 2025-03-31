@@ -73,5 +73,10 @@ namespace ProyectoTeoriaSistemas.finanzasModule
                 MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void filtrar_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -80,6 +80,7 @@
             this.filtrar.TabIndex = 41;
             this.filtrar.Text = "Filtrar";
             this.filtrar.UseVisualStyleBackColor = false;
+            this.filtrar.Click += new System.EventHandler(this.filtrar_Click_1);
             // 
             // label2
             // 
