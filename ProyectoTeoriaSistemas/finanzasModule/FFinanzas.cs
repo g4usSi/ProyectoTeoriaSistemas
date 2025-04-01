@@ -42,14 +42,14 @@ namespace ProyectoTeoriaSistemas
         private void btnIngresos_Click(object sender, EventArgs e)
         {
             SetActiveButton(btnIngresos);
-            openChildForm(new FIngresos());
+            openChildForm(new FIngresos(this._tienda));
 
         }
 
         private void btnEgresos_Click(object sender, EventArgs e)
         {
             SetActiveButton(btnEgresos);
-            openChildForm(new FEgresos());
+            openChildForm(new FEgresos(this._tienda));
         }
 
         private void btnImpuestos_Click(object sender, EventArgs e)

@@ -53,13 +53,12 @@ namespace ProyectoTeoriaSistemas
         {
             FPlanilla planilla = new FPlanilla();
             planilla.Show();
-            // Lógica para button3
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            FFinanzas fFinanzas = new FFinanzas();
-            fFinanzas.Show(this.tienda);
+            FFinanzas fFinanzas = new FFinanzas(tienda);
+            fFinanzas.Show();
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)

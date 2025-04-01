@@ -12,9 +12,11 @@ namespace ProyectoTeoriaSistemas.finanzasModule
 {
     public partial class FEgresos : Form
     {
-        public FEgresos()
+        private Tienda _tienda = null;
+        public FEgresos(Tienda tienda)
         {
             InitializeComponent();
+            _tienda = tienda;
         }
     }
 }
