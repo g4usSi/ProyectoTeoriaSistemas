@@ -28,32 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnAgregarIngreso = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmbBoxAno = new System.Windows.Forms.ComboBox();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(799, 270);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(162, 144);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "button2";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(799, 109);
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(788, 392);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(162, 144);
+            this.button1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 15);
+            this.button1.Size = new System.Drawing.Size(203, 154);
             this.button1.TabIndex = 6;
-            this.button1.Text = "button1";
+            this.button1.Text = "Flujo de efectivo";
             this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button1.UseVisualStyleBackColor = true;
             // 
@@ -62,7 +54,7 @@
             this.btnAgregarIngreso.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarIngreso.Location = new System.Drawing.Point(30, 37);
             this.btnAgregarIngreso.Name = "btnAgregarIngreso";
-            this.btnAgregarIngreso.Size = new System.Drawing.Size(187, 53);
+            this.btnAgregarIngreso.Size = new System.Drawing.Size(222, 53);
             this.btnAgregarIngreso.TabIndex = 5;
             this.btnAgregarIngreso.Text = "Agregar Ingreso";
             this.btnAgregarIngreso.UseVisualStyleBackColor = true;
@@ -70,6 +62,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.Lavender;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(30, 109);
             this.dataGridView1.Name = "dataGridView1";
@@ -78,27 +71,70 @@
             this.dataGridView1.Size = new System.Drawing.Size(740, 437);
             this.dataGridView1.TabIndex = 4;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
+            this.label5.Location = new System.Drawing.Point(783, 110);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 27);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Año:";
+            // 
+            // cmbBoxAno
+            // 
+            this.cmbBoxAno.FormattingEnabled = true;
+            this.cmbBoxAno.Items.AddRange(new object[] {
+            "2024",
+            "2025",
+            "2026",
+            "2027",
+            "2028",
+            "2029",
+            "2030"});
+            this.cmbBoxAno.Location = new System.Drawing.Point(788, 140);
+            this.cmbBoxAno.Name = "cmbBoxAno";
+            this.cmbBoxAno.Size = new System.Drawing.Size(203, 24);
+            this.cmbBoxAno.TabIndex = 18;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(788, 170);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(203, 51);
+            this.button2.TabIndex = 20;
+            this.button2.Text = "Aplicar Filtro";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // FIngresos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(991, 583);
+            this.ClientSize = new System.Drawing.Size(1003, 583);
             this.Controls.Add(this.button2);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cmbBoxAno);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAgregarIngreso);
             this.Controls.Add(this.dataGridView1);
             this.Name = "FIngresos";
             this.Text = "childReporte";
+            this.Load += new System.EventHandler(this.FIngresos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnAgregarIngreso;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cmbBoxAno;
+        private System.Windows.Forms.Button button2;
     }
 }

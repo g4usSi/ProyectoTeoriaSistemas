@@ -1,6 +1,6 @@
 ﻿namespace ProyectoTeoriaSistemas.finanzasModule
 {
-    partial class NIngreso
+    partial class NEgresos
     {
         /// <summary>
         /// Required designer variable.
@@ -46,19 +46,19 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(325, 312);
+            this.btnCancelar.Location = new System.Drawing.Point(325, 322);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(140, 39);
-            this.btnCancelar.TabIndex = 45;
+            this.btnCancelar.TabIndex = 49;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(156, 312);
+            this.btnGuardar.Location = new System.Drawing.Point(156, 322);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(140, 39);
-            this.btnGuardar.TabIndex = 44;
+            this.btnGuardar.TabIndex = 48;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             // 
@@ -74,10 +74,10 @@
             this.groupBox1.Controls.Add(this.txtDescripcion);
             this.groupBox1.Controls.Add(this.txtMonto);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 79);
+            this.groupBox1.Location = new System.Drawing.Point(12, 89);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(590, 205);
-            this.groupBox1.TabIndex = 42;
+            this.groupBox1.TabIndex = 47;
             this.groupBox1.TabStop = false;
             // 
             // label6
@@ -203,14 +203,14 @@
             // 
             this.label1.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gold;
-            this.label1.Location = new System.Drawing.Point(102, 27);
+            this.label1.Location = new System.Drawing.Point(102, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(421, 40);
-            this.label1.TabIndex = 40;
-            this.label1.Text = "Ingreso de Activos";
+            this.label1.TabIndex = 46;
+            this.label1.Text = "Egreso de Activos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // NIngreso
+            // NEgresos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -219,8 +219,8 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
-            this.Name = "NIngreso";
-            this.Text = "NIngreso";
+            this.Name = "NEgresos";
+            this.Text = "NEgresos";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -232,15 +232,15 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cmbBoxAno;
+        private System.Windows.Forms.ComboBox cmbBoxMes;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.TextBox txtMonto;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cmbBoxAno;
-        private System.Windows.Forms.ComboBox cmbBoxMes;
-        private System.Windows.Forms.Label label6;
     }
 }
