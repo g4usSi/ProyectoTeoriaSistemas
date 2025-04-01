@@ -59,7 +59,7 @@ namespace ProyectoTeoriaSistemas
         private void button4_Click(object sender, EventArgs e)
         {
             FFinanzas fFinanzas = new FFinanzas();
-            fFinanzas.Show();
+            fFinanzas.Show(this.tienda);
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)

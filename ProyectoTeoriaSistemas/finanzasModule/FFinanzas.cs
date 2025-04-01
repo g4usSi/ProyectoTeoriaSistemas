@@ -7,6 +7,7 @@ namespace ProyectoTeoriaSistemas
 {
     public partial class FFinanzas : Form
     {
+        private Tienda _tienda = null;
         private Form activeForm = null;
         private Button activeButton = null;
 
@@ -14,9 +15,10 @@ namespace ProyectoTeoriaSistemas
         private Color hoverColor = Color.FromArgb(45, 73, 120);
         private Color selectedColor = Color.FromArgb(60, 100, 160);
 
-        public FFinanzas()
+        public FFinanzas(Tienda tienda)
         {
             InitializeComponent();
+            _tienda = tienda;
         }
 
         // Método para abrir formularios dentro del panel
@@ -53,7 +55,7 @@ namespace ProyectoTeoriaSistemas
         private void btnImpuestos_Click(object sender, EventArgs e)
         {
             SetActiveButton(btnImpuestos);
-           // openChildForm(new FImpuestos());
+            openChildForm(new FImpuestos(this._tienda));
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
