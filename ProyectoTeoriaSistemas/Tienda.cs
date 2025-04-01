@@ -12,10 +12,12 @@ namespace ProyectoTeoriaSistemas
         private List<Venta> historialVentas;
         public Tienda()
         {
-            historialVentas = new List<Venta>();  
+            historialVentas = new List<Venta>();
             AgregarVentasSimuladas();
         }
         public LinkedList<Producto> listaProductos = new LinkedList<Producto>();
+
+        // Agregar productos de ejemplo
         public void AgregarProductos()
         {
             listaProductos.AddLast(new Producto(1, "Base Líquida Mate", "Maybelline", 50, 120.00));
@@ -29,17 +31,39 @@ namespace ProyectoTeoriaSistemas
             listaProductos.AddLast(new Producto(9, "Polvo Compacto Translúcido", "Laura Mercier", 18, 200.00));
             listaProductos.AddLast(new Producto(10, "Bálsamo Labial Hidratante", "EOS", 70, 60.00));
         }
+
+        // Obtener producto por ID
         public Producto ObtenerProducto(int id)
         {
             return listaProductos.FirstOrDefault(p => p.ID == id);
         }
+
+        // Agregar venta
         public void AgregarVenta(Venta venta)
         {
             historialVentas.Add(venta);
         }
+
+        // Obtener todas las ventas
         public List<Venta> ObtenerVentas()
         {
             return historialVentas;
+        }
+
+        // Obtener ingresos filtrados por año y mes
+        public List<Venta> ObtenerIngresosPorFecha(int ano, int mes)
+        {
+            return historialVentas
+                .Where(v => v.Fecha.Year == ano && v.Fecha.Month == mes)
+                .ToList();
+        }
+
+        // Obtener total de ingresos por fecha (año y mes)
+        public double ObtenerTotalIngresosPorFecha(int ano, int mes)
+        {
+            return historialVentas
+                .Where(v => v.Fecha.Year == ano && v.Fecha.Month == mes)
+                .Sum(v => v.TotalVenta);
         }
 
         // VENTAS DE PRUEBA TAMBIEN JALA LAS VENTAS DIRECTAMETE DE FVENTAS
