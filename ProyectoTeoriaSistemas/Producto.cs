@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,10 +14,11 @@ namespace ProyectoTeoriaSistemas
         public string Marca { get; set; }//
         public int Stock { get; set; }//
         public double Precio { get; set; }//
+        public double PrecioCompra { get; set; }//
         public double PrecioVenta { get; set; }//
 
 
-      
+
 
 
         public Producto(int iD, string nombre, string marca, int stock, double precio)
@@ -26,12 +28,16 @@ namespace ProyectoTeoriaSistemas
             Marca = marca;
             Stock = stock;
             Precio = precio;
-            PrecioVenta = 0;
+            PrecioCompra = 0;
             
         }
 
         public Producto()
         {
+        }
+        public void registrarPc(double precio)
+        {
+            PrecioCompra = precio;
         }
 
         public bool DescontarStock(int cantidad)

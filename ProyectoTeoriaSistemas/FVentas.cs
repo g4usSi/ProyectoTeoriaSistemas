@@ -172,6 +172,7 @@ namespace ProyectoTeoriaSistemas
             resumen.AppendLine("------------------------------");
             resumen.AppendLine($"Total: Q{factura.Total:F2}");
             //Aqui se agrega el falseado de la factura
+           
             Venta nuevaVenta = new Venta(txtCliente.Text, factura.Total, factura.Detalles);
             tienda.AgregarVenta(nuevaVenta);
 

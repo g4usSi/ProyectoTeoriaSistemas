@@ -12,20 +12,51 @@ namespace ProyectoTeoriaSistemas
         private List<Venta> historialVentas;
         public PlanillaEmpresa PlanillaEmpresa { get; set; }
         public LinkedList<Producto> listaProductos = new LinkedList<Producto>();
+        public List<Compra> historialCompras = new List<Compra>();
 
         public Tienda()
         {
             historialVentas = new List<Venta>();
-            AgregarVentasSimuladas();
+            
             PlanillaEmpresa = new PlanillaEmpresa();
-            AgregarPlanillasSimuladas();
             AgregarProductos();
+            AgregarPlanillasSimuladas();
+            
+            AgregarComprasSimuladas();
+            AgregarVentasSimuladas();
         }
 
         private void AgregarVentasSimuladas()
-        {
-            // Aquí va el código que ya tienes para cargar ventas simuladas.
+        {      // Simular ventas en enero 2025
+            historialVentas.Add(new Venta("Cliente A", 100, new List<DetalleFactura> { new DetalleFactura(new Producto(1, "Base Líquida Mate", "Maybelline", 50, 120.00), 2) }) { Fecha = new DateTime(2025, 1, 5) });
+            historialVentas.Add(new Venta("Cliente B", 150, new List<DetalleFactura> { new DetalleFactura(new Producto(3, "Máscara de Pestañas", "L'Oréal", 40, 90.00), 3) }) { Fecha = new DateTime(2025, 1, 5) });
+            historialVentas.Add(new Venta("Cliente C", 180, new List<DetalleFactura> { new DetalleFactura(new Producto(6, "Labial Mate", "NYX", 35, 85.00), 2) }) { Fecha = new DateTime(2025, 1, 6) });
+            historialVentas.Add(new Venta("Cliente D", 220, new List<DetalleFactura> { new DetalleFactura(new Producto(4, "Sombra de Ojos", "Urban Decay", 20, 220.00), 1) }) { Fecha = new DateTime(2025, 1, 7) });
+            historialVentas.Add(new Venta("Cliente E", 250, new List<DetalleFactura> { new DetalleFactura(new Producto(8, "Iluminador", "Becca", 15, 180.00), 5) }) { Fecha = new DateTime(2025, 1, 8) });
+            historialVentas.Add(new Venta("Cliente F", 400, new List<DetalleFactura> { new DetalleFactura(new Producto(9, "Polvo Translúcido", "Laura Mercier", 18, 200.00), 2) }) { Fecha = new DateTime(2025, 1, 15) });
+            historialVentas.Add(new Venta("Cliente G", 120, new List<DetalleFactura> { new DetalleFactura(new Producto(1, "Base Líquida Mate", "Maybelline", 50, 120.00), 3) }) { Fecha = new DateTime(2025, 1, 10) });
+            historialVentas.Add(new Venta("Cliente H", 180, new List<DetalleFactura> { new DetalleFactura(new Producto(3, "Máscara de Pestañas", "L'Oréal", 40, 90.00), 2) }) { Fecha = new DateTime(2025, 1, 12) });
+            historialVentas.Add(new Venta("Cliente I", 300, new List<DetalleFactura> { new DetalleFactura(new Producto(6, "Labial Mate", "NYX", 35, 85.00), 4) }) { Fecha = new DateTime(2025, 1, 18) });
+            historialVentas.Add(new Venta("Cliente J", 220, new List<DetalleFactura> { new DetalleFactura(new Producto(4, "Sombra de Ojos", "Urban Decay", 20, 220.00), 1) }) { Fecha = new DateTime(2025, 1, 20) });
+            historialVentas.Add(new Venta("Cliente K", 500, new List<DetalleFactura> { new DetalleFactura(new Producto(8, "Iluminador", "Becca", 15, 180.00), 5) }) { Fecha = new DateTime(2025, 1, 22) });
+            historialVentas.Add(new Venta("Cliente L", 600, new List<DetalleFactura> { new DetalleFactura(new Producto(9, "Polvo Translúcido", "Laura Mercier", 18, 200.00), 3) }) { Fecha = new DateTime(2025, 1, 25) });
+            
         }
+        private void AgregarComprasSimuladas()
+        {
+            historialCompras.Add(new Compra("Proveedor X", new Producto(1, "Base Líquida Mate", "Maybelline", 20, 84.00), 16, 84.00) { Fecha = new DateTime(2025, 1, 1) });
+            historialCompras.Add(new Compra("Proveedor Y", new Producto(3, "Máscara de Pestañas", "L'Oréal", 30, 63.00), 19, 63.00) { Fecha = new DateTime(2025, 1, 1) });
+            historialCompras.Add(new Compra("Proveedor Z", new Producto(6, "Labial Mate", "NYX", 30, 59.50), 16, 59.50) { Fecha = new DateTime(2025, 1, 1) });
+            historialCompras.Add(new Compra("Proveedor X", new Producto(4, "Sombra de Ojos", "Urban Decay", 20, 154.00), 14, 154.00) { Fecha = new DateTime(2025, 1, 1) });
+            historialCompras.Add(new Compra("Proveedor Y", new Producto(8, "Iluminador", "Becca", 20, 126.00), 25, 126.00) { Fecha = new DateTime(2025, 1, 8) });
+            historialCompras.Add(new Compra("Proveedor Z", new Producto(9, "Polvo Translúcido", "Laura Mercier", 50, 140.00), 16, 140.00) { Fecha = new DateTime(2025, 1, 1) });
+
+        }
+
+
+       
+
+
         public void AgregarProductos()
         {
             listaProductos.AddLast(new Producto(1, "Base Líquida Mate", "Maybelline", 50, 120.00));
@@ -39,6 +70,51 @@ namespace ProyectoTeoriaSistemas
             listaProductos.AddLast(new Producto(9, "Polvo Compacto Translúcido", "Laura Mercier", 18, 200.00));
             listaProductos.AddLast(new Producto(10, "Bálsamo Labial Hidratante", "EOS", 70, 60.00));
         }
+        public double CalcularCostoVentas()
+        {
+            // Paso 1: Inventario Inicial
+            double inventarioInicial = listaProductos.Sum(p => p.Stock * p.PrecioCompra);
+
+            // Paso 2: Compras realizadas
+            double comprasTotales = historialCompras.Sum(c => c.Cantidad * c.PrecioCompra);
+
+            // Paso 3: Restamos las ventas del inventario
+            foreach (var venta in historialVentas)
+            {
+                if (venta?.Detalles == null)
+                {
+                    continue; // Si no hay detalles de la venta, saltamos
+                }
+
+                foreach (var detalle in venta.Detalles)
+                {
+                    if (detalle?.Producto == null)
+                    {
+                        continue; // Si no hay producto, saltamos
+                    }
+
+                    var producto = listaProductos.FirstOrDefault(p => p.ID == detalle.Producto.ID);
+                    if (producto != null)
+                    {
+                        producto.Stock -= detalle.Cantidad; // Actualizamos el stock restando la cantidad vendida
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Producto con ID {detalle.Producto.ID} no encontrado en el inventario.");
+                    }
+                }
+            }
+
+            // Paso 4: Inventario Final
+            double inventarioFinal = listaProductos.Sum(p => p.Stock * p.PrecioCompra);
+
+            // Paso 5: Calcular Costo de Ventas
+            double costoVentas = inventarioInicial + comprasTotales - inventarioFinal;
+
+            return costoVentas;
+        }
+
+
 
 
         /// <summary>

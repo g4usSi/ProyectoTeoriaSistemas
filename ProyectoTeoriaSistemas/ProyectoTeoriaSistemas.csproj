@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodigoFuente\Compra.cs" />
     <Compile Include="CodigoFuente\FGestionProveedores.cs">
       <SubType>Form</SubType>
     </Compile>

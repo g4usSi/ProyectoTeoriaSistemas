@@ -13,13 +13,13 @@ namespace ProyectoTeoriaSistemas
         public string Cliente { get; set; }
         public double TotalVenta { get; set; }
         public List<DetalleFactura> Detalles { get; set; }
-
+        //public Venta(string cliente, double totalVenta, List<DetalleFactura> detalles)
         public Venta(string cliente, double totalVenta, List<DetalleFactura> detalles)
         {
             Fecha = DateTime.Now;
             Cliente = cliente;
             TotalVenta = totalVenta;
-            Detalles = detalles;
+           // Detalles = detalles;
         }
     }
 
