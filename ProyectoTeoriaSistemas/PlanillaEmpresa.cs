@@ -1,29 +1,31 @@
-﻿using ProyectoTeoriaSistemas.CodigoFuente;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-//using ProyectoTeoriaSistemas.CodigoFuente;
 
-//Estas son las planillas, que se mostraran en el DataGrid, supongo que realmente deberian guardarse en el SQL...
 namespace ProyectoTeoriaSistemas
 {
-    class PlanillaEmpresa
+    public class PlanillaEmpresa
     {
-        //public List<Trabajador> Empleados = new List<Trabajador>();
-        List<Planilla> PlanillasEmpleados = new List<Planilla>();
+        // Lista que almacena todas las planillas
+        public List<ProyectoTeoriaSistemas.CodigoFuente.Planilla> PlanillasEmpleados = new List<ProyectoTeoriaSistemas.CodigoFuente.Planilla>();
 
-        // Agregar empleado a la planilla
-        public void AgregarTrabajador(Planilla trabajador)
+        // Agregar planilla a la lista
+        public void AgregarTrabajador(ProyectoTeoriaSistemas.CodigoFuente.Planilla trabajador)
         {
             PlanillasEmpleados.Add(trabajador);
         }
 
-        // Totales generales de la planilla
+        // Totales generales
         public decimal TotalDevengado => PlanillasEmpleados.Sum(emp => emp.TotalDevengado);
         public decimal TotalDescuentos => PlanillasEmpleados.Sum(emp => emp.TotalDescuentos);
         public decimal TotalSueldoNeto => PlanillasEmpleados.Sum(emp => emp.SueldoNeto);
+
+        // Método para obtener el total de la planilla (por ejemplo, del sueldo neto) para un año y mes específicos.
+        public decimal ObtenerTotalPlanillaMes(int año, int mes)
+        {
+            return PlanillasEmpleados
+                        .Where(p => p.Fecha.Year == año && p.Fecha.Month == mes)
+                        .Sum(p => p.SueldoNeto);
+        }
     }
 }
-

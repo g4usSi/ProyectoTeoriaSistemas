@@ -10,14 +10,22 @@ namespace ProyectoTeoriaSistemas
     public class Tienda
     {
         private List<Venta> historialVentas;
+        public PlanillaEmpresa PlanillaEmpresa { get; set; }
+        public LinkedList<Producto> listaProductos = new LinkedList<Producto>();
+
         public Tienda()
         {
             historialVentas = new List<Venta>();
             AgregarVentasSimuladas();
+            PlanillaEmpresa = new PlanillaEmpresa();
+            AgregarPlanillasSimuladas();
+            AgregarProductos();
         }
-        public LinkedList<Producto> listaProductos = new LinkedList<Producto>();
 
-        // Agregar productos de ejemplo
+        private void AgregarVentasSimuladas()
+        {
+            // Aquí va el código que ya tienes para cargar ventas simuladas.
+        }
         public void AgregarProductos()
         {
             listaProductos.AddLast(new Producto(1, "Base Líquida Mate", "Maybelline", 50, 120.00));
@@ -32,25 +40,62 @@ namespace ProyectoTeoriaSistemas
             listaProductos.AddLast(new Producto(10, "Bálsamo Labial Hidratante", "EOS", 70, 60.00));
         }
 
-        // Obtener producto por ID
+
+        /// <summary>
+        /// Agrega planillas predeterminadas (simuladas) para poder usarlas cuando se muestre el resumen.
+        /// </summary>
+        private void AgregarPlanillasSimuladas()
+        {
+            // Simular planilla para Enero de 2025
+            var planilla1 = new Planilla
+            {
+                IDPlanilla = 1,
+                Empleado = new EmpleadoDatos { Nombre = "Resumen de Empleados" },
+                SueldoOrdinario = 5000m,
+                HorasExtras = 10,
+                Comisiones = 300m,
+                Bonificaciones = 200m,
+                IGSS = 300m,
+                Prestamos = 100m,
+                Nombre = "Planilla Enero 2025",
+                Cargo = "N/A",
+                Fecha = new DateTime(2025, 1, 1)
+            };
+
+            // Simular planilla para Marzo de 2024
+            var planilla2 = new Planilla
+            {
+                IDPlanilla = 2,
+                Empleado = new EmpleadoDatos { Nombre = "Resumen de Empleados" },
+                SueldoOrdinario = 6000m,
+                HorasExtras = 8,
+                Comisiones = 250m,
+                Bonificaciones = 180m,
+                IGSS = 350m,
+                Prestamos = 150m,
+                Nombre = "Planilla Marzo 2024",
+                Cargo = "N/A",
+                Fecha = new DateTime(2024, 3, 1)
+            };
+
+            // Agregar las planillas predeterminadas al objeto PlanillaEmpresa
+            PlanillaEmpresa.AgregarTrabajador(planilla1);
+            PlanillaEmpresa.AgregarTrabajador(planilla2);
+        }
+
+        // Métodos para obtener ventas (para ingresos)
         public Producto ObtenerProducto(int id)
         {
             return listaProductos.FirstOrDefault(p => p.ID == id);
         }
 
-        // Agregar venta
         public void AgregarVenta(Venta venta)
         {
             historialVentas.Add(venta);
         }
 
-        // Obtener todas las ventas
-        public List<Venta> ObtenerVentas()
-        {
-            return historialVentas;
-        }
+        public List<Venta> ObtenerVentas() => historialVentas;
 
-        // Obtener ingresos filtrados por año y mes
         public List<Venta> ObtenerIngresosPorFecha(int ano, int mes)
         {
             return historialVentas
@@ -58,7 +103,6 @@ namespace ProyectoTeoriaSistemas
                 .ToList();
         }
 
-        // Obtener total de ingresos por fecha (año y mes)
         public double ObtenerTotalIngresosPorFecha(int ano, int mes)
         {
             return historialVentas
@@ -66,25 +110,24 @@ namespace ProyectoTeoriaSistemas
                 .Sum(v => v.TotalVenta);
         }
 
-        // VENTAS DE PRUEBA TAMBIEN JALA LAS VENTAS DIRECTAMETE DE FVENTAS
-        private void AgregarVentasSimuladas()
-        {
-            // Simular ventas en enero de 2025
-            historialVentas.Add(new Venta("Cliente A", 300, new List<DetalleFactura> { new DetalleFactura(new Producto(1, "Base Líquida Mate", "Maybelline", 50, 120.00), 2) }) { Fecha = new DateTime(2025, 1, 5) });
-            historialVentas.Add(new Venta("Cliente B", 450, new List<DetalleFactura> { new DetalleFactura(new Producto(3, "Máscara de Pestañas", "L'Oréal", 40, 90.00), 3) }) { Fecha = new DateTime(2025, 1, 10) });
-            historialVentas.Add(new Venta("Cliente C", 250, new List<DetalleFactura> { new DetalleFactura(new Producto(6, "Labial Mate", "NYX", 35, 85.00), 2) }) { Fecha = new DateTime(2025, 1, 15) });
-            historialVentas.Add(new Venta("Cliente D", 600, new List<DetalleFactura> { new DetalleFactura(new Producto(4, "Sombra de Ojos", "Urban Decay", 20, 220.00), 1) }) { Fecha = new DateTime(2025, 1, 20) });
-            historialVentas.Add(new Venta("Cliente E", 1000, new List<DetalleFactura> { new DetalleFactura(new Producto(8, "Iluminador", "Becca", 15, 180.00), 5) }) { Fecha = new DateTime(2025, 1, 25) });
-            historialVentas.Add(new Venta("Cliente F", 720, new List<DetalleFactura> { new DetalleFactura(new Producto(9, "Polvo Translúcido", "Laura Mercier", 18, 200.00), 2) }) { Fecha = new DateTime(2025, 1, 30) });
+    }
 
-            // Simular ventas en marzo de 2024
-            historialVentas.Add(new Venta("Cliente G", 400, new List<DetalleFactura> { new DetalleFactura(new Producto(2, "Rubor", "NARS", 30, 150.00), 1) }) { Fecha = new DateTime(2024, 3, 2) });
-            historialVentas.Add(new Venta("Cliente H", 600, new List<DetalleFactura> { new DetalleFactura(new Producto(5, "Delineador", "Kat Von D", 60, 110.00), 3) }) { Fecha = new DateTime(2024, 3, 6) });
-            historialVentas.Add(new Venta("Cliente I", 800, new List<DetalleFactura> { new DetalleFactura(new Producto(7, "Corrector", "Tarte", 25, 130.00), 4) }) { Fecha = new DateTime(2024, 3, 10) });
-            historialVentas.Add(new Venta("Cliente J", 200, new List<DetalleFactura> { new DetalleFactura(new Producto(10, "Bálsamo Labial", "EOS", 70, 60.00), 2) }) { Fecha = new DateTime(2024, 3, 15) });
-            historialVentas.Add(new Venta("Cliente K", 900, new List<DetalleFactura> { new DetalleFactura(new Producto(1, "Base Líquida", "Maybelline", 50, 120.00), 3) }) { Fecha = new DateTime(2024, 3, 20) });
-            historialVentas.Add(new Venta("Cliente L", 500, new List<DetalleFactura> { new DetalleFactura(new Producto(6, "Labial Mate", "NYX", 35, 85.00), 3) }) { Fecha = new DateTime(2024, 3, 25) });
-            historialVentas.Add(new Venta("Cliente M", 700, new List<DetalleFactura> { new DetalleFactura(new Producto(4, "Sombra de Ojos", "Urban Decay", 20, 220.00), 2) }) { Fecha = new DateTime(2024, 3, 28) });
+    /// <summary>
+    /// Esta clase es una representación simplificada para mostrar en el DataGrid de egresos.
+    /// Solo incluye la fecha, el total (suma de sueldo neto u otro campo que determines) y una descripción.
+    /// </summary>
+    public class ResumenPlanilla
+    {
+        public DateTime Fecha { get; set; }
+        public decimal Total { get; set; }
+        public string Descripcion { get; set; }
+
+        public static decimal CalcularTotalPlanillasPorFecha(List<ProyectoTeoriaSistemas.CodigoFuente.Planilla> planillas, int año, int mes)
+        {
+            return planillas
+                .Where(p => p.Fecha.Year == año && p.Fecha.Month == mes)
+                .Sum(p => p.SueldoNeto);
         }
+
     }
 }

@@ -1,51 +1,33 @@
 ﻿using System;
 
 namespace ProyectoTeoriaSistemas.CodigoFuente
-{    // Esta es la clase que tienes que usar 
+{
     public class Planilla
     {
-        //Este objeto solo almacena los datos de los empleados, para acceder a el,
-        //tienes que llamar sus atributos, no se si esta bien en la clase estatica
-        public EmpleadoDatos Empleado { get; set; }//no la jalo
-        public int IDPlanilla { get; set; } //esta es la llave primaria de esta cosa
+        public EmpleadoDatos Empleado { get; set; }
+        public int IDPlanilla { get; set; }
         public decimal SueldoOrdinario { get; set; }
         public int HorasExtras { get; set; }
         public decimal Comisiones { get; set; }
         public decimal Bonificaciones { get; set; }
         public decimal IGSS { get; set; }
         public decimal Prestamos { get; set; }
-        public string Nombre { get; set; }  // ver si jala asi recordar que este nombre, se lo mando cuando envie los datos en el query 
-        public string Cargo { get; set; } // ver si jala asi
-
-
+        public string Nombre { get; set; }  // Por ejemplo: "Planilla Enero 2025"
+        public string Cargo { get; set; }   // Puede quedar en "N/A" para el resumen
 
         public decimal SueldoNetoCalculado { get; set; }
 
-
-
-
+        // Agregamos la propiedad Fecha para saber a qué mes pertenece la planilla.
+        public DateTime Fecha { get; set; }
 
         public decimal PagoHorasExtras => (SueldoOrdinario / 160) * 1.5m * HorasExtras;
         public decimal TotalDevengado => SueldoOrdinario + PagoHorasExtras + Comisiones + Bonificaciones;
         public decimal TotalDescuentos => IGSS + Prestamos;
         public decimal SueldoNeto => TotalDevengado - TotalDescuentos;
 
-        public decimal GetSueldoNeto()
-        {
-            return TotalDevengado - TotalDescuentos;
-        }
+        public decimal GetSueldoNeto() => SueldoNeto;
 
-        
-
-        public string retornarNombre(EmpleadoDatos empleadoConvertir)
-        {
-            return empleadoConvertir.Nombre;
-        }
-
-
-
-
-
+        public string retornarNombre(EmpleadoDatos empleadoConvertir) => empleadoConvertir.Nombre;
     }
 
     public class EmpleadoDatos

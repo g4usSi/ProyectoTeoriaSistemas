@@ -50,7 +50,6 @@ namespace ProyectoTeoriaSistemas.finanzasModule
             }
 
             int anoSeleccionado = int.Parse(cmbBoxAno.SelectedItem.ToString());
-            // Usar SelectedIndex + 1 para obtener el número de mes correcto
             int mesSeleccionado = cmbBoxMes.SelectedIndex + 1;
 
             var ventasFiltradas = _tienda.ObtenerIngresosPorFecha(anoSeleccionado, mesSeleccionado)
@@ -70,7 +69,6 @@ namespace ProyectoTeoriaSistemas.finanzasModule
         // Método que se ejecutará cuando se haga clic en el botón de agregar un nuevo ingreso (venta)
         private void btnAgregarIngreso_Click(object sender, EventArgs e)
         {
-            // Abre el formulario para agregar un nuevo ingreso
             NIngreso nIngreso = new NIngreso(_tienda);
             nIngreso.Show();
         }
@@ -78,23 +76,19 @@ namespace ProyectoTeoriaSistemas.finanzasModule
         // Método para llenar el ComboBox de Mes con los meses del año
         private void LlenarComboBoxAno()
         {
-            // Limpiar cualquier elemento previo
             cmbBoxAno.Items.Clear();
 
-            // Obtener los años únicos en que se realizaron ventas basadas en las facturas
             var years = _tienda.ObtenerVentas()
                                .Select(v => v.Fecha.Year)
                                .Distinct()
                                .OrderByDescending(y => y)
                                .ToList();
 
-            // Si por alguna razón no hay ventas (lista vacía), se usa el año actual por defecto
             if (!years.Any())
             {
                 years.Add(DateTime.Now.Year);
             }
 
-            // Agregar los años obtenidos al ComboBox
             foreach (int year in years)
             {
                 cmbBoxAno.Items.Add(year);
