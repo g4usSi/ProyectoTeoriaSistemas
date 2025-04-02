@@ -96,10 +96,10 @@ namespace ProyectoTeoriaSistemas.finanzasModule
         /// </summary>
         private void btnAgregarIngreso_Click(object sender, EventArgs e)
         {
-            // Aquí se puede abrir un formulario para agregar un nuevo egreso o planilla.
-            // Por ejemplo:
-            // NIngreso nIngreso = new NIngreso(_tienda);
-            // nIngreso.Show();
+            NIngreso nIngreso = new NIngreso(_tienda);
+            nIngreso.Show();
+
+
         }
     }
 }
