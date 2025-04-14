@@ -83,10 +83,10 @@
     <Compile Include="rhModule\Empleado.Designer.cs">
       <DependentUpon>Empleado.cs</DependentUpon>
     </Compile>
-    <Compile Include="FArticulo.cs">
+    <Compile Include="ventasModule\FArticulo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FArticulo.Designer.cs">
+    <Compile Include="ventasModule\FArticulo.Designer.cs">
       <DependentUpon>FArticulo.cs</DependentUpon>
     </Compile>
     <Compile Include="finanzasModule\FEgresos.cs">
@@ -137,10 +137,10 @@
     <Compile Include="inventarioModule\FInventario.Designer.cs">
       <DependentUpon>FInventario.cs</DependentUpon>
     </Compile>
-    <Compile Include="FProducto.cs">
+    <Compile Include="ventasModule\FProducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FProducto.Designer.cs">
+    <Compile Include="ventasModule\FProducto.Designer.cs">
       <DependentUpon>FProducto.cs</DependentUpon>
     </Compile>
     <Compile Include="inventarioModule\FrmAgregarProveedor.cs">
@@ -149,10 +149,10 @@
     <Compile Include="inventarioModule\FrmAgregarProveedor.Designer.cs">
       <DependentUpon>FrmAgregarProveedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="FVentas.cs">
+    <Compile Include="ventasModule\FVentas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FVentas.Designer.cs">
+    <Compile Include="ventasModule\FVentas.Designer.cs">
       <DependentUpon>FVentas.cs</DependentUpon>
     </Compile>
     <Compile Include="MenuPrincipal.cs">
@@ -182,7 +182,7 @@
     <EmbeddedResource Include="rhModule\Empleado.resx">
       <DependentUpon>Empleado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FArticulo.resx">
+    <EmbeddedResource Include="ventasModule\FArticulo.resx">
       <DependentUpon>FArticulo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="finanzasModule\FEgresos.resx">
@@ -209,13 +209,13 @@
     <EmbeddedResource Include="inventarioModule\FInventario.resx">
       <DependentUpon>FInventario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FProducto.resx">
+    <EmbeddedResource Include="ventasModule\FProducto.resx">
       <DependentUpon>FProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="inventarioModule\FrmAgregarProveedor.resx">
       <DependentUpon>FrmAgregarProveedor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FVentas.resx">
+    <EmbeddedResource Include="ventasModule\FVentas.resx">
       <DependentUpon>FVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuPrincipal.resx">
