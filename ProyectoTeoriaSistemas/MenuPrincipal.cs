@@ -14,7 +14,7 @@ namespace ProyectoTeoriaSistemas
     public partial class MenuPrincipal : Form
     {
         private Timer timer;
-        public MenuPrincipal(Tienda tienda)
+        public MenuPrincipal()
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;

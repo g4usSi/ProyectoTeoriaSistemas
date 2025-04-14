@@ -8,22 +8,20 @@ namespace ProyectoTeoriaSistemas.Forms
 {
     public class FormFactura : Form
     {
-        private Tienda tienda;
         private Factura factura;
 
-        private ComboBox comboProductos;
+        // ComboBox comboProductos; // Comentado temporalmente
         private NumericUpDown numCantidad;
         private Button btnAgregar;
         private DataGridView dgvFactura;
         private Label lblTotal;
 
-        public FormFactura(Tienda tienda)
+        public FormFactura()
         {
-            this.tienda = tienda;
             this.factura = new Factura(1);  // Se crea una nueva factura con ID 1
 
             InicializarComponentes();
-            CargarProductos();
+            // CargarProductos(); // Comentado temporalmente
         }
 
         private void InicializarComponentes()
@@ -31,16 +29,16 @@ namespace ProyectoTeoriaSistemas.Forms
             this.Text = "Factura de Compra";
             this.Size = new System.Drawing.Size(500, 400);
 
-            // ComboBox para seleccionar productos
-            comboProductos = new ComboBox() { Left = 20, Top = 20, Width = 200 };
-            this.Controls.Add(comboProductos);
+            // ComboBox para seleccionar productos (comentado)
+            // comboProductos = new ComboBox() { Left = 20, Top = 20, Width = 200 };
+            // this.Controls.Add(comboProductos);
 
             // NumericUpDown para seleccionar la cantidad
-            numCantidad = new NumericUpDown() { Left = 230, Top = 20, Width = 80, Minimum = 1, Maximum = 100 };
+            numCantidad = new NumericUpDown() { Left = 20, Top = 20, Width = 80, Minimum = 1, Maximum = 100 };
             this.Controls.Add(numCantidad);
 
             // Botón para agregar productos a la factura
-            btnAgregar = new Button() { Left = 320, Top = 20, Width = 100, Text = "Agregar" };
+            btnAgregar = new Button() { Left = 110, Top = 20, Width = 100, Text = "Agregar" };
             btnAgregar.Click += BtnAgregar_Click;
             this.Controls.Add(btnAgregar);
 
@@ -71,6 +69,8 @@ namespace ProyectoTeoriaSistemas.Forms
             dgvFactura.Columns.Add("Subtotal", "Subtotal");
         }
 
+        /*
+        // Método para cargar productos en el ComboBox (comentado)
         private void CargarProductos()
         {
             comboProductos.Items.Clear();
@@ -81,18 +81,23 @@ namespace ProyectoTeoriaSistemas.Forms
             if (comboProductos.Items.Count > 0)
                 comboProductos.SelectedIndex = 0;
         }
+        */
 
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
-            if (comboProductos.SelectedIndex == -1) return;
+            // if (comboProductos.SelectedIndex == -1) return;
 
-            string seleccion = comboProductos.SelectedItem.ToString();
-            int idProducto = int.Parse(seleccion.Split('-')[0].Trim());
+            // string seleccion = comboProductos.SelectedItem.ToString();
+            // int idProducto = int.Parse(seleccion.Split('-')[0].Trim());
+
+            // Para prueba sin comboProductos, creamos un producto de prueba
+            Producto productoDummy = new Producto(1, "Producto de prueba", "Generiica", 25, 30.99);
+
             int cantidad = (int)numCantidad.Value;
 
             try
             {
-                factura.AgregarProducto(tienda, idProducto, cantidad);
+                factura.AgregarDetalle(productoDummy, cantidad);
                 ActualizarFactura();
             }
             catch (Exception ex)

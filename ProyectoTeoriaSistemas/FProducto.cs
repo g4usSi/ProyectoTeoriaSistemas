@@ -14,11 +14,9 @@ namespace ProyectoTeoriaSistemas
 {
     public partial class FProducto : Form
     {
-        Tienda tienda;
-        public FProducto(Tienda tienda)
+        public FProducto()
         {
             InitializeComponent();
-            this.tienda = tienda;
             CargarProductosEnGrid();
 
         }
@@ -73,12 +71,12 @@ namespace ProyectoTeoriaSistemas
         (textPrecio, "Precio")
             };
 
-            
             foreach (var (campo, nombre) in campos)
+            {
                 if (string.IsNullOrWhiteSpace(campo.Text))
                     errores.Add($"⚠ El campo {nombre} es obligatorio.");
+            }
 
-         
             if (!int.TryParse(textId.Text, out int id))
                 errores.Add("⚠ El ID debe ser un número válido.");
             if (!int.TryParse(textCantidad.Text, out int cantidad))
@@ -86,7 +84,6 @@ namespace ProyectoTeoriaSistemas
             if (!double.TryParse(textPrecio.Text, out double precio))
                 errores.Add("⚠ El precio debe ser un número válido.");
 
-           
             if (errores.Any())
             {
                 MessageBox.Show(string.Join("\n", errores), "Revisión de Datos ❗",
@@ -94,22 +91,32 @@ namespace ProyectoTeoriaSistemas
                 return;
             }
 
-            // Asegurar que la instancia de tienda existe
-            if (tienda == null)
+            // Aquí podrías guardar en base de datos si deseas aprovechar el código viejo
+            Producto nuevoProducto = new Producto()
             {
-                MessageBox.Show("⚠ Error: No se encontró la instancia de la tienda.", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                ID = id, // Asegúrate de que el constructor lo permita o que no sea autoincremental
+                Nombre = textNombre.Text,
+                Marca = textMarca.Text,
+                Stock = cantidad,
+                Precio = (float)precio,
+                PrecioVenta = 0 // podrías permitir ingresarlo también si deseas
+            };
+
+            bool guardado = ProductoLogica.Instancia.Guardar(nuevoProducto);
+
+            if (guardado)
+            {
+                MessageBox.Show("✅ Producto agregado exitosamente.", "Éxito",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                mostrar_Articulo();
             }
-
-            
-            var nuevoProducto = new Producto(id, textNombre.Text, textMarca.Text, cantidad, precio);
-            tienda.listaProductos.AddLast(nuevoProducto);
-
-            MessageBox.Show("✅ Producto agregado exitosamente.", "Éxito",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-            CargarProductosEnGrid();
+            else
+            {
+                MessageBox.Show("❌ No se pudo guardar el producto.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
 
         private void CargarProductosEnGrid()
