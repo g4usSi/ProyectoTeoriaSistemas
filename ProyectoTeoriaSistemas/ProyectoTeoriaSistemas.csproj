@@ -54,33 +54,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CodigoFuente\FGestionProveedores.cs">
+    <Compile Include="inventarioModule\FGestionProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CodigoFuente\FGestionProveedores.Designer.cs">
+    <Compile Include="inventarioModule\FGestionProveedores.Designer.cs">
       <DependentUpon>FGestionProveedores.cs</DependentUpon>
     </Compile>
-    <Compile Include="CodigoFuente\PlanillaLogica.cs" />
+    <Compile Include="rhModule\PlanillaLogica.cs" />
     <Compile Include="CodigoFuente\DetalleFactura.cs" />
     <Compile Include="CodigoFuente\EmpleadoData.cs" />
-    <Compile Include="CodigoFuente\Factura.cs" />
-    <Compile Include="CodigoFuente\FormFactura.cs">
+    <Compile Include="ventasModule\Factura.cs" />
+    <Compile Include="ventasModule\FormFactura.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CodigoFuente\FPlanilla.cs">
+    <Compile Include="rhModule\FPlanilla.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CodigoFuente\FPlanilla.Designer.cs">
+    <Compile Include="rhModule\FPlanilla.Designer.cs">
       <DependentUpon>FPlanilla.cs</DependentUpon>
     </Compile>
-    <Compile Include="CodigoFuente\Planilla.cs" />
+    <Compile Include="rhModule\Planilla.cs" />
     <Compile Include="CodigoFuente\ProductoLogica.cs" />
     <Compile Include="CodigoFuente\Proveedor.cs" />
-    <Compile Include="CodigoFuente\Recibo.cs" />
-    <Compile Include="Empleado.cs">
+    <Compile Include="ventasModule\Recibo.cs" />
+    <Compile Include="rhModule\Empleado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Empleado.Designer.cs">
+    <Compile Include="rhModule\Empleado.Designer.cs">
       <DependentUpon>Empleado.cs</DependentUpon>
     </Compile>
     <Compile Include="FArticulo.cs">
@@ -131,10 +131,10 @@
     <Compile Include="finanzasModule\NIngreso.Designer.cs">
       <DependentUpon>NIngreso.cs</DependentUpon>
     </Compile>
-    <Compile Include="FInventario.cs">
+    <Compile Include="inventarioModule\FInventario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FInventario.Designer.cs">
+    <Compile Include="inventarioModule\FInventario.Designer.cs">
       <DependentUpon>FInventario.cs</DependentUpon>
     </Compile>
     <Compile Include="FProducto.cs">
@@ -161,12 +161,11 @@
     <Compile Include="MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="PlanillaEmpresa.cs" />
-    <Compile Include="Producto.cs" />
+    <Compile Include="rhModule\PlanillaEmpresa.cs" />
+    <Compile Include="inventarioModule\Producto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoundedTextBoxHelper.cs" />
-    <Compile Include="Tienda.cs" />
     <Compile Include="UserControl1.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -174,13 +173,13 @@
       <DependentUpon>UserControl1.cs</DependentUpon>
     </Compile>
     <Compile Include="Venta.cs" />
-    <EmbeddedResource Include="CodigoFuente\FGestionProveedores.resx">
+    <EmbeddedResource Include="inventarioModule\FGestionProveedores.resx">
       <DependentUpon>FGestionProveedores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CodigoFuente\FPlanilla.resx">
+    <EmbeddedResource Include="rhModule\FPlanilla.resx">
       <DependentUpon>FPlanilla.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Empleado.resx">
+    <EmbeddedResource Include="rhModule\Empleado.resx">
       <DependentUpon>Empleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FArticulo.resx">
@@ -207,7 +206,7 @@
     <EmbeddedResource Include="finanzasModule\NIngreso.resx">
       <DependentUpon>NIngreso.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FInventario.resx">
+    <EmbeddedResource Include="inventarioModule\FInventario.resx">
       <DependentUpon>FInventario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FProducto.resx">

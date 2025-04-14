@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Printing;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using ProyectoTeoriaSistemas;
@@ -12,15 +11,13 @@ namespace ProyectoTeoriaSistemas
     public partial class FVentas : Form
     {
         private Factura factura;
-        private Tienda tienda;
-        private static int FacturaContador = 1000;  // Se inicia en 1000 por ejemplo, puedes poner otro valor
+        private static int FacturaContador = 1000;
         private PrintDocument printDocument = new PrintDocument();
         private PrintPreviewDialog printPreviewDialog = new PrintPreviewDialog();
 
-
-        public FVentas(Tienda tienda)
+        public FVentas()
         {
-            this.tienda = tienda;
+            //Aun hay que corregir Facturas
             this.factura = new Factura(1);
 
             InitializeComponent();
@@ -31,6 +28,7 @@ namespace ProyectoTeoriaSistemas
 
             printDocument.PrintPage += PrintDocument_PrintPage;
         }
+
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -41,8 +39,6 @@ namespace ProyectoTeoriaSistemas
 
             g.DrawString("Factura de Venta", font, Brushes.Black, x, y);
             y += lineHeight;
-
-
             g.DrawString($"Fecha: {txtFecha.Text}", font, Brushes.Black, x, y);
             y += lineHeight;
             g.DrawString($"Cliente: {txtCliente.Text}", font, Brushes.Black, x, y);
@@ -51,7 +47,6 @@ namespace ProyectoTeoriaSistemas
             y += lineHeight;
             g.DrawString($"Factura No: {txtNumeroFactura.Text}", font, Brushes.Black, x, y);
             y += lineHeight;
-
             g.DrawString("------------------------------", font, Brushes.Black, x, y);
             y += lineHeight;
 
@@ -63,7 +58,6 @@ namespace ProyectoTeoriaSistemas
 
             g.DrawString("------------------------------", font, Brushes.Black, x, y);
             y += lineHeight;
-
             g.DrawString($"Total: Q{factura.Total:F2}", font, Brushes.Black, x, y);
         }
 
@@ -75,46 +69,45 @@ namespace ProyectoTeoriaSistemas
         private void CargarProductos()
         {
             comboDatos.Items.Clear();
+            /* Aqui se debe iterar, productos en la base de datos
             foreach (var producto in tienda.listaProductos)
             {
                 comboDatos.Items.Add($"{producto.ID} - {producto.Nombre} (Q{producto.Precio})");
             }
             if (comboDatos.Items.Count > 0)
                 comboDatos.SelectedIndex = 0;
+            */
         }
 
         private void MostrarFacturaEnTabla()
         {
             dataFacturaTabla.Rows.Clear();
-
             foreach (var detalle in factura.Detalles)
             {
-                dataFacturaTabla.Rows.Add(detalle.Cantidad, detalle.Producto.ID,
-                    detalle.Producto.Nombre, $"Q{detalle.Producto.Precio:F2}", $"Q{detalle.Subtotal:F2}");
+                dataFacturaTabla.Rows.Add(detalle.Cantidad, detalle.Producto.ID, detalle.Producto.Nombre, $"Q{detalle.Producto.Precio:F2}", $"Q{detalle.Subtotal:F2}");
             }
-
             lblTotal.Text = $"Total: Q{factura.Total:F2}";
         }
+
         private void btnEditar_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Aquí podrías editar un producto en la factura.", "Editar Producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
         private void ActualizarFactura()
         {
             dataFacturaTabla.Rows.Clear();
-
             foreach (var detalle in factura.Detalles)
             {
                 int rowIndex = dataFacturaTabla.Rows.Add();
                 DataGridViewRow row = dataFacturaTabla.Rows[rowIndex];
 
-                row.Cells[0].Value = detalle.Cantidad; 
-                row.Cells[1].Value = detalle.Producto.ID;  
+                row.Cells[0].Value = detalle.Cantidad;
+                row.Cells[1].Value = detalle.Producto.ID;
                 row.Cells[2].Value = detalle.Producto.Nombre + " - " + detalle.Producto.Marca;
                 row.Cells[3].Value = $"Q {detalle.Producto.Precio:F2}";
                 row.Cells[4].Value = $"Q {detalle.Subtotal:F2}";
             }
-
             lblTotal.Text = $"Total: Q {factura.Total:F2}";
         }
 
@@ -127,7 +120,6 @@ namespace ProyectoTeoriaSistemas
             }
 
             int cantidad = (int)NumericUpDown.Value;
-
             if (cantidad <= 0)
             {
                 MessageBox.Show("La cantidad debe ser mayor a 0.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -139,7 +131,8 @@ namespace ProyectoTeoriaSistemas
 
             try
             {
-                factura.AgregarProducto(tienda, idProducto, cantidad);
+                //Aqui intenta agregar un producto a la lista que tenia antes, pero no es necesario con el SQL
+                //factura.AgregarProducto(idProducto, cantidad);
                 ActualizarFactura();
             }
             catch (Exception ex)
@@ -155,7 +148,7 @@ namespace ProyectoTeoriaSistemas
                 MessageBox.Show("No hay productos en la factura. Agregue productos antes de realizar la venta.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-           
+
             StringBuilder resumen = new StringBuilder();
             resumen.AppendLine("Resumen de la Venta:");
             resumen.AppendLine($"Fecha: {txtFecha.Text}");
@@ -171,13 +164,21 @@ namespace ProyectoTeoriaSistemas
 
             resumen.AppendLine("------------------------------");
             resumen.AppendLine($"Total: Q{factura.Total:F2}");
-            //Aqui se agrega el falseado de la factura
+            /*
+             * Al final se agregaba una nueva venta, en este caso se agrega a la base de datos, 
+             * los txt, son text boxes del windows forms
+             * 
+             * 
             Venta nuevaVenta = new Venta(txtCliente.Text, factura.Total, factura.Detalles);
             tienda.AgregarVenta(nuevaVenta);
 
+
+
+            */
+
             try
             {
-                string rutaArchivo = @"C:\Users\Geovanny Alcon\Desktop\URL 2025\RepoXD\ProyectoTeoriaSistemas" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".txt";
+                string rutaArchivo = @"C:\\Ventas\\Factura_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".txt";
                 System.IO.File.WriteAllText(rutaArchivo, resumen.ToString());
 
                 MessageBox.Show($"Venta guardada exitosamente en: {rutaArchivo}", "Venta Realizada", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -204,8 +205,6 @@ namespace ProyectoTeoriaSistemas
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             InicializarCampos();
-
         }
-
     }
 }

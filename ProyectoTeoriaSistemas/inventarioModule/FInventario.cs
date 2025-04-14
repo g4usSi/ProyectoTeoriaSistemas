@@ -14,35 +14,34 @@ using ProyectoTeoriaSistemas.finanzasModule;
 namespace ProyectoTeoriaSistemas
 {
     public partial class FInventario : Form
-    {  Tienda tienda;
-        public FInventario(Tienda tienda)
+    {
+        public FInventario(/*Tienda tienda*/)
         {
             InitializeComponent();
-            this.tienda = tienda;
             splitContainer1.SplitterWidth = 1;
         }
+
         private Form formularioActual;
+
         private void MostrarFormulario(Form nuevoFormulario)
         {
-            // Cierra el formulario actual si existe
             if (formularioActual != null)
             {
                 formularioActual.Close();
             }
 
-            // Configura el nuevo formulario
             nuevoFormulario.TopLevel = false;
             splitContainer1.Panel2.Controls.Add(nuevoFormulario);
             nuevoFormulario.Location = new Point(3, 83);
             nuevoFormulario.Show();
-           
-            // Actualiza el formulario actual
+
             formularioActual = nuevoFormulario;
         }
 
         private void Producto_Click(object sender, EventArgs e)
         {
-            FProducto fProducto = new FProducto(tienda);
+            // FProducto fProducto = new FProducto(tienda);
+            FProducto fProducto = new FProducto();
             MostrarFormulario(fProducto);
         }
 
@@ -59,7 +58,8 @@ namespace ProyectoTeoriaSistemas
 
         private void Reportes_Click(object sender, EventArgs e)
         {
-            FImpuestos factura = new FImpuestos(tienda);
+            // FImpuestos factura = new FImpuestos(tienda);
+            FImpuestos factura = new FImpuestos();
             MostrarFormulario(factura);
         }
 

@@ -13,10 +13,9 @@ namespace ProyectoTeoriaSistemas.finanzasModule
     public partial class NIngreso : Form
     {
         private Tienda _tienda = null;
-        public NIngreso(Tienda tienda)
+        public NIngreso()
         {
             InitializeComponent();
-            _tienda = tienda;
         }
     }
 }

@@ -13,13 +13,11 @@ namespace ProyectoTeoriaSistemas
 {
     public partial class MenuPrincipal : Form
     {
-        Tienda tienda;
         private Timer timer;
         public MenuPrincipal(Tienda tienda)
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
-            this.tienda = tienda;
 
             // Inicializa el Label con la hora actual
             lblTiempo.Text = DateTime.Now.ToString("dd/MM/yyyy - HH:mm:ss");
@@ -38,14 +36,14 @@ namespace ProyectoTeoriaSistemas
 
         private void btnInventario_Click(object sender, EventArgs e)
         {
-            FInventario fInventario = new FInventario(tienda);
+            FInventario fInventario = new FInventario();
             fInventario.Show();
         }
 
         // Ventas
         private void button2_Click(object sender, EventArgs e)
         {
-            FVentas frmVenta = new FVentas(tienda);
+            FVentas frmVenta = new FVentas();
             frmVenta.Show();
         }
 
@@ -57,7 +55,7 @@ namespace ProyectoTeoriaSistemas
 
         private void button4_Click(object sender, EventArgs e)
         {
-            FFinanzas fFinanzas = new FFinanzas(tienda);
+            FFinanzas fFinanzas = new FFinanzas();
             fFinanzas.Show();
         }
 

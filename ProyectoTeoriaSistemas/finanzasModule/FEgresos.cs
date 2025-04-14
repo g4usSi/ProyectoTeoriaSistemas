@@ -7,12 +7,10 @@ namespace ProyectoTeoriaSistemas.finanzasModule
 {
     public partial class FEgresos : Form
     {
-        private Tienda _tienda = null;
 
-        public FEgresos(Tienda tienda)
+        public FEgresos()
         {
             InitializeComponent();
-            _tienda = tienda;
             LlenarComboBoxAno();
             LlenarComboBoxMes();
             CargarResumenPlanillaInicial();
@@ -71,23 +69,6 @@ namespace ProyectoTeoriaSistemas.finanzasModule
             int añoSeleccionado = int.Parse(cmbBoxAno.SelectedItem.ToString());
             int mesSeleccionado = cmbBoxMes.SelectedIndex + 1;
 
-            // Llama al método estático en ResumenPlanilla para calcular el total.
-            decimal totalPlanilla = ResumenPlanilla.CalcularTotalPlanillasPorFecha(
-                _tienda.PlanillaEmpresa.PlanillasEmpleados,
-                añoSeleccionado,
-                mesSeleccionado
-            );
-
-            // Crea el objeto resumen
-            ResumenPlanilla resumen = new ResumenPlanilla
-            {
-                Fecha = new DateTime(añoSeleccionado, mesSeleccionado, 1),
-                Total = totalPlanilla,
-                Descripcion = "Planilla"
-            };
-
-            // Asigna el resumen al DataGrid
-            dataGridEgresos.DataSource = new List<ResumenPlanilla> { resumen };
         }
 
 
@@ -96,7 +77,7 @@ namespace ProyectoTeoriaSistemas.finanzasModule
         /// </summary>
         private void btnAgregarIngreso_Click(object sender, EventArgs e)
         {
-            NIngreso nIngreso = new NIngreso(_tienda);
+            NIngreso nIngreso = new NIngreso();
             nIngreso.Show();
 
 

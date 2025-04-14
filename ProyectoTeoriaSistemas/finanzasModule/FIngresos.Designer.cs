@@ -112,6 +112,7 @@
             this.btnAgregarIngreso.TabIndex = 48;
             this.btnAgregarIngreso.Text = "Agregar Ingreso";
             this.btnAgregarIngreso.UseVisualStyleBackColor = true;
+            this.btnAgregarIngreso.Click += new System.EventHandler(this.btnAgregarIngreso_Click_1);
             // 
             // dataGridIngresos
             // 

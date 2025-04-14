@@ -8,18 +8,16 @@ namespace ProyectoTeoriaSistemas.finanzasModule
 {
     public partial class FIngresos : Form
     {
-        private Tienda _tienda = null;
 
-        public FIngresos(Tienda tienda)
+        public FIngresos()
         {
-            _tienda = tienda;
             InitializeComponent();
         }
 
         // Al cargar el formulario, vamos a cargar todos los ingresos en el DataGridView
         private void FIngresos_Load(object sender, EventArgs e)
         {
-            // Cargar las ventas de la tienda (historial de ventas)
+            // Cargar las ventas de la tienda (historial de ventas) desde el SQL
             CargarVentasEnDataGrid();
             // Llenar ComboBox de Año y Mes (opcional si ya lo tienes preconfigurado)
             LlenarComboBoxAno();
@@ -28,6 +26,14 @@ namespace ProyectoTeoriaSistemas.finanzasModule
         // Método para cargar las ventas en el DataGridView
         private void CargarVentasEnDataGrid()
         {
+            /*
+             * Aquí se obtienen todas las ventas de la tienda y se asignan al DataGridView.
+             * Se puede filtrar por año y mes si se desea.
+             */
+
+            /*
+             * Cargar las ventas desde la base de datos
+             * 
             var ventas = _tienda.ObtenerVentas();
             var ventasFiltradas = ventas.Select(v => new
             {
@@ -38,6 +44,10 @@ namespace ProyectoTeoriaSistemas.finanzasModule
 
             // Asignar la lista de ventas al DataGridView
             dataGridIngresos.DataSource = ventasFiltradas;
+            */
+
+
+
         }
 
         // Este botón aplicará los filtros para mostrar solo las ventas del año y mes seleccionados
@@ -51,7 +61,9 @@ namespace ProyectoTeoriaSistemas.finanzasModule
 
             int anoSeleccionado = int.Parse(cmbBoxAno.SelectedItem.ToString());
             int mesSeleccionado = cmbBoxMes.SelectedIndex + 1;
-
+            /*
+             * Filtrar desde la base de datos
+             * 
             var ventasFiltradas = _tienda.ObtenerIngresosPorFecha(anoSeleccionado, mesSeleccionado)
                 .Select(v => new
                 {
@@ -62,37 +74,24 @@ namespace ProyectoTeoriaSistemas.finanzasModule
                 .ToList();
 
             dataGridIngresos.DataSource = ventasFiltradas;
+            */
         }
 
 
 
         // Método que se ejecutará cuando se haga clic en el botón de agregar un nuevo ingreso (venta)
-        private void btnAgregarIngreso_Click(object sender, EventArgs e)
+        private void btnAgregarIngreso_Click_1(object sender, EventArgs e)
         {
-            NIngreso nIngreso = new NIngreso(_tienda);
+            NIngreso nIngreso = new NIngreso();
             nIngreso.Show();
         }
 
         // Método para llenar el ComboBox de Mes con los meses del año
         private void LlenarComboBoxAno()
         {
-            cmbBoxAno.Items.Clear();
 
-            var years = _tienda.ObtenerVentas()
-                               .Select(v => v.Fecha.Year)
-                               .Distinct()
-                               .OrderByDescending(y => y)
-                               .ToList();
 
-            if (!years.Any())
-            {
-                years.Add(DateTime.Now.Year);
-            }
 
-            foreach (int year in years)
-            {
-                cmbBoxAno.Items.Add(year);
-            }
         }
 
 
@@ -100,6 +99,7 @@ namespace ProyectoTeoriaSistemas.finanzasModule
         {
             //btn para mostrar graficos de comportamiento, de acuerdo a los filtros de los combobox
         }
+
 
     }
 }

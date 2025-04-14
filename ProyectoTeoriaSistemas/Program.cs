@@ -20,9 +20,7 @@ namespace ProyectoTeoriaSistemas
             List<Recibo> recibos = new List<Recibo>();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Tienda tienda = new Tienda();
-            tienda.AgregarProductos();
-            Application.Run(new MenuPrincipal(tienda));
+            Application.Run(new MenuPrincipal());
         }
     }
 }
