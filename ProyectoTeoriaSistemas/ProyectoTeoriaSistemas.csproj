@@ -137,10 +137,10 @@
     <Compile Include="inventarioModule\FInventario.Designer.cs">
       <DependentUpon>FInventario.cs</DependentUpon>
     </Compile>
-    <Compile Include="ventasModule\FProducto.cs">
+    <Compile Include="inventarioModule\FProducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ventasModule\FProducto.Designer.cs">
+    <Compile Include="inventarioModule\FProducto.Designer.cs">
       <DependentUpon>FProducto.cs</DependentUpon>
     </Compile>
     <Compile Include="inventarioModule\FrmAgregarProveedor.cs">
@@ -209,7 +209,7 @@
     <EmbeddedResource Include="inventarioModule\FInventario.resx">
       <DependentUpon>FInventario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ventasModule\FProducto.resx">
+    <EmbeddedResource Include="inventarioModule\FProducto.resx">
       <DependentUpon>FProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="inventarioModule\FrmAgregarProveedor.resx">
