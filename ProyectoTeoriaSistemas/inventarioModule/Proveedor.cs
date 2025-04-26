@@ -8,11 +8,13 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
 {
     public class Proveedor
     {
-        public string Nombre { get; set; }
-        public string NIT { get; set; }
-        public string Direccion { get; set; }
-        public string Telefono { get; set; }
-        public string Correo { get; set; }
+        public int IDProveedor { get; set; }//
+        public string Nombre { get; set; }//
+        public string NIT { get; set; }//
+        public int Telefono { get; set; }//
         public string Contacto { get; set; }
+        public string Direccion { get; set; }//
+        public string Correo { get; set; }//
+
     }
 }

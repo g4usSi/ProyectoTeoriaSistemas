@@ -33,10 +33,12 @@ namespace ProyectoTeoriaSistemas
             }
             Proveedor nuevoProveedor = new Proveedor
             {
+                //TELEFONO ES CON INT NMMZ
+
                 Nombre = txtNombre.Text,
                 NIT = txtNIT.Text,
                 Direccion = txtDireccion.Text, 
-                Telefono = txtTelefono.Text,
+               // Telefono = txtTelefono.Text,
                 Correo = txtCorreo.Text,
                 Contacto = txtContacto.Text,
             };

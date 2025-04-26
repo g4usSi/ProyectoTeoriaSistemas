@@ -46,7 +46,7 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
                 //" ID, Nombre, Marca, Cantidad, Precio " se trabaja con parametros para evitar la Inyeccion SQL
                 //EN RESUMEN AGREGA LOS DATOS QUE LE MANDO
                 //string query = "insert into Articulo(ID,Nombre,Marca,Cantidad,Precio) values (@ID,@Nombre,@Marca,@Cantidad,@Precio)";
-                string query = "insert into Articulo(Nombre,Marca,Stock,Precio,PrecioVenta) values (@Nombre,@Marca,@Stock,@Precio,@PrecioVenta)";
+                string query = "insert into Articulo(Nombre, Marca, Stock, Precio, PrecioVenta, IDProveedores) values (@Nombre, @Marca, @Stock, @Precio, @PrecioVenta, @IDProveedores)";
 
                 //esto recibe nuestra query que creamos arriba y nuestra conexion, este CMD se encarga de ejecutar nuestra consulta
                 //pero le tenemos que decir que envie unos parametros
@@ -58,6 +58,7 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
                 cmd.Parameters.Add(new SQLiteParameter("@Stock", obj.Stock));
                 cmd.Parameters.Add(new SQLiteParameter("@Precio", obj.Precio));
                 cmd.Parameters.Add(new SQLiteParameter("@PrecioVenta", obj.PrecioVenta));
+                cmd.Parameters.Add(new SQLiteParameter("@IDProveedores", obj.IDProveedor)); // <-- parametro obligatorio, es decir que ya debe haber un proveedor en otra tabla
                 //ahora le decimos que tipo va a ser 
                 cmd.CommandType = System.Data.CommandType.Text;
 
@@ -136,6 +137,33 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
             }
             return respuesta;
         }
+        //VER SI ESTO FUNCIONA, ESTO ME LO DIO CHAT, RECIBE EL ID DEL PRODUCTO Y EL STOCK QUE SE VA A QUITAR, PERO NO SE DONDE HAY QUE PONER
+        //LO DE QUE NO PUEDE SER MENOR QUE 0
+        public bool ActualizarStock(int idProducto, int nuevoStock)
+        {
+            bool respuesta = true;
+
+            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
+            {
+                conexion.Open();
+
+                string query = "UPDATE Articulo SET Stock = @Stock WHERE ID = @ID";
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@Stock", nuevoStock);
+                    cmd.Parameters.AddWithValue("@ID", idProducto);
+
+                    if (cmd.ExecuteNonQuery() < 1)
+                    {
+                        respuesta = false;
+                    }
+                }
+            }
+
+            return respuesta;
+        }
+
         // metodo de eliminar DU'H 
         public bool Eliminar(Producto obj)
         {

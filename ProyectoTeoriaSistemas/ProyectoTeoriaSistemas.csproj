@@ -60,6 +60,7 @@
     <Compile Include="inventarioModule\FGestionProveedores.Designer.cs">
       <DependentUpon>FGestionProveedores.cs</DependentUpon>
     </Compile>
+    <Compile Include="inventarioModule\ProveedorLogica.cs" />
     <Compile Include="rhModule\PlanillaLogica.cs" />
     <Compile Include="inventarioModule\DetalleFactura.cs" />
     <Compile Include="rhModule\EmpleadoData.cs" />
