@@ -55,13 +55,15 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnAgregarEmpleado = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblDevengado = new System.Windows.Forms.Label();
-            this.lblTotalDescuento = new System.Windows.Forms.Label();
             this.lblSueldoNeto = new System.Windows.Forms.Label();
+            this.lblTotalDescuento = new System.Windows.Forms.Label();
+            this.lblDevengado = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtFecha = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataPlanilla)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numHorasExtra)).BeginInit();
@@ -317,7 +319,7 @@
             // btnCalcular
             // 
             this.btnCalcular.BackColor = System.Drawing.Color.SkyBlue;
-            this.btnCalcular.Location = new System.Drawing.Point(110, 354);
+            this.btnCalcular.Location = new System.Drawing.Point(110, 382);
             this.btnCalcular.Name = "btnCalcular";
             this.btnCalcular.Size = new System.Drawing.Size(140, 41);
             this.btnCalcular.TabIndex = 35;
@@ -328,7 +330,7 @@
             // btnGuardar
             // 
             this.btnGuardar.BackColor = System.Drawing.Color.SkyBlue;
-            this.btnGuardar.Location = new System.Drawing.Point(344, 354);
+            this.btnGuardar.Location = new System.Drawing.Point(344, 382);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(140, 41);
             this.btnGuardar.TabIndex = 36;
@@ -361,29 +363,35 @@
             this.panel1.Size = new System.Drawing.Size(494, 156);
             this.panel1.TabIndex = 41;
             // 
-            // label10
+            // lblSueldoNeto
             // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(30, 109);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(273, 23);
-            this.label10.TabIndex = 39;
-            this.label10.Text = "Sueldo Neto:.......................";
+            this.lblSueldoNeto.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSueldoNeto.Location = new System.Drawing.Point(269, 105);
+            this.lblSueldoNeto.Name = "lblSueldoNeto";
+            this.lblSueldoNeto.Size = new System.Drawing.Size(188, 27);
+            this.lblSueldoNeto.TabIndex = 42;
+            this.lblSueldoNeto.Text = "Q100.00";
+            this.lblSueldoNeto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label9
+            // lblTotalDescuento
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
-            this.label9.Location = new System.Drawing.Point(30, 66);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(181, 23);
-            this.label9.TabIndex = 38;
-            this.label9.Text = "Total Descuentos:";
+            this.lblTotalDescuento.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalDescuento.Location = new System.Drawing.Point(269, 62);
+            this.lblTotalDescuento.Name = "lblTotalDescuento";
+            this.lblTotalDescuento.Size = new System.Drawing.Size(188, 27);
+            this.lblTotalDescuento.TabIndex = 41;
+            this.lblTotalDescuento.Text = "Q100.00";
+            this.lblTotalDescuento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDevengado
+            // 
+            this.lblDevengado.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDevengado.Location = new System.Drawing.Point(269, 22);
+            this.lblDevengado.Name = "lblDevengado";
+            this.lblDevengado.Size = new System.Drawing.Size(188, 27);
+            this.lblDevengado.TabIndex = 40;
+            this.lblDevengado.Text = "Q100.00";
+            this.lblDevengado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label8
             // 
@@ -397,38 +405,34 @@
             this.label8.TabIndex = 37;
             this.label8.Text = "Total Devengado:";
             // 
-            // lblDevengado
+            // label9
             // 
-            this.lblDevengado.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDevengado.Location = new System.Drawing.Point(269, 22);
-            this.lblDevengado.Name = "lblDevengado";
-            this.lblDevengado.Size = new System.Drawing.Size(188, 27);
-            this.lblDevengado.TabIndex = 40;
-            this.lblDevengado.Text = "Q100.00";
-            this.lblDevengado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
+            this.label9.Location = new System.Drawing.Point(30, 66);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(181, 23);
+            this.label9.TabIndex = 38;
+            this.label9.Text = "Total Descuentos:";
             // 
-            // lblTotalDescuento
+            // label10
             // 
-            this.lblTotalDescuento.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalDescuento.Location = new System.Drawing.Point(269, 62);
-            this.lblTotalDescuento.Name = "lblTotalDescuento";
-            this.lblTotalDescuento.Size = new System.Drawing.Size(188, 27);
-            this.lblTotalDescuento.TabIndex = 41;
-            this.lblTotalDescuento.Text = "Q100.00";
-            this.lblTotalDescuento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblSueldoNeto
-            // 
-            this.lblSueldoNeto.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSueldoNeto.Location = new System.Drawing.Point(269, 105);
-            this.lblSueldoNeto.Name = "lblSueldoNeto";
-            this.lblSueldoNeto.Size = new System.Drawing.Size(188, 27);
-            this.lblSueldoNeto.TabIndex = 42;
-            this.lblSueldoNeto.Text = "Q100.00";
-            this.lblSueldoNeto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(30, 109);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(273, 23);
+            this.label10.TabIndex = 39;
+            this.label10.Text = "Sueldo Neto:.......................";
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.txtFecha);
             this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Controls.Add(this.btnAgregarEmpleado);
             this.groupBox1.Controls.Add(this.btnGuardar);
@@ -453,6 +457,31 @@
             this.groupBox1.Size = new System.Drawing.Size(574, 613);
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
+            this.label15.Location = new System.Drawing.Point(21, 339);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(77, 23);
+            this.label15.TabIndex = 42;
+            this.label15.Text = "Fecha:";
+            // 
+            // txtFecha
+            // 
+            this.txtFecha.BackColor = System.Drawing.Color.Lavender;
+            this.txtFecha.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtFecha.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFecha.Location = new System.Drawing.Point(185, 339);
+            this.txtFecha.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFecha.Name = "txtFecha";
+            this.txtFecha.Size = new System.Drawing.Size(122, 20);
+            this.txtFecha.TabIndex = 43;
+            this.txtFecha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FPlanilla
             // 
@@ -515,5 +544,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtFecha;
     }
 }
