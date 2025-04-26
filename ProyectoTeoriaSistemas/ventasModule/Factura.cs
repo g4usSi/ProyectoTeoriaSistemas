@@ -35,8 +35,8 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
         // Agrega un producto a la factura (sin lógica de stock, delega a quien use esta clase)
         public void AgregarDetalle(Producto producto, int cantidad)
         {
-            //Aqui hay que agregar logica SQL si no hay suficiente del producto seleccionado
             if (producto == null)
+                //Aqui hay que agregar logica SQL si no hay suficiente del producto seleccionado
                 throw new ArgumentNullException(nameof(producto));
 
             Detalles.Add(new DetalleFactura(producto, cantidad));

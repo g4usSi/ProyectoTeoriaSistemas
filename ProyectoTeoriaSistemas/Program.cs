@@ -17,7 +17,6 @@ namespace ProyectoTeoriaSistemas
         {
             List<Producto> list = new List<Producto>();
             //CHALE
-            List<Recibo> recibos = new List<Recibo>();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MenuPrincipal());

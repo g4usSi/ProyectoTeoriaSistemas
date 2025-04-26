@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FVentas));
             this.lblNotificacion = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtNIT = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.NumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.comboDatos = new System.Windows.Forms.ComboBox();
@@ -59,8 +61,6 @@
             this.btnRealizarVenta = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtNIT = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown)).BeginInit();
             this.panel2.SuspendLayout();
@@ -111,6 +111,31 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Venta";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
+            this.label8.Location = new System.Drawing.Point(619, 48);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(45, 23);
+            this.label8.TabIndex = 36;
+            this.label8.Text = "NIT:";
+            // 
+            // txtNIT
+            // 
+            this.txtNIT.BackColor = System.Drawing.Color.Lavender;
+            this.txtNIT.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNIT.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNIT.Location = new System.Drawing.Point(672, 50);
+            this.txtNIT.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNIT.Name = "txtNIT";
+            this.txtNIT.Size = new System.Drawing.Size(143, 20);
+            this.txtNIT.TabIndex = 35;
+            this.txtNIT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -138,7 +163,7 @@
             this.comboDatos.Items.AddRange(new object[] {
             "Factura",
             "Recibo"});
-            this.comboDatos.Location = new System.Drawing.Point(176, 134);
+            this.comboDatos.Location = new System.Drawing.Point(176, 137);
             this.comboDatos.Name = "comboDatos";
             this.comboDatos.Size = new System.Drawing.Size(259, 28);
             this.comboDatos.TabIndex = 31;
@@ -149,7 +174,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
-            this.label6.Location = new System.Drawing.Point(35, 136);
+            this.label6.Location = new System.Drawing.Point(35, 139);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(134, 23);
@@ -205,7 +230,7 @@
             this.Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Agregar.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Agregar.ForeColor = System.Drawing.Color.White;
-            this.Agregar.Location = new System.Drawing.Point(590, 128);
+            this.Agregar.Location = new System.Drawing.Point(593, 130);
             this.Agregar.Margin = new System.Windows.Forms.Padding(4);
             this.Agregar.Name = "Agregar";
             this.Agregar.Size = new System.Drawing.Size(160, 40);
@@ -220,7 +245,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
-            this.label1.Location = new System.Drawing.Point(649, 89);
+            this.label1.Location = new System.Drawing.Point(649, 90);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(119, 23);
@@ -283,7 +308,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
-            this.label4.Location = new System.Drawing.Point(35, 89);
+            this.label4.Location = new System.Drawing.Point(35, 94);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(211, 23);
@@ -434,31 +459,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(180, 154);
             this.pictureBox1.TabIndex = 28;
             this.pictureBox1.TabStop = false;
-            // 
-            // txtNIT
-            // 
-            this.txtNIT.BackColor = System.Drawing.Color.Lavender;
-            this.txtNIT.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNIT.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNIT.Location = new System.Drawing.Point(672, 50);
-            this.txtNIT.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNIT.Name = "txtNIT";
-            this.txtNIT.Size = new System.Drawing.Size(143, 20);
-            this.txtNIT.TabIndex = 35;
-            this.txtNIT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
-            this.label8.Location = new System.Drawing.Point(619, 48);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(45, 23);
-            this.label8.TabIndex = 36;
-            this.label8.Text = "NIT:";
             // 
             // FVentas
             // 

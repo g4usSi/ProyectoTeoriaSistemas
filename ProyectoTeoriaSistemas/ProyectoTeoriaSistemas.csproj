@@ -61,7 +61,7 @@
       <DependentUpon>FGestionProveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="rhModule\PlanillaLogica.cs" />
-    <Compile Include="inventarioModule\DetalleFactura.cs" />
+    <Compile Include="ventasModule\DetalleFactura.cs" />
     <Compile Include="rhModule\EmpleadoData.cs" />
     <Compile Include="ventasModule\Factura.cs" />
     <Compile Include="ventasModule\FormFactura.cs">
@@ -76,7 +76,6 @@
     <Compile Include="rhModule\Planilla.cs" />
     <Compile Include="inventarioModule\ProductoLogica.cs" />
     <Compile Include="inventarioModule\Proveedor.cs" />
-    <Compile Include="ventasModule\Recibo.cs" />
     <Compile Include="rhModule\Empleado.cs">
       <SubType>Form</SubType>
     </Compile>
