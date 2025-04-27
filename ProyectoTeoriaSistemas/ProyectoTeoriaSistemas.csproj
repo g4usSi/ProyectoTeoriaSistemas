@@ -83,12 +83,6 @@
     <Compile Include="rhModule\Empleado.Designer.cs">
       <DependentUpon>Empleado.cs</DependentUpon>
     </Compile>
-    <Compile Include="ventasModule\FArticulo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ventasModule\FArticulo.Designer.cs">
-      <DependentUpon>FArticulo.cs</DependentUpon>
-    </Compile>
     <Compile Include="finanzasModule\FEgresos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,9 +175,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="rhModule\Empleado.resx">
       <DependentUpon>Empleado.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ventasModule\FArticulo.resx">
-      <DependentUpon>FArticulo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="finanzasModule\FEgresos.resx">
       <DependentUpon>FEgresos.cs</DependentUpon>

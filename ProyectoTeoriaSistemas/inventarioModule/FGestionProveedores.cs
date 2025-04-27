@@ -45,5 +45,44 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
 
             boton.Region = new Region(path);
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+        /* ESTRUCTURA PARA AGREGAR COSAS, 
+private void AgregarProductoDB()
+{
+   Producto objeto = new Producto()
+   {//ID *en el video no lo coloco porque es para eliminar y editar * en este caso no se usa porque es autoincrementable
+       Nombre = textNombre.Text,
+       Marca = textMarca.Text,
+       Stock = int.Parse(textCantidad.Text),
+       Precio = int.Parse(textPrecio.Text),
+       PrecioVenta = int.Parse(textPrecioVenta.Text)
+   };
+   //devuelve una respuesta
+   bool respuesta = ProductoLogica.Instancia.Guardar(objeto);
+
+   if (respuesta)
+   {
+       //ESTA COSA ES LA QUE MEUSTRA LA TABLA 
+       mostrar_Articulo();
+   }
+
+}
+
+public void mostrar_Articulo()
+{
+   dataGridView1.DataSource = null;
+   dataGridView1.DataSource = ProductoLogica.Instancia.Listar();
+}
+*/
+
     }
 }
