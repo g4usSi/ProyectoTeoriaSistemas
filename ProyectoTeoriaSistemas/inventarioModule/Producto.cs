@@ -14,7 +14,7 @@ namespace ProyectoTeoriaSistemas
         public int Stock { get; set; }//
         public double Precio { get; set; }//
         public double PrecioVenta { get; set; }//
-        public int IDProveedor { get; set; }  // <-- AQUI agregas la llave foránea
+        public int IDProveedor { get; set; }  // 
 
 
 

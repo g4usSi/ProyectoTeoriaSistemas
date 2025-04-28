@@ -98,6 +98,7 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
                             Stock = int.Parse(dr["Stock"].ToString()),
                             Precio = int.Parse(dr["Precio"].ToString()),
                             PrecioVenta = int.Parse(dr["PrecioVenta"].ToString()),
+                            IDProveedor = int.Parse(dr["IDProveedores"].ToString()),
                         });
                     }
                 }
@@ -185,6 +186,37 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
             }
             return respuesta;
         }
+
+        public List<string> MostrarProveedores()
+        {
+            List<string> listaProveedores = new List<string>();
+
+            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
+            {
+                conexion.Open();
+                string query = "SELECT IDProveedor, Nombre FROM Proveedor";
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
+                {
+                    using (SQLiteDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int idProveedor = reader.GetInt32(0);
+                            string nombre = reader.GetString(1);
+
+                            // Formato: "IDProveedor - Nombre"
+                            listaProveedores.Add($"{idProveedor} - {nombre}");
+                        }
+                    }
+                }
+            }
+
+            return listaProveedores;
+        }
+
+
+
         /*
         public Producto ObtenerPorID(int id)
         {
@@ -218,6 +250,7 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
             return articulo; // Devuelve el artículo encontrado o null si no existe.
         }
         */
+
 
 
 

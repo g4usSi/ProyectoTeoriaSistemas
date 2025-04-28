@@ -78,11 +78,11 @@ namespace ProyectoTeoriaSistemas.inventarioModule
                     //mientras lee los agrega a la lista
                     while (dr.Read())
                     {
-                        oLista.Add(new Proveedor()
+                        oLista.Add(new Proveedor()//
                         {
-                            IDProveedor = int.Parse(dr["ID"].ToString()),
+                            IDProveedor = int.Parse(dr["IDProveedor"].ToString()),
                             Nombre = dr["Nombre"].ToString(),
-                            NIT = dr["Marca"].ToString(),
+                            NIT = dr["NIT"].ToString(),
                             Telefono = int.Parse(dr["Telefono"].ToString()),
                             Contacto = dr["Contacto"].ToString(),
                             Direccion = dr["Direccion"].ToString(),

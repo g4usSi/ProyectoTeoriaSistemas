@@ -12,7 +12,7 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
         public string Nombre { get; set; }//
         public string NIT { get; set; }//
         public int Telefono { get; set; }//
-        public string Contacto { get; set; }
+        public string Contacto { get; set; }//
         public string Direccion { get; set; }//
         public string Correo { get; set; }//
 

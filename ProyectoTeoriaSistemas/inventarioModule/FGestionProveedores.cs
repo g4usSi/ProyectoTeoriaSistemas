@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoTeoriaSistemas.inventarioModule;
 
 namespace ProyectoTeoriaSistemas.CodigoFuente
 {
@@ -53,36 +54,36 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
 
         private void button1_Click(object sender, EventArgs e)
         {
+            AgregarProveedorDB();
+        }
+         
+        private void AgregarProveedorDB()
+        {
+           Proveedor objeto = new Proveedor()
+           {//ID *en el video no lo coloco porque es para eliminar y editar * en este caso no se usa porque es autoincrementable
+               Nombre = textBox2.Text,
+               NIT =textBox10.Text,
+               Telefono = int.Parse(textBox8.Text),
+               Contacto = textBox7.Text,
+               Direccion = textBox6.Text,
+               Correo = textBox5.Text
+           };
+   
+           bool respuesta = ProveedorLogica.Instancia.Guardar(objeto);
+
+           if (respuesta)
+           {
+               //ESTA COSA ES LA QUE MEUSTRA LA TABLA 
+               mostrar_Proveedor();
+           }
 
         }
-        /* ESTRUCTURA PARA AGREGAR COSAS, 
-private void AgregarProductoDB()
-{
-   Producto objeto = new Producto()
-   {//ID *en el video no lo coloco porque es para eliminar y editar * en este caso no se usa porque es autoincrementable
-       Nombre = textNombre.Text,
-       Marca = textMarca.Text,
-       Stock = int.Parse(textCantidad.Text),
-       Precio = int.Parse(textPrecio.Text),
-       PrecioVenta = int.Parse(textPrecioVenta.Text)
-   };
-   //devuelve una respuesta
-   bool respuesta = ProductoLogica.Instancia.Guardar(objeto);
 
-   if (respuesta)
-   {
-       //ESTA COSA ES LA QUE MEUSTRA LA TABLA 
-       mostrar_Articulo();
-   }
-
-}
-
-public void mostrar_Articulo()
-{
-   dataGridView1.DataSource = null;
-   dataGridView1.DataSource = ProductoLogica.Instancia.Listar();
-}
-*/
+        public void mostrar_Proveedor()
+        {
+           dataGridView1.DataSource = null;
+           dataGridView1.DataSource = ProveedorLogica.Instancia.Listar();
+        }
 
     }
 }

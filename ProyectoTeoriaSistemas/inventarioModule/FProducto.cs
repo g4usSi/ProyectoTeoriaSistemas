@@ -18,6 +18,7 @@ namespace ProyectoTeoriaSistemas
         {
             InitializeComponent();
             CargarProductosEnGrid();
+            CargarProveedoresEnComboBox();
 
         }
 
@@ -40,7 +41,8 @@ namespace ProyectoTeoriaSistemas
                 Marca = textMarca.Text,
                 Stock = int.Parse(textCantidad.Text),
                 Precio = int.Parse(textPrecio.Text),
-                PrecioVenta = int.Parse(textPrecioVenta.Text)
+                PrecioVenta = int.Parse(textPrecioVenta.Text),
+                IDProveedor = int.Parse(comboBox1.SelectedItem.ToString().Split(' ')[0])
             };
             //devuelve una respuesta
             bool respuesta = ProductoLogica.Instancia.Guardar(objeto);
@@ -58,65 +60,14 @@ namespace ProyectoTeoriaSistemas
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = ProductoLogica.Instancia.Listar();
         }
-        //wea nueva 
-        private void AgregarProducto()
+
+        private void CargarProveedoresEnComboBox()
         {
-            var errores = new List<string>();
-            var campos = new (TextBox, string)[]
-            {
-        (textId, "ID"),
-        (textNombre, "Nombre"),
-        (textMarca, "Marca"),
-        (textCantidad, "Cantidad"),
-        (textPrecio, "Precio")
-            };
+            List<string> proveedores = ProductoLogica.Instancia.MostrarProveedores();
 
-            foreach (var (campo, nombre) in campos)
-            {
-                if (string.IsNullOrWhiteSpace(campo.Text))
-                    errores.Add($"⚠ El campo {nombre} es obligatorio.");
-            }
-
-            if (!int.TryParse(textId.Text, out int id))
-                errores.Add("⚠ El ID debe ser un número válido.");
-            if (!int.TryParse(textCantidad.Text, out int cantidad))
-                errores.Add("⚠ La cantidad debe ser un número válido.");
-            if (!double.TryParse(textPrecio.Text, out double precio))
-                errores.Add("⚠ El precio debe ser un número válido.");
-
-            if (errores.Any())
-            {
-                MessageBox.Show(string.Join("\n", errores), "Revisión de Datos ❗",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            // Aquí podrías guardar en base de datos si deseas aprovechar el código viejo
-            Producto nuevoProducto = new Producto()
-            {
-                ID = id, // Asegúrate de que el constructor lo permita o que no sea autoincremental
-                Nombre = textNombre.Text,
-                Marca = textMarca.Text,
-                Stock = cantidad,
-                Precio = (float)precio,
-                PrecioVenta = 0 // podrías permitir ingresarlo también si deseas
-            };
-
-            bool guardado = ProductoLogica.Instancia.Guardar(nuevoProducto);
-
-            if (guardado)
-            {
-                MessageBox.Show("✅ Producto agregado exitosamente.", "Éxito",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                mostrar_Articulo();
-            }
-            else
-            {
-                MessageBox.Show("❌ No se pudo guardar el producto.", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            comboBox1.Items.Clear();
+            comboBox1.Items.AddRange(proveedores.ToArray());
         }
-
 
 
         private void CargarProductosEnGrid()
@@ -135,6 +86,9 @@ namespace ProyectoTeoriaSistemas
             
 
         }
+
+
+
 
     }
 
