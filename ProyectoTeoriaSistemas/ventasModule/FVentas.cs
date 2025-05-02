@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Printing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using ProyectoTeoriaSistemas;
@@ -17,6 +18,7 @@ namespace ProyectoTeoriaSistemas
         private static int FacturaContador = 1000;
         private PrintDocument printDocument = new PrintDocument();
         private PrintPreviewDialog printPreviewDialog = new PrintPreviewDialog();
+        private List<DetalleFactura> detallesTemporal = new List<DetalleFactura>();
 
         public FVentas()
         {
@@ -28,6 +30,7 @@ namespace ProyectoTeoriaSistemas
             //MostrarFacturaEnTabla();
             InicializarFecha();
             InicializarCampos();
+            //Muestra el combobox de productos
             mostrarComboBox();
 
 
@@ -74,14 +77,6 @@ namespace ProyectoTeoriaSistemas
         private void CargarProductos()
         {
             cmbProductos.Items.Clear();
-            /* Aqui se debe iterar, productos en la base de datos
-            foreach (var producto in tienda.listaProductos)
-            {
-                comboDatos.Items.Add($"{producto.ID} - {producto.Nombre} (Q{producto.Precio})");
-            }
-            if (comboDatos.Items.Count > 0)
-                comboDatos.SelectedIndex = 0;
-            */
         }
         /*
         private void MostrarFacturaEnTabla()
@@ -119,98 +114,85 @@ namespace ProyectoTeoriaSistemas
         }
 
         private void Agregar_Click(object sender, EventArgs e)
-        {/*
-            if (comboDatos.SelectedIndex == -1)
+        {
+            if (cmbProductos.SelectedIndex == -1)
             {
-                MessageBox.Show("Por favor, seleccione un producto.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccione un producto.", "Advertencia");
                 return;
             }
 
             int cantidad = (int)NumericUpDown.Value;
             if (cantidad <= 0)
             {
-                MessageBox.Show("La cantidad debe ser mayor a 0.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Cantidad inválida.", "Error");
                 return;
             }
 
-            string seleccion = comboDatos.SelectedItem.ToString();
+            // ID está en formato: "1 - ProductoX"
+            string seleccion = cmbProductos.SelectedItem.ToString();
             int idProducto = int.Parse(seleccion.Split('-')[0].Trim());
 
-            try
-            {
-                //Aqui intenta agregar un producto a la lista que tenia antes, pero no es necesario con el SQL
-                //factura.AgregarProducto(idProducto, cantidad);
-                ActualizarFactura();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            */
-            AgregarFacturaDB();//mete los objetos a la lista 
+            Producto producto = FacturaLogica.Instancia.ObtenerProductoPorID(idProducto);
 
+            if (producto.Stock < cantidad)
+            {
+                MessageBox.Show("No hay suficiente stock.", "Error");
+                return;
+            }
+
+            var detalle = new DetalleFactura
+            {
+                Producto = producto,
+                Cantidad = cantidad,
+            };
+
+            detallesTemporal.Add(detalle);
+            ActualizarTablaVisual();
         }
+        private void ActualizarTablaVisual()
+        {
+            dataFacturaTabla.Rows.Clear();
+
+            foreach (var det in detallesTemporal)
+            {
+                dataFacturaTabla.Rows.Add(det.Cantidad, det.Producto.ID, det.Producto.Nombre, $"Q{det.Producto.Precio:F2}", $"Q{det.Subtotal:F2}");
+            }
+
+            lblTotal.Text = $"Total: Q{detallesTemporal.Sum(d => d.Subtotal):F2}";
+        }
+
 
         private void btnRealizarVenta_Click(object sender, EventArgs e)
         {
-            if (factura.Detalles.Count == 0)
+            if (detallesTemporal.Count == 0)
             {
-                MessageBox.Show("No hay productos en la factura. Agregue productos antes de realizar la venta.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Agrega productos primero.");
                 return;
             }
-            /*
-            StringBuilder resumen = new StringBuilder();
-            resumen.AppendLine("Resumen de la Venta:");
-            resumen.AppendLine($"Fecha: {txtFecha.Text}");
-            resumen.AppendLine($"Cliente: {txtCliente.Text}");
-            resumen.AppendLine($"NIT: {txtNIT.Text}");
-            resumen.AppendLine($"Factura No: {txtNumeroFactura.Text}");
-            resumen.AppendLine("------------------------------");
-            */
 
-            /*
-            foreach (var detalle in factura.Detalles)
+            Factura factura = new Factura
             {
-                resumen.AppendLine($"{detalle.Producto.Nombre} - Cantidad: {detalle.Cantidad} - Precio: Q{detalle.Producto.Precio:F2} - Subtotal: Q{detalle.Subtotal:F2}");
-            }
+                Cliente = txtCliente.Text,
+                NIT = txtNIT.Text,
+                Fecha = DateTime.Now,
+                Detalles = detallesTemporal
+            };
 
-            resumen.AppendLine("------------------------------");
-            resumen.AppendLine($"Total: Q{factura.Total:F2}");
-            */
+            bool exito = FacturaLogica.Instancia.GuardarConDetalles(factura);
 
-            /*
-             * Al final se agregaba una nueva venta, en este caso se agrega a la base de datos, 
-             * los txt, son text boxes del windows forms
-             * 
-             * 
-            Venta nuevaVenta = new Venta(txtCliente.Text, factura.Total, factura.Detalles);
-            tienda.AgregarVenta(nuevaVenta);
-
-
-
-            */
-            /*
-            try
+            if (exito)
             {
-                string rutaArchivo = @"C:\\Ventas\\Factura_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".txt";
-                System.IO.File.WriteAllText(rutaArchivo, resumen.ToString());
-
-                MessageBox.Show($"Venta guardada exitosamente en: {rutaArchivo}", "Venta Realizada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Venta registrada correctamente.");
+                detallesTemporal.Clear();
+                ActualizarTablaVisual();
+                InicializarCampos();
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show($"Error al guardar el archivo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al guardar.");
             }
-            */
-            printPreviewDialog.Document = printDocument;
-            printPreviewDialog.ShowDialog();
-
-            factura = new Factura(1);
-            //MostrarFacturaEnTabla();
-
-            
-
         }
+
 
         private void InicializarCampos()
         {

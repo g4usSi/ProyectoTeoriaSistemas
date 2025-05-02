@@ -176,6 +176,93 @@ namespace ProyectoTeoriaSistemas.ventasModule
             return listaArticulo;
         }
 
+        public Producto ObtenerProductoPorID(int id)
+        {
+            Producto producto = null;
+
+            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
+            {
+                conexion.Open();
+                string query = "SELECT * FROM Articulo WHERE ID = @ID";
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
+                {
+                    cmd.Parameters.Add(new SQLiteParameter("@ID", id));
+
+                    using (SQLiteDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            producto = new Producto()
+                            {
+                                ID = reader.GetInt32(reader.GetOrdinal("ID")),
+                                Nombre = reader.GetString(reader.GetOrdinal("Nombre")),
+                                Marca = reader.GetString(reader.GetOrdinal("Marca")),
+                                Stock = reader.GetInt32(reader.GetOrdinal("Stock")),
+                                Precio = (double)reader.GetDecimal(reader.GetOrdinal("Precio")),
+                                PrecioVenta = (double)reader.GetDecimal(reader.GetOrdinal("PrecioVenta"))
+                            };
+                        }
+                    }
+                }
+            }
+
+            return producto;
+        }
+        public bool GuardarConDetalles(Factura factura)
+        {
+            bool exito = true;
+
+            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
+            {
+                // Abrimos la conexión
+                conexion.Open();
+
+                // Transacción para asegurarnos de que todo se guarde correctamente
+                using (var transaction = conexion.BeginTransaction())
+                {
+                    try
+                    {
+                        // Guardar la factura principal
+                        string queryFactura = "INSERT INTO Factura (Cliente, NIT, Fecha) VALUES (@Cliente, @NIT, @Fecha)";
+                        SQLiteCommand cmdFactura = new SQLiteCommand(queryFactura, conexion);
+                        cmdFactura.Parameters.Add(new SQLiteParameter("@Cliente", factura.Cliente));
+                        cmdFactura.Parameters.Add(new SQLiteParameter("@NIT", factura.NIT));
+                        cmdFactura.Parameters.Add(new SQLiteParameter("@Fecha", factura.Fecha.ToString("yyyy-MM-dd HH:mm:ss")));
+                        cmdFactura.ExecuteNonQuery();
+
+                        // Obtener el ID de la factura recién insertada
+                        long idFactura = conexion.LastInsertRowId;
+
+                        // Guardar los detalles de la factura
+                        foreach (var detalle in factura.Detalles)
+                        {
+                            string queryDetalle = "INSERT INTO DetalleFactura (FacturaID, ProductoID, Cantidad, Precio) VALUES (@FacturaID, @ProductoID, @Cantidad, @Precio)";
+                            SQLiteCommand cmdDetalle = new SQLiteCommand(queryDetalle, conexion);
+                            cmdDetalle.Parameters.Add(new SQLiteParameter("@FacturaID", idFactura));
+                            cmdDetalle.Parameters.Add(new SQLiteParameter("@ProductoID", detalle.Producto.ID)); // Suponiendo que 'Producto' tiene un campo 'ID'
+                            cmdDetalle.Parameters.Add(new SQLiteParameter("@Cantidad", detalle.Cantidad));
+                            cmdDetalle.Parameters.Add(new SQLiteParameter("@Precio", detalle.Producto.Precio)); // Suponiendo que 'Producto' tiene un campo 'Precio'
+                            cmdDetalle.ExecuteNonQuery();
+                        }
+
+                        // Confirmamos la transacción
+                        transaction.Commit();
+                    }
+                    catch (Exception)
+                    {
+                        // Si ocurre un error, revertimos la transacción
+                        transaction.Rollback();
+                        exito = false;
+                    }
+                }
+            }
+
+            return exito;
+        }
+
+
+
 
     }
 }
