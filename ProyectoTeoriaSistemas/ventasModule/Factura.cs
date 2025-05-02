@@ -6,12 +6,19 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
 {
     public class Factura
     {
-        public int ID { get; set; }
-        public string Cliente { get; set; }
-        public string NIT { get; set; }
-        public string NumeroFactura { get; set; }
-        public DateTime Fecha { get; set; }
-        public List<DetalleFactura> Detalles { get; set; } = new List<DetalleFactura>();
+        //HAY MUCHAS COSAS aca que no se como usarlas, por ejemplo, las listas, para los detalles
+        //no se como lo voy a hacer.
+
+        public int ID { get; set; } //
+        public string Cliente { get; set; }//
+        public string NIT { get; set; }//
+       // public string NumeroFactura { get; set; }
+        public DateTime Fecha { get; set; }//
+        public List<DetalleFactura> Detalles { get; set; } = new List<DetalleFactura>();// NO SE QUE HACER CON ESTO
+
+        public Factura()
+        {
+        }
 
         public double Total => Detalles.Sum(d => d.Subtotal);
         //Metodo para sobreescribir el constructor... es provisional para no romper el forms
@@ -20,7 +27,7 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
             ID = id;
             Cliente = "";
             NIT = "C/F";
-            NumeroFactura = id.ToString();
+            //NumeroFactura = id.ToString();
             Fecha = DateTime.Now;
         }
         public Factura(int id, string cliente, string nit, string numeroFactura)
@@ -28,7 +35,7 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
             ID = id;
             Cliente = cliente;
             NIT = nit;
-            NumeroFactura = numeroFactura;
+           // NumeroFactura = numeroFactura;
             Fecha = DateTime.Now;
         }
 

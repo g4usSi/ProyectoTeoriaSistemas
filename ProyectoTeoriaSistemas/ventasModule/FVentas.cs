@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Text;
 using System.Windows.Forms;
 using ProyectoTeoriaSistemas;
 using ProyectoTeoriaSistemas.CodigoFuente;
+using ProyectoTeoriaSistemas.ventasModule;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ProyectoTeoriaSistemas
 {
@@ -22,9 +25,11 @@ namespace ProyectoTeoriaSistemas
 
             InitializeComponent();
             CargarProductos();
-            MostrarFacturaEnTabla();
+            //MostrarFacturaEnTabla();
             InicializarFecha();
             InicializarCampos();
+            mostrarComboBox();
+
 
             printDocument.PrintPage += PrintDocument_PrintPage;
         }
@@ -41,7 +46,7 @@ namespace ProyectoTeoriaSistemas
             y += lineHeight;
             g.DrawString($"Fecha: {txtFecha.Text}", font, Brushes.Black, x, y);
             y += lineHeight;
-            g.DrawString($"Cliente: {txtCliente.Text}", font, Brushes.Black, x, y);
+            //g.DrawString($"Cliente: {txtCliente.Text}", font, Brushes.Black, x, y);
             y += lineHeight;
             g.DrawString($"NIT: {txtNIT.Text}", font, Brushes.Black, x, y);
             y += lineHeight;
@@ -68,7 +73,7 @@ namespace ProyectoTeoriaSistemas
 
         private void CargarProductos()
         {
-            comboDatos.Items.Clear();
+            cmbProductos.Items.Clear();
             /* Aqui se debe iterar, productos en la base de datos
             foreach (var producto in tienda.listaProductos)
             {
@@ -78,7 +83,7 @@ namespace ProyectoTeoriaSistemas
                 comboDatos.SelectedIndex = 0;
             */
         }
-
+        /*
         private void MostrarFacturaEnTabla()
         {
             dataFacturaTabla.Rows.Clear();
@@ -88,7 +93,7 @@ namespace ProyectoTeoriaSistemas
             }
             lblTotal.Text = $"Total: Q{factura.Total:F2}";
         }
-
+        */
         private void btnEditar_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Aquí podrías editar un producto en la factura.", "Editar Producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -96,6 +101,7 @@ namespace ProyectoTeoriaSistemas
 
         private void ActualizarFactura()
         {
+            /*
             dataFacturaTabla.Rows.Clear();
             foreach (var detalle in factura.Detalles)
             {
@@ -109,10 +115,11 @@ namespace ProyectoTeoriaSistemas
                 row.Cells[4].Value = $"Q {detalle.Subtotal:F2}";
             }
             lblTotal.Text = $"Total: Q {factura.Total:F2}";
+            */
         }
 
         private void Agregar_Click(object sender, EventArgs e)
-        {
+        {/*
             if (comboDatos.SelectedIndex == -1)
             {
                 MessageBox.Show("Por favor, seleccione un producto.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -139,6 +146,9 @@ namespace ProyectoTeoriaSistemas
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            */
+            AgregarFacturaDB();//mete los objetos a la lista 
+
         }
 
         private void btnRealizarVenta_Click(object sender, EventArgs e)
@@ -148,7 +158,7 @@ namespace ProyectoTeoriaSistemas
                 MessageBox.Show("No hay productos en la factura. Agregue productos antes de realizar la venta.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
+            /*
             StringBuilder resumen = new StringBuilder();
             resumen.AppendLine("Resumen de la Venta:");
             resumen.AppendLine($"Fecha: {txtFecha.Text}");
@@ -156,7 +166,9 @@ namespace ProyectoTeoriaSistemas
             resumen.AppendLine($"NIT: {txtNIT.Text}");
             resumen.AppendLine($"Factura No: {txtNumeroFactura.Text}");
             resumen.AppendLine("------------------------------");
+            */
 
+            /*
             foreach (var detalle in factura.Detalles)
             {
                 resumen.AppendLine($"{detalle.Producto.Nombre} - Cantidad: {detalle.Cantidad} - Precio: Q{detalle.Producto.Precio:F2} - Subtotal: Q{detalle.Subtotal:F2}");
@@ -164,6 +176,8 @@ namespace ProyectoTeoriaSistemas
 
             resumen.AppendLine("------------------------------");
             resumen.AppendLine($"Total: Q{factura.Total:F2}");
+            */
+
             /*
              * Al final se agregaba una nueva venta, en este caso se agrega a la base de datos, 
              * los txt, son text boxes del windows forms
@@ -175,7 +189,7 @@ namespace ProyectoTeoriaSistemas
 
 
             */
-
+            /*
             try
             {
                 string rutaArchivo = @"C:\\Ventas\\Factura_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".txt";
@@ -187,12 +201,15 @@ namespace ProyectoTeoriaSistemas
             {
                 MessageBox.Show($"Error al guardar el archivo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
+            */
             printPreviewDialog.Document = printDocument;
             printPreviewDialog.ShowDialog();
 
             factura = new Factura(1);
-            MostrarFacturaEnTabla();
+            //MostrarFacturaEnTabla();
+
+            
+
         }
 
         private void InicializarCampos()
@@ -206,5 +223,47 @@ namespace ProyectoTeoriaSistemas
         {
             InicializarCampos();
         }
+        //A PARTIR DE ACA ES LO QUE FUNCIONA CON LA BASE DE DATOS 
+
+        private void AgregarFacturaDB()
+        {
+            Factura objeto = new Factura()
+            {//ID *en el video no lo coloco porque es para eliminar y editar * en este caso no se usa porque es autoincrementable
+                Cliente = txtCliente.Text,
+                NIT = txtNIT.Text,
+                Fecha = DateTime.Now
+
+                //metes los atributos al objeto y luego el objeto a la lista
+
+            };
+            //devuelve una respuesta
+            bool respuesta = FacturaLogica.Instancia.Guardar(objeto);
+
+            if (respuesta)
+            {
+                //ESTA COSA ES LA QUE MEUSTRA LA TABLA 
+                mostrar_Articulo();
+            }
+
+        }
+        public void mostrar_Articulo()
+        {
+            dataFacturaTabla.DataSource = null;
+            dataFacturaTabla.DataSource = FacturaLogica.Instancia.Listar();
+        }
+
+        public void mostrarComboBox()
+        {
+            List<string> Articulos = FacturaLogica.Instancia.MostrarArticulosCombo();
+
+            cmbProductos.Items.Clear();
+            cmbProductos.Items.AddRange(Articulos.ToArray());
+        }
+
+        //metodo de DE DETALLES este es el que agrega 
+
+
+
+
     }
 }

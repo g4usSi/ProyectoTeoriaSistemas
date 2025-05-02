@@ -64,7 +64,10 @@
     <Compile Include="rhModule\PlanillaLogica.cs" />
     <Compile Include="ventasModule\DetalleFactura.cs" />
     <Compile Include="rhModule\EmpleadoData.cs" />
+    <Compile Include="ventasModule\DetallesDeFactura.cs" />
+    <Compile Include="ventasModule\DetallesDeFacturaLogica.cs" />
     <Compile Include="ventasModule\Factura.cs" />
+    <Compile Include="ventasModule\FacturaLogica.cs" />
     <Compile Include="ventasModule\FormFactura.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -1,12 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:\Users\HDZaid\Desktop\CARPETAS\2025\Teoría de Sistemas\Segundo Proyecto\ProyectoTeoriaSistemas\ProyectoTeoriaSistemas\pruebaDB.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="0"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="125"/><column_width id="3" width="3579"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,8:mainPlanilla"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">CREATE TABLE &quot;Articulo&quot; (
-    &quot;ID&quot; INTEGER NOT NULL UNIQUE,
-    &quot;Nombre&quot; TEXT NOT NULL,
-    &quot;Marca&quot; TEXT NOT NULL,
-    &quot;Stock&quot; INTEGER NOT NULL,
-    &quot;Precio&quot; INTEGER NOT NULL,
-    &quot;PrecioVenta&quot; INTEGER NOT NULL,
-    &quot;IDProveedores&quot; INTEGER NOT NULL,
-    PRIMARY KEY(&quot;ID&quot; AUTOINCREMENT),
-    FOREIGN KEY(&quot;IDProveedores&quot;) REFERENCES &quot;Proveedor&quot;(&quot;IDProveedor&quot;)
-);
-</sql><current_tab id="0"/></tab_sql></sqlb_project>
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:\Users\HDZaid\Desktop\CARPETAS\2025\Teoría de Sistemas\Segundo Proyecto\ProyectoTeoriaSistemas\ProyectoTeoriaSistemas\pruebaDB.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="0"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="125"/><column_width id="3" width="2759"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,8:mainArticulo"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">CREATE TABLE DetalleFactura (
+    IDDetalle INTEGER PRIMARY KEY AUTOINCREMENT,
+    IDFactura INTEGER NOT NULL,
+    IDArticulo INTEGER NOT NULL,
+    Cantidad INTEGER NOT NULL,
+    PrecioUnitario REAL NOT NULL,
+    
+    FOREIGN KEY(IDFactura) REFERENCES Factura(ID) ON DELETE CASCADE,
+    FOREIGN KEY(IDArticulo) REFERENCES Articulo(ID) ON DELETE CASCADE
+);</sql><current_tab id="0"/></tab_sql></sqlb_project>

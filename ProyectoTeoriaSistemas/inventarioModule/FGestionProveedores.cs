@@ -61,19 +61,24 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
         {
            Proveedor objeto = new Proveedor()
            {//ID *en el video no lo coloco porque es para eliminar y editar * en este caso no se usa porque es autoincrementable
-               Nombre = textBox2.Text,
-               NIT =textBox10.Text,
+               //textBox2.Text, creo que no se va a usar
+               Nombre = textBox10.Text,
+               NIT = textBox9.Text,
                Telefono = int.Parse(textBox8.Text),
                Contacto = textBox7.Text,
                Direccion = textBox6.Text,
                Correo = textBox5.Text
+
+               //aca solo le mandas los parametros que sea, desde cualquier formulario, esque 
+               //lo hice para probar nomas
+
            };
    
            bool respuesta = ProveedorLogica.Instancia.Guardar(objeto);
 
            if (respuesta)
            {
-               //ESTA COSA ES LA QUE MEUSTRA LA TABLA 
+               //ESTA COSA ES LA QUE MUESTRA LA TABLA 
                mostrar_Proveedor();
            }
 

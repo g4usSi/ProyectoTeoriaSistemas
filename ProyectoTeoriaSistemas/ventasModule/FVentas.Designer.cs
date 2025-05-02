@@ -35,7 +35,7 @@
             this.txtNIT = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.NumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.comboDatos = new System.Windows.Forms.ComboBox();
+            this.cmbProductos = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblTotal = new System.Windows.Forms.Label();
@@ -89,7 +89,7 @@
             this.groupBox1.Controls.Add(this.txtNIT);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.NumericUpDown);
-            this.groupBox1.Controls.Add(this.comboDatos);
+            this.groupBox1.Controls.Add(this.cmbProductos);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Controls.Add(this.txtNumeroFactura);
@@ -156,17 +156,17 @@
             this.NumericUpDown.Size = new System.Drawing.Size(62, 26);
             this.NumericUpDown.TabIndex = 33;
             // 
-            // comboDatos
+            // cmbProductos
             // 
-            this.comboDatos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboDatos.FormattingEnabled = true;
-            this.comboDatos.Items.AddRange(new object[] {
+            this.cmbProductos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbProductos.FormattingEnabled = true;
+            this.cmbProductos.Items.AddRange(new object[] {
             "Factura",
             "Recibo"});
-            this.comboDatos.Location = new System.Drawing.Point(176, 137);
-            this.comboDatos.Name = "comboDatos";
-            this.comboDatos.Size = new System.Drawing.Size(259, 28);
-            this.comboDatos.TabIndex = 31;
+            this.cmbProductos.Location = new System.Drawing.Point(176, 137);
+            this.cmbProductos.Name = "cmbProductos";
+            this.cmbProductos.Size = new System.Drawing.Size(259, 28);
+            this.cmbProductos.TabIndex = 31;
             // 
             // label6
             // 
@@ -514,7 +514,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn marca;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
-        private System.Windows.Forms.ComboBox comboDatos;
+        private System.Windows.Forms.ComboBox cmbProductos;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown NumericUpDown;
         private System.Windows.Forms.Label label7;
