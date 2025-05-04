@@ -24,7 +24,7 @@ namespace ProyectoTeoriaSistemas
 
         private void FProducto_Load(object sender, EventArgs e)
         {
-
+             
         }
 
         private void Agregar_Click(object sender, EventArgs e)
@@ -57,8 +57,8 @@ namespace ProyectoTeoriaSistemas
 
         public void mostrar_Articulo()
         {
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = ProductoLogica.Instancia.Listar();
+            dtaProductos.DataSource = null;
+            dtaProductos.DataSource = ProductoLogica.Instancia.Listar();
         }
 
         private void CargarProveedoresEnComboBox()

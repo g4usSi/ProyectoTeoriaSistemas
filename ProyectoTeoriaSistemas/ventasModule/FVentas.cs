@@ -142,7 +142,6 @@ namespace ProyectoTeoriaSistemas
             lblTotal.Text = $"Total: Q{detallesTemporal.Sum(d => d.Subtotal):F2}";
         }
 
-
         private void btnRealizarVenta_Click(object sender, EventArgs e)
         {
             if (detallesTemporal.Count == 0)
