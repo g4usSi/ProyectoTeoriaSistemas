@@ -247,6 +247,7 @@
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panel1);
             this.Name = "FFinanzas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FFinanzas";
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);

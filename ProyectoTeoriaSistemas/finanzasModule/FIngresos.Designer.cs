@@ -173,6 +173,7 @@
             this.Controls.Add(this.btnAgregarIngreso);
             this.Controls.Add(this.dataGridIngresos);
             this.Name = "FIngresos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "childReporte";
             this.Load += new System.EventHandler(this.FIngresos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridIngresos)).EndInit();
