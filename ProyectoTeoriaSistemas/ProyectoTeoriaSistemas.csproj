@@ -54,6 +54,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="finanzasModule\Egresos.cs" />
+    <Compile Include="finanzasModule\Ingresos.cs" />
     <Compile Include="inventarioModule\FGestionProveedores.cs">
       <SubType>Form</SubType>
     </Compile>

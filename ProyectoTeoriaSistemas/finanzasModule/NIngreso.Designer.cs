@@ -31,16 +31,13 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cmbBoxAno = new System.Windows.Forms.ComboBox();
-            this.cmbBoxMes = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.txtMonto = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.Fecha = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,10 +61,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.cmbBoxAno);
-            this.groupBox1.Controls.Add(this.cmbBoxMes);
+            this.groupBox1.Controls.Add(this.Fecha);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
@@ -80,74 +74,13 @@
             this.groupBox1.TabIndex = 42;
             this.groupBox1.TabStop = false;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
-            this.label6.Location = new System.Drawing.Point(30, 68);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 27);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Mes:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
-            this.label5.Location = new System.Drawing.Point(335, 68);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 27);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Año:";
-            // 
-            // cmbBoxAno
-            // 
-            this.cmbBoxAno.FormattingEnabled = true;
-            this.cmbBoxAno.Items.AddRange(new object[] {
-            "2024",
-            "2025",
-            "2026",
-            "2027",
-            "2028",
-            "2029",
-            "2030"});
-            this.cmbBoxAno.Location = new System.Drawing.Point(405, 67);
-            this.cmbBoxAno.Name = "cmbBoxAno";
-            this.cmbBoxAno.Size = new System.Drawing.Size(121, 28);
-            this.cmbBoxAno.TabIndex = 14;
-            // 
-            // cmbBoxMes
-            // 
-            this.cmbBoxMes.FormattingEnabled = true;
-            this.cmbBoxMes.Items.AddRange(new object[] {
-            "Enero",
-            "Febrero",
-            "Marzo",
-            "Abril",
-            "Mayo",
-            "Junio",
-            "Julio",
-            "Agosto",
-            "Septiembre",
-            "Octubre",
-            "Noviembre",
-            "Diciembre"});
-            this.cmbBoxMes.Location = new System.Drawing.Point(198, 67);
-            this.cmbBoxMes.Name = "cmbBoxMes";
-            this.cmbBoxMes.Size = new System.Drawing.Size(121, 28);
-            this.cmbBoxMes.TabIndex = 13;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(231, 22);
+            this.label2.Location = new System.Drawing.Point(30, 68);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 27);
             this.label2.TabIndex = 5;
@@ -210,6 +143,14 @@
             this.label1.Text = "Ingreso de Activos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // Fecha
+            // 
+            this.Fecha.CalendarMonthBackground = System.Drawing.Color.Lavender;
+            this.Fecha.Location = new System.Drawing.Point(198, 68);
+            this.Fecha.Name = "Fecha";
+            this.Fecha.Size = new System.Drawing.Size(328, 26);
+            this.Fecha.TabIndex = 14;
+            // 
             // NIngreso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -238,9 +179,6 @@
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.TextBox txtMonto;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cmbBoxAno;
-        private System.Windows.Forms.ComboBox cmbBoxMes;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker Fecha;
     }
 }
