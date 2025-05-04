@@ -94,25 +94,6 @@ namespace ProyectoTeoriaSistemas
             MessageBox.Show("Aquí podrías editar un producto en la factura.", "Editar Producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void ActualizarFactura()
-        {
-            /*
-            dataFacturaTabla.Rows.Clear();
-            foreach (var detalle in factura.Detalles)
-            {
-                int rowIndex = dataFacturaTabla.Rows.Add();
-                DataGridViewRow row = dataFacturaTabla.Rows[rowIndex];
-
-                row.Cells[0].Value = detalle.Cantidad;
-                row.Cells[1].Value = detalle.Producto.ID;
-                row.Cells[2].Value = detalle.Producto.Nombre + " - " + detalle.Producto.Marca;
-                row.Cells[3].Value = $"Q {detalle.Producto.Precio:F2}";
-                row.Cells[4].Value = $"Q {detalle.Subtotal:F2}";
-            }
-            lblTotal.Text = $"Total: Q {factura.Total:F2}";
-            */
-        }
-
         private void Agregar_Click(object sender, EventArgs e)
         {
             if (cmbProductos.SelectedIndex == -1)
@@ -243,9 +224,5 @@ namespace ProyectoTeoriaSistemas
         }
 
         //metodo de DE DETALLES este es el que agrega 
-
-
-
-
     }
 }
