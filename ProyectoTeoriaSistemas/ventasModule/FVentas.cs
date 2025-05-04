@@ -23,13 +23,14 @@ namespace ProyectoTeoriaSistemas
         public FVentas()
         {
             //Aun hay que corregir Facturas
-            this.factura = new Factura(1);
+            this.factura = new Factura();
 
             InitializeComponent();
             CargarProductos();
             //MostrarFacturaEnTabla();
             InicializarFecha();
             InicializarCampos();
+            this.factura = new Factura();
             //Muestra el combobox de productos
             mostrarComboBox();
 
@@ -136,7 +137,7 @@ namespace ProyectoTeoriaSistemas
 
             foreach (var det in detallesTemporal)
             {
-                dataFacturaTabla.Rows.Add(det.Cantidad, det.Producto.ID, det.Producto.Nombre, $"Q{det.Producto.Precio:F2}", $"Q{det.Subtotal:F2}");
+                dataFacturaTabla.Rows.Add(det.Cantidad, det.Producto.ID, det.Producto.Nombre, $"Q{det.Producto.PrecioVenta:F2}", $"Q{det.Subtotal:F2}");
             }
 
             lblTotal.Text = $"Total: Q{detallesTemporal.Sum(d => d.Subtotal):F2}";
@@ -150,15 +151,12 @@ namespace ProyectoTeoriaSistemas
                 return;
             }
 
-            Factura factura = new Factura
-            {
-                Cliente = txtCliente.Text,
-                NIT = txtNIT.Text,
-                Fecha = DateTime.Now,
-                Detalles = detallesTemporal
-            };
+            this.factura.Cliente = txtCliente.Text;
+            this.factura.NIT = txtNIT.Text;
+            this.factura.Fecha = DateTime.Now;
+            this.factura.Detalles = detallesTemporal;
 
-            bool exito = FacturaLogica.Instancia.GuardarConDetalles(factura);
+            bool exito = FacturaLogica.Instancia.GuardarConDetalles(this.factura);
 
             if (exito)
             {

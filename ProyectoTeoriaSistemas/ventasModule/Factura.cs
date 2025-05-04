@@ -18,6 +18,7 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
 
         public Factura()
         {
+
         }
 
         public double Total => Detalles.Sum(d => d.Subtotal);

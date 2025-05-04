@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SQLite;
 
+
 namespace ProyectoTeoriaSistemas.financieroModule
 {
     public class IngresoLogica
@@ -77,6 +78,16 @@ namespace ProyectoTeoriaSistemas.financieroModule
             return lista;
         }
     }
+
+    public class Ingreso
+    {
+        public int ID { get; set; }
+        public string Fecha { get; set; }
+        public string Descripcion { get; set; }
+        public decimal Total { get; set; }
+    }
+    
+
 
 }
 

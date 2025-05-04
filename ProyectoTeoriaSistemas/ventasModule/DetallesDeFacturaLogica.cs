@@ -91,6 +91,10 @@ namespace ProyectoTeoriaSistemas.ventasModule
       
         //VER SI ESTO FUNCIONA, ESTO ME LO DIO CHAT, RECIBE EL ID DEL PRODUCTO Y EL STOCK QUE SE VA A QUITAR, PERO NO SE DONDE HAY QUE PONER
         //LO DE QUE NO PUEDE SER MENOR QUE 0
+
+        //Si funciona pero lo hace por separado... primero actualiza el stock, luego verifica en el coso, lo voy a meter en la otra clase :V
+        //ya manejo la excepcion directamente en el formulario NTP :3
+        /*
         public bool ActualizarStock(int idProducto, int nuevoStock)
         {
             bool respuesta = true;
@@ -115,5 +119,6 @@ namespace ProyectoTeoriaSistemas.ventasModule
 
             return respuesta;
         }
+        */
     }
 }

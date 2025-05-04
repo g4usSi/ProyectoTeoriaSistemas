@@ -18,7 +18,7 @@ namespace ProyectoTeoriaSistemas.Forms
 
         public FormFactura()
         {
-            this.factura = new Factura(1);  // Se crea una nueva factura con ID 1
+            this.factura = new Factura();  // Se crea una nueva factura con ID 1
 
             InicializarComponentes();
             // CargarProductos(); // Comentado temporalmente

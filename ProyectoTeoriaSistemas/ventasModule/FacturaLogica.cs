@@ -209,57 +209,73 @@ namespace ProyectoTeoriaSistemas.ventasModule
 
             return producto;
         }
+
+        //Hay que corregir los Querys
         public bool GuardarConDetalles(Factura factura)
         {
             bool exito = true;
 
             using (SQLiteConnection conexion = new SQLiteConnection(cadena))
             {
-                // Abrimos la conexión
                 conexion.Open();
 
-                // Transacción para asegurarnos de que todo se guarde correctamente
                 using (var transaction = conexion.BeginTransaction())
                 {
                     try
                     {
-                        // Guardar la factura principal
+                        // Insertar factura
                         string queryFactura = "INSERT INTO Factura (Cliente, NIT, Fecha) VALUES (@Cliente, @NIT, @Fecha)";
-                        SQLiteCommand cmdFactura = new SQLiteCommand(queryFactura, conexion);
-                        cmdFactura.Parameters.Add(new SQLiteParameter("@Cliente", factura.Cliente));
-                        cmdFactura.Parameters.Add(new SQLiteParameter("@NIT", factura.NIT));
-                        cmdFactura.Parameters.Add(new SQLiteParameter("@Fecha", factura.Fecha.ToString("yyyy-MM-dd HH:mm:ss")));
-                        cmdFactura.ExecuteNonQuery();
+                        using (SQLiteCommand cmdFactura = new SQLiteCommand(queryFactura, conexion))
+                        {
+                            cmdFactura.Parameters.AddWithValue("@Cliente", factura.Cliente);
+                            cmdFactura.Parameters.AddWithValue("@NIT", factura.NIT);
+                            cmdFactura.Parameters.AddWithValue("@Fecha", factura.Fecha.ToString("yyyy-MM-dd HH:mm:ss"));
+                            cmdFactura.ExecuteNonQuery();
+                        }
 
                         // Obtener el ID de la factura recién insertada
                         long idFactura = conexion.LastInsertRowId;
 
-                        // Guardar los detalles de la factura
+                        // Insertar detalles
                         foreach (var detalle in factura.Detalles)
                         {
-                            string queryDetalle = "INSERT INTO DetalleFactura (FacturaID, ProductoID, Cantidad, Precio) VALUES (@FacturaID, @ProductoID, @Cantidad, @Precio)";
-                            SQLiteCommand cmdDetalle = new SQLiteCommand(queryDetalle, conexion);
-                            cmdDetalle.Parameters.Add(new SQLiteParameter("@FacturaID", idFactura));
-                            cmdDetalle.Parameters.Add(new SQLiteParameter("@ProductoID", detalle.Producto.ID)); // Suponiendo que 'Producto' tiene un campo 'ID'
-                            cmdDetalle.Parameters.Add(new SQLiteParameter("@Cantidad", detalle.Cantidad));
-                            cmdDetalle.Parameters.Add(new SQLiteParameter("@Precio", detalle.Producto.Precio)); // Suponiendo que 'Producto' tiene un campo 'Precio'
-                            cmdDetalle.ExecuteNonQuery();
+                            string queryDetalle = @"INSERT INTO DetalleFactura 
+                        (IDFactura, IDArticulo, Cantidad, PrecioUnitario) 
+                        VALUES (@IDFactura, @IDArticulo, @Cantidad, @PrecioUnitario)";
+
+                            using (SQLiteCommand cmdDetalle = new SQLiteCommand(queryDetalle, conexion))
+                            {
+                                cmdDetalle.Parameters.AddWithValue("@IDFactura", idFactura);
+                                cmdDetalle.Parameters.AddWithValue("@IDArticulo", detalle.IDArticulo);
+                                cmdDetalle.Parameters.AddWithValue("@Cantidad", detalle.Cantidad);
+                                cmdDetalle.Parameters.AddWithValue("@PrecioUnitario", detalle.PrecioUnitario);
+                                cmdDetalle.ExecuteNonQuery();
+                            }
+
+                            // También puedes restar el stock aquí si lo deseas:
+                            string queryActualizarStock = "UPDATE Articulo SET Stock = Stock - @Cantidad WHERE ID = @IDArticulo";
+                            using (SQLiteCommand cmdStock = new SQLiteCommand(queryActualizarStock, conexion))
+                            {
+                                cmdStock.Parameters.AddWithValue("@Cantidad", detalle.Cantidad);
+                                cmdStock.Parameters.AddWithValue("@IDArticulo", detalle.IDArticulo);
+                                cmdStock.ExecuteNonQuery();
+                            }
                         }
 
-                        // Confirmamos la transacción
                         transaction.Commit();
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
-                        // Si ocurre un error, revertimos la transacción
                         transaction.Rollback();
                         exito = false;
+                        Console.WriteLine("Error al guardar la factura: " + ex.Message);
                     }
                 }
             }
 
             return exito;
         }
+
 
 
 

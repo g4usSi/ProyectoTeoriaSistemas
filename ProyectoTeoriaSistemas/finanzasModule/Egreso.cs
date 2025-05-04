@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace ProyectoTeoriaSistemas.finanzasModule
 {
-    public class Ingresos
+    public class Egreso
     {
         public int ID { get; set; } //
         public DateTime DateTime { get; set; }
         public string Descripcion { get; set; }//
         public string Total { get; set; }//
-       
     }
 }
