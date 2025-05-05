@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using ProyectoTeoriaSistemas.CodigoFuente;
+using ProyectoTeoriaSistemas.ventasModule;
 
 namespace ProyectoTeoriaSistemas.finanzasModule
 {
@@ -61,20 +62,9 @@ namespace ProyectoTeoriaSistemas.finanzasModule
 
             int anoSeleccionado = int.Parse(cmbBoxAno.SelectedItem.ToString());
             int mesSeleccionado = cmbBoxMes.SelectedIndex + 1;
-            /*
-             * Filtrar desde la base de datos
-             * 
-            var ventasFiltradas = _tienda.ObtenerIngresosPorFecha(anoSeleccionado, mesSeleccionado)
-                .Select(v => new
-                {
-                    Fecha = v.Fecha.ToString("yyyy-MM-dd"),
-                    Cliente = v.Cliente,
-                    TotalVenta = v.TotalVenta
-                })
-                .ToList();
 
-            dataGridIngresos.DataSource = ventasFiltradas;
-            */
+            mostrarDetallesVenta(anoSeleccionado, mesSeleccionado);
+            MostrarTotalEnLabel(anoSeleccionado, mesSeleccionado);
         }
 
 
@@ -100,6 +90,17 @@ namespace ProyectoTeoriaSistemas.finanzasModule
             //btn para mostrar graficos de comportamiento, de acuerdo a los filtros de los combobox
         }
 
+        public void mostrarDetallesVenta(int año, int mes)
+        {
+            dataGridIngresos.DataSource = null;
+            dataGridIngresos.DataSource = DetallesDeFacturaLogica.Instancia.ListarPorFecha(año, mes);
+        }
+
+        public void MostrarTotalEnLabel(int año, int mes)
+        {
+            decimal total = DetallesDeFacturaLogica.Instancia.ObtenerTotalDeVentasPorMes(año, mes);
+            label2.Text = $"Total del mes: ${total:N2}";
+        }
 
     }
 }

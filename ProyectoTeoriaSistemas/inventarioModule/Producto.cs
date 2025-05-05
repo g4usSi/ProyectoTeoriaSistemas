@@ -15,6 +15,9 @@ namespace ProyectoTeoriaSistemas
         public double Precio { get; set; }//
         public double PrecioVenta { get; set; }//
         public int IDProveedor { get; set; }  // 
+        public DateTime Fecha { get; set; }  // 
+
+        //agregar fecha para financiero
 
 
 

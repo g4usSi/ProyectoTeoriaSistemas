@@ -37,6 +37,7 @@
             this.cmbBoxMes = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbBoxAno = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEgresos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -136,11 +137,21 @@
             this.cmbBoxAno.Size = new System.Drawing.Size(203, 24);
             this.cmbBoxAno.TabIndex = 56;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(813, 38);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.TabIndex = 60;
+            this.label2.Text = "label2";
+            // 
             // FEgresos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(991, 583);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbBoxMes);
             this.Controls.Add(this.label5);
@@ -170,5 +181,6 @@
         private System.Windows.Forms.ComboBox cmbBoxMes;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cmbBoxAno;
+        private System.Windows.Forms.Label label2;
     }
 }

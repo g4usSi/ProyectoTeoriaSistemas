@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SQLite;
+using ProyectoTeoriaSistemas.CodigoFuente;
 
 
 namespace ProyectoTeoriaSistemas.financieroModule
@@ -77,7 +78,83 @@ namespace ProyectoTeoriaSistemas.financieroModule
 
             return lista;
         }
+
+        public List<Producto> ListarPorFecha(int año, int mes)
+        {
+            List<Producto> oLista = new List<Producto>();
+
+            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
+            {
+                conexion.Open();
+
+                string query = @"
+                     SELECT ID, Nombre, Stock, Fecha
+                     FROM Articulo
+                     WHERE strftime('%Y', Fecha) = @Anio
+                     AND strftime('%m', Fecha) = @Mes";
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@Anio", año.ToString());
+                    cmd.Parameters.AddWithValue("@Mes", mes.ToString("D2")); // D2 fuerza 2 dígitos, ej: 04
+
+                    using (SQLiteDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            oLista.Add(new Producto()
+                            {
+                                ID = int.Parse(dr["ID"].ToString()),
+                                Nombre = dr["Nombre"].ToString(),
+                                Stock = int.Parse(dr["Stock"].ToString()),
+                                Fecha = DateTime.Parse(dr["Fecha"].ToString())
+                            });
+                        }
+                    }
+                }
+            }
+
+            return oLista;
+        }
+
+        public decimal ObtenerEgresoTotalPorMes(int año, int mes)
+        {
+            decimal total = 0;
+
+            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
+            {
+                conexion.Open();
+
+                string query = @"
+                    SELECT SUM(Stock * Precio) AS TotalEgreso
+                    FROM Articulo
+                    WHERE strftime('%Y', Fecha) = @anio
+                    AND strftime('%m', Fecha) = @mes";
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@anio", año.ToString());
+                    cmd.Parameters.AddWithValue("@mes", mes.ToString("D2")); // 01-12
+
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != DBNull.Value && result != null)
+                        total = Convert.ToDecimal(result);
+                }
+            }
+
+            return total;
+        }
+
+
+
+
+
     }
+
+
+    
+
 
     public class Ingreso
     {

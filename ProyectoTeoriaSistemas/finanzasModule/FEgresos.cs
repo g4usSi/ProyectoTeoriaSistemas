@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
-using ProyectoTeoriaSistemas;  // Asegúrate de que este namespace incluya a Tienda y ResumenPlanilla
+using ProyectoTeoriaSistemas;
+using ProyectoTeoriaSistemas.financieroModule;
+using ProyectoTeoriaSistemas.ventasModule;  // Asegúrate de que este namespace incluya a Tienda y ResumenPlanilla
 
 namespace ProyectoTeoriaSistemas.finanzasModule
 {
@@ -69,8 +72,18 @@ namespace ProyectoTeoriaSistemas.finanzasModule
             int añoSeleccionado = int.Parse(cmbBoxAno.SelectedItem.ToString());
             int mesSeleccionado = cmbBoxMes.SelectedIndex + 1;
 
-        }
+            //hacer la consulta al SQL
 
+            MostrarEgresos(añoSeleccionado, mesSeleccionado);
+            MostrarTotalEnLabel(añoSeleccionado, mesSeleccionado);
+
+
+        }
+        public void mostrar_Articulo()
+        {
+            dataGridEgresos.DataSource = null;
+            dataGridEgresos.DataSource = DetallesDeFacturaLogica.Instancia.Listar();
+        }
 
         /// <summary>
         /// Placeholder para agregar nuevo egreso o planilla.
@@ -79,9 +92,31 @@ namespace ProyectoTeoriaSistemas.finanzasModule
         {
             NIngreso nIngreso = new NIngreso();
             nIngreso.Show();
-
-
         }
+        public void MostrarEgresos(int año, int mes)
+        {
+            var productos = IngresoLogica.Instancia.ListarPorFecha(año, mes);
+
+            // Crear una lista anónima solo con las propiedades deseadas
+            var productosFiltrados = productos.Select(p => new
+            {
+                p.ID,
+                p.Nombre,
+                p.Stock,
+                p.Fecha
+            }).ToList();
+
+            dataGridEgresos.DataSource = null;
+            dataGridEgresos.DataSource = productosFiltrados;
+        }
+
+        public void MostrarTotalEnLabel(int año, int mes)
+        {
+            decimal total = IngresoLogica.Instancia.ObtenerEgresoTotalPorMes(año, mes);
+            label2.Text = $"Total del mes: ${total:N2}";
+        }
+
+
     }
 }
 

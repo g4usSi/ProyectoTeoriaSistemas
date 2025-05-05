@@ -42,7 +42,8 @@ namespace ProyectoTeoriaSistemas
                 Stock = int.Parse(textCantidad.Text),
                 Precio = int.Parse(textPrecio.Text),
                 PrecioVenta = int.Parse(textPrecioVenta.Text),
-                IDProveedor = int.Parse(comboBox1.SelectedItem.ToString().Split(' ')[0])
+                IDProveedor = int.Parse(comboBox1.SelectedItem.ToString().Split(' ')[0]),
+                Fecha = DateTime.Now
             };
             //devuelve una respuesta
             bool respuesta = ProductoLogica.Instancia.Guardar(objeto);

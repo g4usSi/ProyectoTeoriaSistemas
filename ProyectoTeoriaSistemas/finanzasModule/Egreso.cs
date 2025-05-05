@@ -8,8 +8,10 @@ namespace ProyectoTeoriaSistemas.finanzasModule
 {
     public class Egreso
     {
-        public int ID { get; set; } //
-        public DateTime DateTime { get; set; }
+        public int IDEgreso { get; set; } //
+
+        public int IDFactura { get; set; }//ver si esto funciona de algo 
+        public DateTime DateTime { get; set; }//
         public string Descripcion { get; set; }//
         public string Total { get; set; }//
     }

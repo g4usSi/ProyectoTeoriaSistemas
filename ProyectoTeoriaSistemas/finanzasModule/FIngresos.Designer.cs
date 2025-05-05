@@ -37,6 +37,7 @@
             this.dataGridIngresos = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbBoxMes = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridIngresos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -158,11 +159,21 @@
             this.cmbBoxMes.Size = new System.Drawing.Size(203, 24);
             this.cmbBoxMes.TabIndex = 54;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(808, 54);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.TabIndex = 56;
+            this.label2.Text = "label2";
+            // 
             // FIngresos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1003, 583);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbBoxMes);
             this.Controls.Add(this.label11);
@@ -193,5 +204,6 @@
         private System.Windows.Forms.DataGridView dataGridIngresos;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbBoxMes;
+        private System.Windows.Forms.Label label2;
     }
 }

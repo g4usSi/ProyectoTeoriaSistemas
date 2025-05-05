@@ -210,6 +210,8 @@ namespace ProyectoTeoriaSistemas.ventasModule
             return producto;
         }
 
+
+
         //Hay que corregir los Querys
         public bool GuardarConDetalles(Factura factura)
         {
@@ -252,7 +254,6 @@ namespace ProyectoTeoriaSistemas.ventasModule
                                 cmdDetalle.ExecuteNonQuery();
                             }
 
-                            // También puedes restar el stock aquí si lo deseas:
                             string queryActualizarStock = "UPDATE Articulo SET Stock = Stock - @Cantidad WHERE ID = @IDArticulo";
                             using (SQLiteCommand cmdStock = new SQLiteCommand(queryActualizarStock, conexion))
                             {
@@ -276,8 +277,35 @@ namespace ProyectoTeoriaSistemas.ventasModule
             return exito;
         }
 
+        //VER SI ESTO FUNCIONA, ESTO ME LO DIO CHAT, RECIBE EL ID DEL PRODUCTO Y EL STOCK QUE SE VA A QUITAR, PERO NO SE DONDE HAY QUE PONER
+        //LO DE QUE NO PUEDE SER MENOR QUE 0
+        public bool ActualizarStock(int idProducto, int nuevoStock)
+        {
+            if (nuevoStock < 0)
+                return false;
 
+            bool respuesta = true;
 
+            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
+            {
+                conexion.Open();
+
+                string query = "UPDATE Articulo SET Stock = @Stock WHERE ID = @ID";
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@Stock", nuevoStock);
+                    cmd.Parameters.AddWithValue("@ID", idProducto);
+
+                    if (cmd.ExecuteNonQuery() < 1)
+                    {
+                        respuesta = false;
+                    }
+                }
+            }
+
+            return respuesta;
+        }
 
 
     }

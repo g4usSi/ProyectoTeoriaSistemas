@@ -110,7 +110,6 @@ namespace ProyectoTeoriaSistemas
                 return;
             }
 
-            // ID está en formato: "1 - ProductoX"
             string seleccion = cmbProductos.SelectedItem.ToString();
             int idProducto = int.Parse(seleccion.Split('-')[0].Trim());
 
@@ -121,6 +120,18 @@ namespace ProyectoTeoriaSistemas
                 MessageBox.Show("No hay suficiente stock.", "Error");
                 return;
             }
+            /*
+            int nuevoStock = producto.Stock - cantidad;
+
+            bool actualizado = FacturaLogica.Instancia.ActualizarStock(producto.ID, nuevoStock);
+            
+            if (!actualizado)
+            {
+                MessageBox.Show("Error al actualizar el stock en la base de datos.", "Error");
+                return;
+            }
+            */
+            //producto.Stock = nuevoStock;
 
             var detalle = new DetalleFactura
             {

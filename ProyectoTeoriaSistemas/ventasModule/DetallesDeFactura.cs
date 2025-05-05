@@ -13,6 +13,7 @@ namespace ProyectoTeoriaSistemas.ventasModule
         public int IDArticulo { get; set; }
         public int Cantidad { get; set; }
         public decimal PrecioUnitario { get; set; }
+      //  public decimal TotalFactura { get; set; } //agregar esto porque ocupamos usarlo en financiero
 
         public DetallesDeFactura()
         {
