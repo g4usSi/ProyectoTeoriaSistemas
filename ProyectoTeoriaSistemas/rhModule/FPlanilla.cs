@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Media;
 using System.Windows.Forms;
 
 namespace ProyectoTeoriaSistemas.CodigoFuente
@@ -55,6 +56,7 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
         //Este boton carga los datos al dataGrid
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+          
             // Verificar que el usuario ha seleccionado un empleado
             // Verificar que el usuario ha seleccionado un empleado
             if (cmBoxEmpleados.SelectedItem == null || !(cmBoxEmpleados.SelectedItem is EmpleadoDatos))
@@ -62,7 +64,8 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
                 MessageBox.Show("Seleccione un empleado antes de guardar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
+            SoundPlayer player = new SoundPlayer(Properties.Resources.sfx_menu1);
+            player.Play();
             // Si pasó la validación, asignamos el empleado seleccionado
             EmpleadoDatos empleadoSeleccionado = (EmpleadoDatos)cmBoxEmpleados.SelectedItem;
 

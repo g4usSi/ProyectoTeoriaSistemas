@@ -4,10 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProyectoTeoriaSistemas.CodigoFuente;
+
 
 namespace ProyectoTeoriaSistemas
 {
@@ -17,6 +19,8 @@ namespace ProyectoTeoriaSistemas
         public MenuPrincipal()
         {
             InitializeComponent();
+            SoundPlayer player = new SoundPlayer(Properties.Resources.sfx_menu1);
+            player.Play();
             StartPosition = FormStartPosition.CenterScreen;
 
             // Inicializa el Label con la hora actual
@@ -62,6 +66,11 @@ namespace ProyectoTeoriaSistemas
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Bienvenida_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

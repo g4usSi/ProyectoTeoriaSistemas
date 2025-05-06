@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -30,6 +31,14 @@ namespace ProyectoTeoriaSistemas.finanzasModule
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            SoundPlayer player = new SoundPlayer(Properties.Resources.sfx_menu1);
+            player.Play();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            SoundPlayer player = new SoundPlayer(Properties.Resources.cancelar);
+            player.Play();
         }
     }
 }

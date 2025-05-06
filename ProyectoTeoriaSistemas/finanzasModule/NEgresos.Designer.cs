@@ -31,13 +31,13 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Fecha = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.txtMonto = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.Fecha = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +49,7 @@
             this.btnCancelar.TabIndex = 49;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGuardar
             // 
@@ -74,6 +75,14 @@
             this.groupBox1.Size = new System.Drawing.Size(590, 205);
             this.groupBox1.TabIndex = 47;
             this.groupBox1.TabStop = false;
+            // 
+            // Fecha
+            // 
+            this.Fecha.CalendarMonthBackground = System.Drawing.Color.Lavender;
+            this.Fecha.Location = new System.Drawing.Point(198, 64);
+            this.Fecha.Name = "Fecha";
+            this.Fecha.Size = new System.Drawing.Size(328, 26);
+            this.Fecha.TabIndex = 13;
             // 
             // label2
             // 
@@ -143,14 +152,6 @@
             this.label1.TabIndex = 46;
             this.label1.Text = "Egreso de Activos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Fecha
-            // 
-            this.Fecha.CalendarMonthBackground = System.Drawing.Color.Lavender;
-            this.Fecha.Location = new System.Drawing.Point(198, 64);
-            this.Fecha.Name = "Fecha";
-            this.Fecha.Size = new System.Drawing.Size(328, 26);
-            this.Fecha.TabIndex = 13;
             // 
             // NEgresos
             // 

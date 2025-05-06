@@ -136,6 +136,7 @@
             this.Bienvenida.TabIndex = 5;
             this.Bienvenida.Text = "Menu Principal";
             this.Bienvenida.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Bienvenida.Click += new System.EventHandler(this.Bienvenida_Click);
             // 
             // label1
             // 

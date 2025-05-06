@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Windows.Forms;
 using ProyectoTeoriaSistemas;
@@ -171,6 +172,8 @@ namespace ProyectoTeoriaSistemas
 
             if (exito)
             {
+                SoundPlayer player = new SoundPlayer(Properties.Resources.sfx_magic14);
+                player.Play();
                 MessageBox.Show("Venta registrada correctamente.");
                 detallesTemporal.Clear();
                 ActualizarTablaVisual();
@@ -193,6 +196,9 @@ namespace ProyectoTeoriaSistemas
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             InicializarCampos();
+            SoundPlayer player = new SoundPlayer(Properties.Resources.cancelar);
+            player.Play();
+
         }
         //A PARTIR DE ACA ES LO QUE FUNCIONA CON LA BASE DE DATOS 
 
