@@ -23,7 +23,7 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
 
         public void Botones()
         {
-            HacerBotonRedondeado(btnAgregar, 20);
+           
             HacerBotonRedondeado(Compras, 20);
             HacerBotonRedondeado(btnEstado, 20);
             HacerBotonRedondeado(btnReportes, 20);
@@ -47,10 +47,7 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
             boton.Region = new Region(path);
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -90,5 +87,19 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
            dataGridView1.DataSource = ProveedorLogica.Instancia.Listar();
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FGestionProveedores_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
