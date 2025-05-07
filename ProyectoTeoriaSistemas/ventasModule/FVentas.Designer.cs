@@ -132,7 +132,7 @@
             this.txtNIT.Location = new System.Drawing.Point(672, 50);
             this.txtNIT.Margin = new System.Windows.Forms.Padding(4);
             this.txtNIT.Name = "txtNIT";
-            this.txtNIT.Size = new System.Drawing.Size(143, 20);
+            this.txtNIT.Size = new System.Drawing.Size(149, 20);
             this.txtNIT.TabIndex = 35;
             this.txtNIT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -198,7 +198,7 @@
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(188, 27);
             this.lblTotal.TabIndex = 1;
-            this.lblTotal.Text = "Q100.00";
+            this.lblTotal.Text = "Q0.00";
             this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5

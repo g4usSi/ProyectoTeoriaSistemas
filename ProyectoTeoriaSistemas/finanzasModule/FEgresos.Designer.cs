@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.btnAplicarFiltro = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnAgregarIngreso = new System.Windows.Forms.Button();
             this.dataGridEgresos = new System.Windows.Forms.DataGridView();
             this.label11 = new System.Windows.Forms.Label();
@@ -38,7 +37,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cmbBoxAno = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEgresos)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAplicarFiltro
@@ -51,18 +53,6 @@
             this.btnAplicarFiltro.Text = "Aplicar Filtro";
             this.btnAplicarFiltro.UseVisualStyleBackColor = true;
             this.btnAplicarFiltro.Click += new System.EventHandler(this.btnAplicarFiltro_Click);
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(776, 109);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 15);
-            this.button1.Size = new System.Drawing.Size(203, 154);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "Flujo de efectivo";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // btnAgregarIngreso
             // 
@@ -139,32 +129,54 @@
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(813, 38);
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(46, 53);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.Size = new System.Drawing.Size(141, 44);
             this.label2.TabIndex = 60;
-            this.label2.Text = "label2";
+            this.label2.Text = "Q 0.00";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Location = new System.Drawing.Point(776, 128);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(203, 112);
+            this.panel2.TabIndex = 61;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(21, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 23);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Total:";
             // 
             // FEgresos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(991, 583);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbBoxMes);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cmbBoxAno);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btnAplicarFiltro);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAgregarIngreso);
             this.Controls.Add(this.dataGridEgresos);
             this.Name = "FEgresos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FEgresos";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEgresos)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -173,7 +185,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnAplicarFiltro;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnAgregarIngreso;
         private System.Windows.Forms.DataGridView dataGridEgresos;
         private System.Windows.Forms.Label label11;
@@ -182,5 +193,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cmbBoxAno;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label3;
     }
 }
