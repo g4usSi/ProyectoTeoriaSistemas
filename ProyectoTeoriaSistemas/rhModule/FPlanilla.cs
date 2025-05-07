@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Media;
 using System.Windows.Forms;
 
@@ -150,8 +151,21 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
 
         public void MostrarPlanilla()
         {
+            var lista = PlanillaLogica.Instancia.Listar()
+                .Select(p => new
+                {
+                    p.Nombre,
+                    p.Cargo,
+                    p.HorasExtras,
+                    p.Comisiones,
+                    p.Bonificaciones,
+                    p.IGSS,
+                    p.Prestamos,
+                    p.SueldoNetoCalculado
+                }).ToList();
+
             dataPlanilla.DataSource = null;
-            dataPlanilla.DataSource = PlanillaLogica.Instancia.Listar();
+            dataPlanilla.DataSource = lista;
         }
 
 
