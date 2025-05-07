@@ -99,7 +99,7 @@ namespace ProyectoTeoriaSistemas.finanzasModule
         public void MostrarTotalEnLabel(int año, int mes)
         {
             decimal total = DetallesDeFacturaLogica.Instancia.ObtenerTotalDeVentasPorMes(año, mes);
-            label2.Text = $"Total del mes: ${total:N2}";
+            label2.Text = $"Q {total:N2}";
         }
 
     }

@@ -203,11 +203,11 @@
             // 
             this.lblBalance.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBalance.ForeColor = System.Drawing.Color.AliceBlue;
-            this.lblBalance.Location = new System.Drawing.Point(13, 137);
+            this.lblBalance.Location = new System.Drawing.Point(55, 137);
             this.lblBalance.Name = "lblBalance";
             this.lblBalance.Size = new System.Drawing.Size(217, 34);
             this.lblBalance.TabIndex = 36;
-            this.lblBalance.Text = "Q 1000.00";
+            this.lblBalance.Text = "Q 0.00";
             this.lblBalance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1

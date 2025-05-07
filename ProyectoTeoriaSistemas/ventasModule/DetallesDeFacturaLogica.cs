@@ -15,8 +15,7 @@ namespace ProyectoTeoriaSistemas.ventasModule
         private static string cadena = ConfigurationManager.ConnectionStrings["cadena"].ConnectionString;
 
         private static DetallesDeFacturaLogica _instancia = null;
-
-
+        private DetallesDeFacturaLogica() { }
         public static DetallesDeFacturaLogica Instancia
         {
             get

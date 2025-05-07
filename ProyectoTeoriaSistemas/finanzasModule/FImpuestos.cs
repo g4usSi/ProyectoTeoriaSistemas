@@ -32,45 +32,65 @@ namespace ProyectoTeoriaSistemas.finanzasModule
 
         private void filtrar_Click_1(object sender, EventArgs e)
         {
-            if (cmbMes.SelectedItem == null || cmbYear.SelectedItem == null)
-            {
-                MessageBox.Show("Por favor, llena todos los campos.", "Campo vacío", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
             try
             {
-                string mesSeleccionado = cmbMes.SelectedItem.ToString();
-                int numeroMes = DateTime.ParseExact(mesSeleccionado, "MMMM", System.Globalization.CultureInfo.CurrentCulture).Month;
-                int añoSeleccionado = int.Parse(cmbYear.SelectedItem.ToString());
+                string mesSeleccionado = cmbMes.SelectedItem?.ToString();
+                string añoSeleccionado = cmbYear.SelectedItem?.ToString();
 
-                int mesActual = DateTime.Now.Month;
-                int añoActual = DateTime.Now.Year;
-
-                if (añoSeleccionado > añoActual || (añoSeleccionado == añoActual && numeroMes > mesActual))
+                if (string.IsNullOrEmpty(mesSeleccionado) || string.IsNullOrEmpty(añoSeleccionado))
                 {
-                    MessageBox.Show("Fecha inválida. No puedes seleccionar meses o años futuros.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Debe seleccionar un mes y un año.");
                     return;
                 }
 
-                // Lógica eliminada
+                // Diccionario para mapear nombres de meses en español a sus valores numéricos
+                Dictionary<string, int> meses = new Dictionary<string, int>()
+        {
+            { "Enero", 1 },
+            { "Febrero", 2 },
+            { "Marzo", 3 },
+            { "Abril", 4 },
+            { "Mayo", 5 },
+            { "Junio", 6 },
+            { "Julio", 7 },
+            { "Agosto", 8 },
+            { "Septiembre", 9 },
+            { "Octubre", 10 },
+            { "Noviembre", 11 },
+            { "Diciembre", 12 }
+        };
 
-                MessageBox.Show("Simulación de filtro completada.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                int numeroMes = meses[mesSeleccionado];
+                int año = int.Parse(añoSeleccionado);
 
-                // Simulación visual
-                dataGridView1.DataSource = null;
-                totalImpuesto.Text = "Q 0.00";
-                sumaVentas.Text = "Q 0.00";
-                porcentaje.Text = "5";
+                double suma = 0;
+
+                foreach (DataGridViewRow fila in dtaFacturasExt.Rows)
+                {
+                    if (fila.Cells["FechaVenta"].Value != null && DateTime.TryParse(fila.Cells["FechaVenta"].Value.ToString(), out DateTime fechaVenta))
+                    {
+                        if (fechaVenta.Month == numeroMes && fechaVenta.Year == año)
+                        {
+                            // Asegúrate de que la columna se llama "Total"
+                            if (fila.Cells["Total"].Value != null && double.TryParse(fila.Cells["Total"].Value.ToString(), out double totalVenta))
+                            {
+                                suma += totalVenta;
+                            }
+                        }
+                    }
+                }
+
+                sumaVentas.Text = suma.ToString("N2"); // Muestra el total con 2 decimales
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ocurrió un error: " + ex.Message);
             }
         }
 
         private void textCuadro_TextChanged(object sender, EventArgs e)
         {
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

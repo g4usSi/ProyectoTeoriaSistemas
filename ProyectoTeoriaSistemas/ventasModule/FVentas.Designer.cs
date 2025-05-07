@@ -158,7 +158,6 @@
             // 
             // cmbProductos
             // 
-            this.cmbProductos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProductos.FormattingEnabled = true;
             this.cmbProductos.Items.AddRange(new object[] {
             "Factura",

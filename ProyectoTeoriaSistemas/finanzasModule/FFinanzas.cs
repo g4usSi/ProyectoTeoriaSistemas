@@ -17,6 +17,7 @@ namespace ProyectoTeoriaSistemas
         public FFinanzas()
         {
             InitializeComponent();
+            lblBalance.Text = "Q 0.00";
         }
 
         // Método para abrir formularios dentro del panel

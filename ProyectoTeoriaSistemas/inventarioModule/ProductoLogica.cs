@@ -82,14 +82,12 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
             using (SQLiteConnection conexion = new SQLiteConnection(cadena))
             {
                 conexion.Open();
-                string query = "select * from Articulo";
+                string query = "SELECT * FROM Articulo ORDER BY ID DESC"; // Orden descendente por ID
                 SQLiteCommand cmd = new SQLiteCommand(query, conexion);
                 cmd.CommandType = System.Data.CommandType.Text;
 
-                //este es el encargado de leer nuestras TUPLAS
                 using (SQLiteDataReader dr = cmd.ExecuteReader())
                 {
-                    //mientras lee los agrega a la lista
                     while (dr.Read())
                     {
                         oLista.Add(new Producto()
@@ -101,15 +99,13 @@ namespace ProyectoTeoriaSistemas.CodigoFuente
                             Precio = int.Parse(dr["Precio"].ToString()),
                             PrecioVenta = int.Parse(dr["PrecioVenta"].ToString()),
                             IDProveedor = int.Parse(dr["IDProveedores"].ToString()),
-                            //Fecha = DateTime.Parse(dr["Fecha"].ToString())
                         });
                     }
                 }
-
-
             }
             return oLista;
         }
+
 
         //ESTE ES EL METODO PARA EDITAR UNO DE LOS ELEMENTOS DE LA BASE DE DATOS 
         //SOLO SE CAMBIO LA SENTENCIA SQL Y BUSCA POR EL ID DEL OBJETO

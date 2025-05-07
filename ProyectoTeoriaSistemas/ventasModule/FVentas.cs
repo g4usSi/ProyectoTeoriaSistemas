@@ -16,11 +16,11 @@ namespace ProyectoTeoriaSistemas
     public partial class FVentas : Form
     {
         private Factura factura;
-        private static int FacturaContador = 1000;
+        private static int FacturaContador = 100;
         private PrintDocument printDocument = new PrintDocument();
         private PrintPreviewDialog printPreviewDialog = new PrintPreviewDialog();
         private List<DetalleFactura> detallesTemporal = new List<DetalleFactura>();
-
+        private List<string> todosLosProductos;
         public FVentas()
         {
             //Aun hay que corregir Facturas
@@ -32,6 +32,7 @@ namespace ProyectoTeoriaSistemas
             InicializarFecha();
             InicializarCampos();
             this.factura = new Factura();
+            todosLosProductos = new List<string>();
             //Muestra el combobox de productos
             mostrarComboBox();
 
@@ -78,19 +79,26 @@ namespace ProyectoTeoriaSistemas
 
         private void CargarProductos()
         {
+            cmbProductos.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmbProductos.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            AutoCompleteStringCollection autoCompleteCollection = new AutoCompleteStringCollection();
             cmbProductos.Items.Clear();
-        }
-        /*
-        private void MostrarFacturaEnTabla()
-        {
-            dataFacturaTabla.Rows.Clear();
-            foreach (var detalle in factura.Detalles)
+
+            List<Producto> productos = ProductoLogica.Instancia.Listar();
+            todosLosProductos = new List<string>();
+
+            foreach (Producto producto in productos)
             {
-                dataFacturaTabla.Rows.Add(detalle.Cantidad, detalle.Producto.ID, detalle.Producto.Nombre, $"Q{detalle.Producto.Precio:F2}", $"Q{detalle.Subtotal:F2}");
+                string displayText = $"{producto.ID} - {producto.Nombre}";
+                cmbProductos.Items.Add(displayText);
+                autoCompleteCollection.Add(displayText);
+                todosLosProductos.Add(displayText);
             }
-            lblTotal.Text = $"Total: Q{factura.Total:F2}";
+
+            cmbProductos.AutoCompleteCustomSource = autoCompleteCollection;
         }
-        */
+
         private void btnEditar_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Aquí podrías editar un producto en la factura.", "Editar Producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -98,9 +106,11 @@ namespace ProyectoTeoriaSistemas
 
         private void Agregar_Click(object sender, EventArgs e)
         {
-            if (cmbProductos.SelectedIndex == -1)
+            string seleccion = cmbProductos.Text;
+
+            if (string.IsNullOrWhiteSpace(seleccion) || !seleccion.Contains("-"))
             {
-                MessageBox.Show("Seleccione un producto.", "Advertencia");
+                MessageBox.Show("Seleccione un producto válido.", "Advertencia");
                 return;
             }
 
@@ -111,29 +121,27 @@ namespace ProyectoTeoriaSistemas
                 return;
             }
 
-            string seleccion = cmbProductos.SelectedItem.ToString();
-            int idProducto = int.Parse(seleccion.Split('-')[0].Trim());
+            if (!int.TryParse(seleccion.Split('-')[0].Trim(), out int idProducto))
+            {
+                MessageBox.Show("ID de producto inválido.", "Error");
+                return;
+            }
 
             Producto producto = FacturaLogica.Instancia.ObtenerProductoPorID(idProducto);
+
+            if (producto == null)
+            {
+                MessageBox.Show("Producto no encontrado.", "Error");
+                return;
+            }
 
             if (producto.Stock < cantidad)
             {
                 MessageBox.Show("No hay suficiente stock.", "Error");
                 return;
             }
-            /*
-            int nuevoStock = producto.Stock - cantidad;
 
-            bool actualizado = FacturaLogica.Instancia.ActualizarStock(producto.ID, nuevoStock);
-            
-            if (!actualizado)
-            {
-                MessageBox.Show("Error al actualizar el stock en la base de datos.", "Error");
-                return;
-            }
-            */
-            //producto.Stock = nuevoStock;
-
+            // Crear el detalle de la factura
             var detalle = new DetalleFactura
             {
                 Producto = producto,
@@ -143,6 +151,8 @@ namespace ProyectoTeoriaSistemas
             detallesTemporal.Add(detalle);
             ActualizarTablaVisual();
         }
+
+
         private void ActualizarTablaVisual()
         {
             dataFacturaTabla.Rows.Clear();
@@ -195,11 +205,24 @@ namespace ProyectoTeoriaSistemas
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            InicializarCampos();
-            SoundPlayer player = new SoundPlayer(Properties.Resources.cancelar);
-            player.Play();
+            var confirmResult = MessageBox.Show("¿Estás seguro que deseas cancelar la venta?", 
+                                                 "Confirmar cancelación", 
+                                                 MessageBoxButtons.YesNo, 
+                                                 MessageBoxIcon.Warning);
 
+            if (confirmResult == DialogResult.Yes)
+            {
+                detallesTemporal.Clear();              // Vaciar el carrito
+                ActualizarTablaVisual();               // Refrescar la tabla vacía
+                InicializarCampos();                   // Reiniciar campos
+
+                SoundPlayer player = new SoundPlayer(Properties.Resources.cancelar);
+                player.Play();
+
+                MessageBox.Show("Venta cancelada.");
+            }
         }
+
         //A PARTIR DE ACA ES LO QUE FUNCIONA CON LA BASE DE DATOS 
 
         private void AgregarFacturaDB()
@@ -236,6 +259,31 @@ namespace ProyectoTeoriaSistemas
             cmbProductos.Items.Clear();
             cmbProductos.Items.AddRange(Articulos.ToArray());
         }
+        /*
+        private void cmbProductos_TextChanged(object sender, EventArgs e)
+        {
+            if (todosLosProductos == null || string.IsNullOrEmpty(cmbProductos.Text))
+                return;
+
+            var texto = cmbProductos.Text.ToLower();
+            var filtrados = todosLosProductos
+                            .Where(p => p.ToLower().Contains(texto))
+                            .ToList();
+
+            // Si la lista filtrada es diferente a la actual, actualizamos solo los elementos necesarios
+            if (!filtrados.SequenceEqual(cmbProductos.Items.Cast<string>().ToList()))
+            {
+                // Mantener los elementos existentes y agregar solo los nuevos filtrados
+                cmbProductos.Items.Clear();
+                cmbProductos.Items.AddRange(filtrados.ToArray());
+                cmbProductos.DroppedDown = true;
+                cmbProductos.SelectionStart = texto.Length;
+                cmbProductos.SelectionLength = 0;
+            }
+        }
+
+        */
+
 
         //metodo de DE DETALLES este es el que agrega 
     }

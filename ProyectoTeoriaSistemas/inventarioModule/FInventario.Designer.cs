@@ -32,7 +32,6 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.salir = new System.Windows.Forms.Button();
             this.proveedores = new System.Windows.Forms.Button();
-            this.Reportes = new System.Windows.Forms.Button();
             this.Producto = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.Top = new System.Windows.Forms.Panel();
@@ -56,7 +55,6 @@
             this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
             this.splitContainer1.Panel1.Controls.Add(this.salir);
             this.splitContainer1.Panel1.Controls.Add(this.proveedores);
-            this.splitContainer1.Panel1.Controls.Add(this.Reportes);
             this.splitContainer1.Panel1.Controls.Add(this.Producto);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             // 
@@ -65,8 +63,8 @@
             this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.Controls.Add(this.Top);
             this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
-            this.splitContainer1.Size = new System.Drawing.Size(1782, 803);
-            this.splitContainer1.SplitterDistance = 269;
+            this.splitContainer1.Size = new System.Drawing.Size(1924, 803);
+            this.splitContainer1.SplitterDistance = 290;
             this.splitContainer1.TabIndex = 1;
             this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
             // 
@@ -79,10 +77,11 @@
             this.salir.ForeColor = System.Drawing.Color.White;
             this.salir.Location = new System.Drawing.Point(0, 753);
             this.salir.Name = "salir";
-            this.salir.Size = new System.Drawing.Size(269, 50);
+            this.salir.Size = new System.Drawing.Size(290, 50);
             this.salir.TabIndex = 8;
             this.salir.Text = "Salir";
             this.salir.UseVisualStyleBackColor = false;
+            this.salir.Click += new System.EventHandler(this.salir_Click);
             // 
             // proveedores
             // 
@@ -92,25 +91,11 @@
             this.proveedores.ForeColor = System.Drawing.Color.White;
             this.proveedores.Location = new System.Drawing.Point(27, 347);
             this.proveedores.Name = "proveedores";
-            this.proveedores.Size = new System.Drawing.Size(180, 50);
+            this.proveedores.Size = new System.Drawing.Size(201, 50);
             this.proveedores.TabIndex = 7;
             this.proveedores.Text = "Proveedores";
             this.proveedores.UseVisualStyleBackColor = false;
             this.proveedores.Click += new System.EventHandler(this.proveedores_Click);
-            // 
-            // Reportes
-            // 
-            this.Reportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(53)))), ((int)(((byte)(85)))));
-            this.Reportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Reportes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Reportes.ForeColor = System.Drawing.Color.White;
-            this.Reportes.Location = new System.Drawing.Point(27, 434);
-            this.Reportes.Name = "Reportes";
-            this.Reportes.Size = new System.Drawing.Size(180, 50);
-            this.Reportes.TabIndex = 6;
-            this.Reportes.Text = "Reportes";
-            this.Reportes.UseVisualStyleBackColor = false;
-            this.Reportes.Click += new System.EventHandler(this.Reportes_Click);
             // 
             // Producto
             // 
@@ -120,7 +105,7 @@
             this.Producto.ForeColor = System.Drawing.Color.White;
             this.Producto.Location = new System.Drawing.Point(27, 254);
             this.Producto.Name = "Producto";
-            this.Producto.Size = new System.Drawing.Size(180, 51);
+            this.Producto.Size = new System.Drawing.Size(201, 51);
             this.Producto.TabIndex = 5;
             this.Producto.Text = "Producto";
             this.Producto.UseVisualStyleBackColor = false;
@@ -132,9 +117,9 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(210)))), ((int)(((byte)(131)))));
             this.label1.Location = new System.Drawing.Point(19, 137);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(197, 71);
+            this.label1.Size = new System.Drawing.Size(233, 71);
             this.label1.TabIndex = 4;
-            this.label1.Text = "BizFlow";
+            this.label1.Text = "Inventarios";
             // 
             // Top
             // 
@@ -143,7 +128,7 @@
             this.Top.Dock = System.Windows.Forms.DockStyle.Top;
             this.Top.Location = new System.Drawing.Point(0, 0);
             this.Top.Name = "Top";
-            this.Top.Size = new System.Drawing.Size(1509, 80);
+            this.Top.Size = new System.Drawing.Size(1630, 80);
             this.Top.TabIndex = 0;
             // 
             // Titulo
@@ -153,7 +138,7 @@
             this.Titulo.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.Titulo.Location = new System.Drawing.Point(0, 0);
             this.Titulo.Name = "Titulo";
-            this.Titulo.Size = new System.Drawing.Size(1509, 80);
+            this.Titulo.Size = new System.Drawing.Size(1630, 80);
             this.Titulo.TabIndex = 1;
             this.Titulo.Text = "Modulo Inventario";
             this.Titulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -163,7 +148,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1782, 803);
+            this.ClientSize = new System.Drawing.Size(1924, 803);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
@@ -185,7 +170,6 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Producto;
-        private System.Windows.Forms.Button Reportes;
         private System.Windows.Forms.Button proveedores;
         private System.Windows.Forms.Panel Top;
         private System.Windows.Forms.Label Titulo;

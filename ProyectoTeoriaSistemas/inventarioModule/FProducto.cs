@@ -1,4 +1,5 @@
-﻿using ProyectoTeoriaSistemas;
+﻿using AjaxControlToolkit;
+using ProyectoTeoriaSistemas;
 using ProyectoTeoriaSistemas.CodigoFuente;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,7 @@ namespace ProyectoTeoriaSistemas
 
         private void FProducto_Load(object sender, EventArgs e)
         {
-             
+            mostrar_Articulo();
         }
 
         private void Agregar_Click(object sender, EventArgs e)
@@ -50,12 +51,17 @@ namespace ProyectoTeoriaSistemas
             };
             //devuelve una respuesta
             bool respuesta = ProductoLogica.Instancia.Guardar(objeto);
-
+            
             if (respuesta)
             {
-                //ESTA COSA ES LA QUE MEUSTRA LA TABLA 
                 mostrar_Articulo();
+                lblNotificacion.Text = "✅ Producto agregado exitosamente.";
             }
+            else
+            {
+                lblNotificacion.Text = "❌ Error al agregar el producto.";
+            }
+
 
         }
 

@@ -42,8 +42,8 @@
             this.porcentaje = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.totalImpuesto = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dtaFacturasExt = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dtaFacturasExt)).BeginInit();
             this.SuspendLayout();
             // 
             // textCuadro
@@ -79,7 +79,7 @@
             this.filtrar.BackColor = System.Drawing.Color.Gold;
             this.filtrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.filtrar.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.filtrar.Location = new System.Drawing.Point(734, 101);
+            this.filtrar.Location = new System.Drawing.Point(734, 100);
             this.filtrar.Name = "filtrar";
             this.filtrar.Size = new System.Drawing.Size(113, 30);
             this.filtrar.TabIndex = 41;
@@ -212,24 +212,24 @@
             this.totalImpuesto.TabIndex = 51;
             this.totalImpuesto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // dataGridView1
+            // dtaFacturasExt
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Lavender;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(383, 166);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(559, 317);
-            this.dataGridView1.TabIndex = 52;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dtaFacturasExt.BackgroundColor = System.Drawing.Color.Lavender;
+            this.dtaFacturasExt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtaFacturasExt.Location = new System.Drawing.Point(383, 166);
+            this.dtaFacturasExt.Name = "dtaFacturasExt";
+            this.dtaFacturasExt.RowHeadersWidth = 51;
+            this.dtaFacturasExt.RowTemplate.Height = 24;
+            this.dtaFacturasExt.Size = new System.Drawing.Size(559, 317);
+            this.dtaFacturasExt.TabIndex = 52;
+            this.dtaFacturasExt.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // FImpuestos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1009, 630);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dtaFacturasExt);
             this.Controls.Add(this.totalImpuesto);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.porcentaje);
@@ -248,7 +248,7 @@
             this.Name = "FImpuestos";
             this.Text = "FImpuestos";
             this.Load += new System.EventHandler(this.FImpuestos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtaFacturasExt)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,6 +269,6 @@
         private System.Windows.Forms.TextBox porcentaje;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox totalImpuesto;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtaFacturasExt;
     }
 }
